@@ -14,6 +14,12 @@
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#1F3D2F">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='46' fill='%231F3D2F'/><text x='50' y='66' font-size='50' text-anchor='middle' fill='%23F5F1E8' font-family='Georgia'>S</text></svg>">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Estúdio">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
 <style>html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}img{max-width:100%}[hidden]{display:none!important}</style>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -326,6 +332,7 @@ mark.info { background: var(--info-bg); box-shadow: inset 0 -2px 0 var(--info); 
 .star[aria-pressed="true"] { color: var(--top); }
 .star:hover { background: var(--sage-wash); }
 .nose .input { font-size: 0.86rem; padding: 7px 10px; }
+.toast { border-radius: 16px; text-align: center; line-height: 1.4; }
 
 </style>
 </head>
@@ -339,7 +346,7 @@ mark.info { background: var(--info-bg); box-shadow: inset 0 -2px 0 var(--info); 
         <p class="brand-sub">Estúdio de Blends</p>
       </div>
     </div>
-    <nav class="sitelinks" aria-label="Sana Essência"><a href="https://sanaessencia.com.br/" target="_blank" rel="noopener">← sanaessencia.com.br</a><a href="https://sanaessencia.co.uk/blend-studio/" target="_blank" rel="noopener" hreflang="en-GB" lang="en-GB">English version</a></nav>
+    <nav class="sitelinks" aria-label="Sana Essência"><a href="https://sanaessencia.com.br/" target="_blank" rel="noopener">← sanaessencia.com.br</a><a href="https://sanaessencia.co.uk/blend-studio/" target="_blank" rel="noopener" hreflang="en-GB" lang="en-GB">English version</a><button class="btn primary small" id="install-app" type="button" hidden>Instalar o app</button></nav>
     <p class="masthead-line">Monte blends aromáticos com quantidades reais, ciência honesta e textos que respeitam as regras da Anvisa e do CONAR.</p>
   </header>
 
@@ -2856,6 +2863,25 @@ Responda apenas com JSON exatamente neste formato:
   connect();
 })();
 
+</script>
+<script>
+(function () {
+  var btn = document.getElementById("install-app");
+  var standalone = window.matchMedia("(display-mode: standalone)").matches || window.navigator.standalone === true;
+  var ios = /iphone|ipad|ipod/i.test(navigator.userAgent) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+  var deferred = null;
+  function say(msg) { var t = document.getElementById("toast"); if (!t) return; t.textContent = msg; t.hidden = false; clearTimeout(say.t); say.t = setTimeout(function () { t.hidden = true; }, 6000); }
+  if ("serviceWorker" in navigator) window.addEventListener("load", function () { navigator.serviceWorker.register("sw.js").catch(function () {}); });
+  if (standalone || !btn) return;
+  window.addEventListener("beforeinstallprompt", function (e) { e.preventDefault(); deferred = e; btn.hidden = false; });
+  if (ios) btn.hidden = false;
+  btn.addEventListener("click", function () {
+    if (deferred) { deferred.prompt(); deferred.userChoice.finally(function () { deferred = null; }); }
+    else say("Para instalar: toque em Compartilhar, na parte de baixo do Safari, e depois em \u2018Adicionar \u00e0 Tela de In\u00edcio\u2019.");
+  });
+  window.addEventListener("appinstalled", function () { btn.hidden = true; say("Instalado. O Est\u00fadio est\u00e1 na sua tela de in\u00edcio."); });
+  window.addEventListener("offline", function () { say("Voc\u00ea est\u00e1 sem internet: o Est\u00fadio continua funcionando, inclusive os blends salvos."); });
+})();
 </script>
 </body>
 </html>
