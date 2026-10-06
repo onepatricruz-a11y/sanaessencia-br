@@ -324,6 +324,19 @@ th .u { text-transform: none; letter-spacing: 0; }
 .cta h3 { font-size: 1.3rem; }
 .cta ul { margin: 0; padding-left: 18px; display: grid; gap: 4px; }
 .price { font-family: var(--mono); font-size: 0.86rem; color: var(--muted); }
+.tab-services { border-color: var(--btn-bg); }
+.svc-grid { display: grid; gap: 14px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr)); }
+.svc { display: grid; gap: 10px; align-content: start; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px; }
+.svc.feature { background: var(--sage-wash); border-color: var(--line-strong); }
+.svc h3 { font-size: 1.2rem; margin: 0; }
+.svc ul { margin: 0; padding-left: 18px; display: grid; gap: 4px; }
+.svc .svc-price { font-family: var(--mono); font-weight: 700; font-size: 1rem; }
+.svc .svc-price small { font-weight: 400; color: var(--muted); }
+.svc .row { margin-top: auto; }
+.steps { margin: 0 0 12px; padding-left: 20px; display: grid; gap: 8px; }
+.shoplist { display: flex; flex-wrap: wrap; gap: 8px; }
+.shoplist a { display: inline-flex; align-items: center; gap: 6px; border: 1px solid var(--line-strong); border-radius: 999px; padding: 6px 12px; font-size: 0.86rem; text-decoration: none; color: var(--ink); }
+.shoplist a:hover { background: var(--sage-wash); }
 .check-box textarea { width: 100%; border-radius: 12px; border: 1px solid var(--line-strong); background: var(--paper); padding: 12px 14px; resize: vertical; min-height: 120px; line-height: 1.45; }
 .marked { background: var(--paper); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; line-height: 1.7; overflow-wrap: anywhere; }
 mark { border-radius: 4px; padding: 0 2px; color: inherit; }
@@ -364,6 +377,7 @@ mark.info { background: var(--info-bg); box-shadow: inset 0 -2px 0 var(--info); 
     <button class="tab" role="tab" id="tab-library" aria-controls="panel-library" aria-selected="false" data-tab="library">Biblioteca</button>
     <button class="tab" role="tab" id="tab-learn" aria-controls="panel-learn" aria-selected="false" data-tab="learn">Ciência</button>
     <button class="tab" role="tab" id="tab-safety" aria-controls="panel-safety" aria-selected="false" data-tab="safety">Segurança e regras</button>
+    <button class="tab tab-services" role="tab" id="tab-services" aria-controls="panel-services" aria-selected="false" data-tab="services">Serviços</button>
   </nav>
 
   <main>
@@ -446,6 +460,18 @@ mark.info { background: var(--info-bg); box-shadow: inset 0 -2px 0 var(--info); 
               <span class="small muted">Alegações a evitar neste blend</span>
               <div class="avoidlist" id="avoid-list"></div>
             </div>
+          </div>
+
+          <div class="card stack-sm nextbox" id="shop-box" hidden>
+            <span class="eyebrow">Comprar os ingredientes</span>
+            <div class="shoplist" id="shop-list"></div>
+            <p class="small muted" id="shop-note"></p>
+          </div>
+
+          <div class="cta upsell">
+            <span class="eyebrow">Quer ir além?</span>
+            <p class="small">Transforme este blend na sua assinatura: revisão da fórmula, sessão por vídeo sobre a ciência do seu aroma ou o pacote completo para a sua marca.</p>
+            <div class="row"><button class="btn primary small" type="button" data-goto="services">Ver os serviços</button><button class="btn ghost small" type="button" data-order="review">Pedir revisão desta fórmula · R$ 190</button></div>
           </div>
 
           <div class="row">
@@ -583,6 +609,26 @@ mark.info { background: var(--info-bg); box-shadow: inset 0 -2px 0 var(--info); 
 
     <section id="panel-learn" role="tabpanel" aria-labelledby="tab-learn" hidden>
       <div class="stack" id="learn"></div>
+    </section>
+
+    <section id="panel-services" role="tabpanel" aria-labelledby="tab-services" hidden>
+      <div class="stack">
+        <div class="section-head">
+          <h2>Serviços com a Sana Essência</h2>
+          <p class="muted measure">O Estúdio é e continua gratuito. Quando você quiser ir além, criamos junto com você: da revisão de uma fórmula à assinatura olfativa da sua marca, com ciência explicada em linguagem simples.</p>
+        </div>
+        <div class="svc-grid" id="services"></div>
+      </div>
+      <div class="section">
+        <div class="section-head"><h2>Como funciona</h2></div>
+        <ol class="steps">
+          <li><b>Peça pelo botão.</b> Ele abre um e-mail já preenchido, com o blend que está no seu Estúdio. É só completar e enviar.</li>
+          <li><b>Respondemos em até 2 dias úteis</b> com as datas disponíveis e o pagamento por Pix (CNPJ). Emitimos nota fiscal.</li>
+          <li><b>Pacotes e consultorias:</b> 50% para começar e 50% na entrega. Sessões e serviços até R$ 290 são pagos na reserva.</li>
+          <li><b>Você recebe</b> a ficha técnica e os textos por e-mail, prontos para guardar e imprimir.</li>
+        </ol>
+        <p class="small muted">Os serviços são criativos e educativos: não são atendimento de saúde, não fazem promessas terapêuticas e não substituem a regularização dos seus produtos na Anvisa e na vigilância sanitária, que fica com quem fabrica e vende. Cancelamento e reembolso: veja a <a href="https://sanaessencia.com.br/politica-de-reembolso.html" target="_blank" rel="noopener">Política de Reembolso</a>.</p>
+      </div>
     </section>
 
     <section id="panel-safety" role="tabpanel" aria-labelledby="tab-safety" hidden>
@@ -1811,7 +1857,7 @@ if (typeof module !== "undefined") module.exports = { fitToSkin, styleFor, distr
   function toast(msg) { const t = $("#toast"); t.textContent = msg; t.hidden = false; clearTimeout(toastTimer); toastTimer = setTimeout(() => { t.hidden = true; }, 2600); }
 
   /* ---------- abas ---------- */
-  const TABS = ["blend", "moods", "spaces", "check", "library", "learn", "safety"];
+  const TABS = ["blend", "moods", "spaces", "check", "library", "learn", "safety", "services"];
   function openTab(name, keepScroll) {
     if (!TABS.includes(name)) name = "blend";
     TABS.forEach(t => {
@@ -2027,6 +2073,7 @@ if (typeof module !== "undefined") module.exports = { fitToSkin, styleFor, distr
       $("#premix").textContent = ""; $("#pyramid").innerHTML = ""; $("#checks").innerHTML = "";
       $("#effects").innerHTML = `<p class="muted small">Adicione ingredientes para ver a pesquisa por trás deles.</p>`;
       $("#say-text").textContent = ""; $("#avoid-list").innerHTML = "";
+      $("#shop-box").hidden = true;
       persist(); return;
     }
     formula.innerHTML = formulaTable(rec);
@@ -2058,6 +2105,7 @@ if (typeof module !== "undefined") module.exports = { fitToSkin, styleFor, distr
     const d = describeBlend(b.items);
     $("#say-text").textContent = d.text;
     $("#avoid-list").innerHTML = d.avoid.map(a => `<span>${esc(a)}</span>`).join("");
+    if (typeof renderShop === "function") renderShop();
     persist();
   }
   document.addEventListener("click", e => {
@@ -2644,6 +2692,69 @@ Responda apenas com JSON exatamente neste formato:
     supplier: "mailto:hello@sanaessencia.co.uk?subject=Parceria%20de%20fornecedor%20-%20Est%C3%BAdio%20de%20Blends"
   };
 
+  /* ---------- serviços pagos e compra de ingredientes ---------- */
+  // Para ativar a comissão: entre no Programa de Associados da Amazon e cole a sua tag aqui (ex.: "sanaessencia-20").
+  const SHOP = { amazonTag: "", base: "https://www.amazon.com.br/s?k=" };
+  const ORDER_EMAIL = "hello@sanaessencia.co.uk";
+  const SERVICES = [
+    { id: "review", eyebrow: "Para começar", name: "Revisão de fórmula", price: "R$ 190", unit: "por fórmula",
+      text: "Você monta o blend no Estúdio e nós revisamos: equilíbrio entre saída, corpo e fundo, intensidade e limites de uso.",
+      items: ["Fórmula ajustada com quantidades", "Comentários sobre o que mudou e por quê", "Uma rodada, entregue em até 5 dias úteis"], sendBlend: true },
+    { id: "science", eyebrow: "Sessão por vídeo · 45 min", name: "A ciência do seu aroma", price: "R$ 290", unit: "por sessão",
+      text: "Traduzimos a ciência para a sua criação: como as moléculas do seu blend chegam às áreas do cérebro ligadas à emoção e à memória, o que a pesquisa mostra (e o que ainda não mostra) e o que o seu aroma comunica.",
+      items: ["Leitura do seu blend, ingrediente por ingrediente", "O significado da sua criação e como contar essa história", "Resumo por escrito com as referências", "Sem promessas de saúde: ciência honesta"], sendBlend: true },
+    { id: "signature", eyebrow: "Mais pedido", name: "Pacote Assinatura", price: "R$ 690", unit: "duas versões", feature: true,
+      text: "A assinatura olfativa da sua marca ou a sua, em duas versões (por exemplo, masculina e feminina).",
+      items: ["Conversa de 40 min por vídeo sobre a marca", "2 fórmulas finais para 30, 50 e 100 ml", "Ficha técnica com percentuais e limites", "Nome e descrição curta de cada aroma para o rótulo", "2 rodadas de ajuste"], sendBlend: true },
+    { id: "brand", eyebrow: "Para marcas", name: "Consultoria de marca olfativa", price: "R$ 990", unit: "a partir de",
+      text: "Para quem vende ou quer vender: posicionamento, história e textos que valorizam o aroma sem prometer o que não pode.",
+      items: ["Duas sessões por vídeo", "Nome, conceito e história da linha", "Textos de rótulo, site e redes revisados com o Verificador", "Plano de lançamento simples"], sendBlend: false },
+    { id: "candle", eyebrow: "Natal · presente digital", name: "Vela-assinatura de Natal", price: "R$ 79", unit: "· 3 por R$ 197",
+      text: "Um aroma criado para quem você quer presentear. Você recebe a receita e as artes para imprimir: é só fazer a vela ou levar para um artesão de confiança.",
+      items: ["Receita personalizada para vela de 200 g", "Nome do aroma e cartão-presente com a sua mensagem", "Etiqueta para imprimir", "Pedidos até 10 de dezembro"], sendBlend: false }
+  ];
+  function blendSummary() {
+    const b = state.blend; if (!b.items.length) return "";
+    const rec = computeRecipe(b);
+    return `${b.name || "Blend sem nome"} · ${rec.fmt.label}\n` + rec.rows.map(r => `- ${r.oil.name}: ${r.parts} partes`).join("\n");
+  }
+  function orderLink(id) {
+    const sv = SERVICES.find(x => x.id === id) || SERVICES[0];
+    const blend = sv.sendBlend ? blendSummary() : "";
+    const body = [`Olá! Quero pedir: ${sv.name} (${sv.price}).`, "", "Nome:", "Cidade:", "Melhores dias e horários:", sv.id === "candle" ? "Para quem é o presente e que lembranças o aroma deve trazer:" : "O que eu quero com este aroma:", "",
+      blend ? "Meu blend no Estúdio:\n" + blend : ""].join("\n").slice(0, 1600);
+    return `mailto:${ORDER_EMAIL}?subject=${encodeURIComponent("Pedido: " + sv.name)}&body=${encodeURIComponent(body)}`;
+  }
+  function renderServices() {
+    $("#services").innerHTML = SERVICES.map(sv => `<article class="svc${sv.feature ? " feature" : ""}">
+        <span class="eyebrow">${esc(sv.eyebrow)}</span>
+        <h3>${esc(sv.name)}</h3>
+        <p class="svc-price">${esc(sv.price)} <small>${esc(sv.unit)}</small></p>
+        <p class="small">${esc(sv.text)}</p>
+        <ul class="small">${sv.items.map(i => `<li>${esc(i)}</li>`).join("")}</ul>
+        <div class="row"><button class="btn ${sv.feature ? "primary" : "ghost"} small" type="button" data-order="${sv.id}">Pedir</button></div>
+      </article>`).join("");
+  }
+  function shopUrl(oil) {
+    const q = encodeURIComponent(`óleo essencial ${oil.name}`);
+    return SHOP.base + q + (SHOP.amazonTag ? `&tag=${encodeURIComponent(SHOP.amazonTag)}` : "");
+  }
+  function renderShop() {
+    const box = $("#shop-box"); const b = state.blend;
+    if (!b.items.length) { box.hidden = true; return; }
+    const rec = computeRecipe(b);
+    box.hidden = false;
+    $("#shop-list").innerHTML = rec.rows.map(r => `<a href="${shopUrl(r.oil)}" target="_blank" rel="noopener${SHOP.amazonTag ? " sponsored" : ""}">${esc(r.oil.name)} ↗</a>`).join("");
+    $("#shop-note").textContent = (SHOP.amazonTag ? "Como Associada da Amazon, a Sana Essência recebe por compras qualificadas, sem custo extra para você. " : "")
+      + "Antes de comprar, confira se o fornecedor informa o nome botânico, o laudo do lote e o certificado IFRA, e emite nota fiscal.";
+  }
+  document.addEventListener("click", e => {
+    const o = e.target.closest("[data-order]");
+    if (o) { window.location.href = orderLink(o.dataset.order); return; }
+    const g = e.target.closest("[data-goto]");
+    if (g) openTab(g.dataset.goto);
+  });
+
   /* ---------- planos de aroma para ambientes ---------- */
   const SPACES = [
     { id: "office", name: "Escritório compartilhado", line: "Mesas abertas, coworking e estações rotativas.",
@@ -2856,6 +2967,7 @@ Responda apenas com JSON exatamente neste formato:
   });
 
   renderSpaces(); renderSpaceRules(); initCheck();
+  renderServices();
 
   /* ---------- início ---------- */
   renderBench(); renderStarters(); renderSaved();
@@ -2864,7 +2976,7 @@ Responda apenas com JSON exatamente neste formato:
   renderLearn(); renderSafety();
   modeNote();
   const hash = (location.hash || "").replace("#", "");
-  const alias = { ciencia: "learn", seguranca: "safety", biblioteca: "library", sensacoes: "moods", empresas: "spaces", verificar: "check" };
+  const alias = { ciencia: "learn", seguranca: "safety", biblioteca: "library", sensacoes: "moods", empresas: "spaces", verificar: "check", servicos: "services", "serviços": "services" };
   if (hash) openTab(alias[hash] || hash, true);
   connect();
 })();
