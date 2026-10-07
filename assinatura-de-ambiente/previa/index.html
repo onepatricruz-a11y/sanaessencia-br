@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prévia Olfativa · Demonstração | Assinatura de Ambiente · Sana Essência</title>
+<meta name="description" content="Demonstração da Prévia Olfativa: a ferramenta de pré-venda com ciência para empresas de marketing olfativo e aromatização.">
+<meta name="robots" content="noindex">
+<meta property="og:title" content="Prévia Olfativa · Assinatura de Ambiente">
+<meta property="og:description" content="Ciência que ajuda a vender o que não se vê. Demonstração para empresas de aromatização.">
+<meta property="og:image" content="https://sanaessencia.com.br/og-image.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--cream:#F5F1E8;--cream2:#EDE6D6;--forest:#1F3D2F;--forest2:#2C5140;--sage:#A7B8A0;--sagew:#E4EADF;--terra:#C0643E;--ink:#1E2520;--muted:#5B665E;--white:#fff;--line:rgba(31,61,47,.14);--r:16px;--serif:"Cormorant Garamond",Georgia,serif;--sans:"Plus Jakarta Sans",system-ui,-apple-system,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--sans);background:var(--cream);color:var(--ink);line-height:1.55;font-size:16px}
+a{color:var(--forest)}
+.demo{background:var(--terra);color:#fff;text-align:center;font-size:.8rem;font-weight:600;padding:8px 16px;letter-spacing:.02em}
+.wrap{width:min(980px,100% - 32px);margin-inline:auto}
+header{padding:20px 0 8px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.logo-ph{width:58px;height:58px;border:2px dashed var(--terra);border-radius:14px;display:grid;place-items:center;font-size:.6rem;font-weight:700;color:var(--terra);text-align:center;line-height:1.1;flex:none}
+.brand h1{font-family:var(--serif);font-size:1.9rem;color:var(--forest);line-height:1}
+.brand p{font-size:.85rem;color:var(--muted)}
+.brand p b{color:var(--forest)}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:12px 0 4px;scrollbar-width:none}
+.tab{flex:none;border:1px solid rgba(31,61,47,.3);background:transparent;padding:8px 15px;border-radius:999px;font:600 .9rem var(--sans);color:var(--ink);cursor:pointer}
+.tab[aria-selected=true]{background:var(--forest);color:var(--cream);border-color:var(--forest)}
+.card{background:var(--white);border:1px solid var(--line);border-radius:var(--r);padding:20px}
+.stack{display:grid;gap:14px}
+h2{font-family:var(--serif);color:var(--forest);font-size:1.7rem;line-height:1.15}
+h3{font-family:var(--serif);color:var(--forest);font-size:1.3rem;line-height:1.2}
+.muted{color:var(--muted)}.small{font-size:.88rem}
+.eyebrow{font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--terra)}
+.progress{display:flex;gap:6px;margin:6px 0 2px}
+.progress span{flex:1;height:5px;border-radius:9px;background:var(--cream2)}
+.progress span.on{background:var(--forest)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:1px solid rgba(31,61,47,.28);background:var(--white);padding:9px 14px;border-radius:999px;font:500 .92rem var(--sans);cursor:pointer;color:var(--ink)}
+.chip[aria-pressed=true]{background:var(--forest);color:var(--cream);border-color:var(--forest)}
+.row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.btn{border:0;border-radius:999px;padding:12px 22px;font:600 .95rem var(--sans);cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;justify-content:center}
+.btn.primary{background:var(--forest);color:var(--cream)}
+.btn.accent{background:var(--terra);color:#fff}
+.btn.ghost{background:transparent;border:1.5px solid var(--forest);color:var(--forest)}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+input[type=text]{width:100%;border:1px solid rgba(31,61,47,.3);border-radius:12px;padding:11px 14px;font:500 1rem var(--sans);background:var(--white)}
+.fam{border-left:6px solid var(--c,var(--sage));background:var(--white);border-radius:var(--r);padding:18px;border-top:1px solid var(--line);border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+.fam .top{display:flex;justify-content:space-between;gap:12px;align-items:baseline;flex-wrap:wrap}
+.match{font:700 .85rem var(--sans);color:var(--forest);background:var(--sagew);border-radius:999px;padding:4px 10px}
+.notes{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}
+.notes span{font-size:.8rem;background:var(--cream);border-radius:999px;padding:3px 10px}
+.why li{margin:4px 0 4px 18px}
+.sci{background:var(--sagew);border-radius:12px;padding:10px 12px;font-size:.88rem;margin-top:10px}
+.ref{font-size:.75rem;color:var(--muted)}
+table{width:100%;border-collapse:collapse;font-size:.9rem}
+th,td{text-align:left;padding:9px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:.75rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.lvl{display:inline-block;font-size:.78rem;font-weight:700;border-radius:999px;padding:2px 9px}
+.lvl.s{background:var(--sagew);color:var(--forest)}.lvl.m{background:#F5E8D2;color:#8F5410}.lvl.n{background:#EEE;color:#555}
+.say{display:grid;gap:8px}
+.say div{border-radius:12px;padding:10px 12px;font-size:.92rem}
+.say .yes{background:#E1EDE3}.say .no{background:#F4DEDA;text-decoration:line-through;color:#7a2d22}
+details{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+details+details{margin-top:10px}
+summary{cursor:pointer;font-weight:600;color:var(--forest)}
+details p{margin-top:8px;font-size:.93rem}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.kpi{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:14px}
+.kpi b{font-family:var(--serif);font-size:2rem;color:var(--forest);display:block;line-height:1}
+.bar{height:10px;border-radius:9px;background:var(--cream2);overflow:hidden}
+.bar i{display:block;height:100%;background:var(--forest)}
+.myth{border:1px dashed var(--terra);border-radius:14px;padding:14px;background:var(--white)}
+.myth b{color:var(--terra)}
+footer{margin:34px 0 26px;font-size:.78rem;color:var(--muted);line-height:1.6}
+.toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);background:var(--forest);color:var(--cream);padding:12px 18px;border-radius:14px;font-size:.9rem;max-width:90vw;z-index:9}
+[hidden]{display:none!important}
+@media(max-width:600px){h2{font-size:1.45rem}.card{padding:16px}.btn{width:100%}th:nth-child(4),td:nth-child(4){display:none}}
+</style>
+</head>
+<body>
+<div class="demo">DEMONSTRAÇÃO · versão com a marca da sua empresa de aromatização · dados do painel são exemplos</div>
+<div class="wrap">
+  <header>
+    <div class="logo-ph">SUA<br>MARCA<br>AQUI</div>
+    <div class="brand"><h1>Prévia Olfativa</h1><p>da sua empresa de aromatização · ciência por <b>Sana Essência</b></p></div>
+  </header>
+  <nav class="tabs" role="tablist">
+    <button class="tab" role="tab" aria-selected="true" data-tab="cliente">Para o cliente</button>
+    <button class="tab" role="tab" aria-selected="false" data-tab="equipe">Equipe comercial</button>
+    <button class="tab" role="tab" aria-selected="false" data-tab="painel">Painel</button>
+  </nav>
+
+  <!-- ======== CLIENTE ======== -->
+  <section id="p-cliente" class="stack" style="margin-top:10px">
+    <div class="card stack" id="wizard">
+      <span class="eyebrow" id="w-step">Etapa 1 de 5</span>
+      <div class="progress" id="w-prog"></div>
+      <h2 id="w-title"></h2>
+      <p class="muted small" id="w-sub"></p>
+      <div id="w-body"></div>
+      <div class="row">
+        <button class="btn ghost" id="w-back" type="button">Voltar</button>
+        <button class="btn primary" id="w-next" type="button">Continuar</button>
+      </div>
+    </div>
+    <div id="result" class="stack" hidden></div>
+  </section>
+
+  <!-- ======== EQUIPE ======== -->
+  <section id="p-equipe" class="stack" style="margin-top:10px" hidden>
+    <div class="card stack">
+      <span class="eyebrow">Ciência de bolso</span>
+      <h2>Respostas honestas para as perguntas que todo cliente faz</h2>
+      <p class="muted small">Argumentos fortes e verdadeiros. Cada resposta indica de onde vem, para o vendedor falar com segurança e sem exagero.</p>
+    </div>
+    <div id="faq"></div>
+    <div class="card stack">
+      <span class="eyebrow">Números que preferimos não usar</span>
+      <h3>Estatísticas populares sem fonte rastreável</h3>
+      <p class="small muted">Circulam muito no setor, mas não encontramos estudo publicado que as sustente. O CONAR pede que dados apresentados em anúncios possam ser comprovados. Trocar esses números por pesquisa real deixa a venda mais sólida.</p>
+      <div class="stack" id="myths"></div>
+    </div>
+    <div class="card stack">
+      <span class="eyebrow">Referências</span>
+      <ol class="small" id="refs" style="padding-left:18px;display:grid;gap:6px"></ol>
+    </div>
+  </section>
+
+  <!-- ======== PAINEL ======== -->
+  <section id="p-painel" class="stack" style="margin-top:10px" hidden>
+    <div class="card stack">
+      <span class="eyebrow">Exemplo de painel mensal</span>
+      <h2>Quem se interessou antes da reunião</h2>
+      <p class="muted small">Números ilustrativos. Na versão real, o painel mostra as prévias enviadas pela sua equipe e quantas foram concluídas.</p>
+    </div>
+    <div class="kpis">
+      <div class="kpi"><b>64</b><span class="small muted">prévias enviadas</span></div>
+      <div class="kpi"><b>41</b><span class="small muted">concluídas pelo cliente</span></div>
+      <div class="kpi"><b>18</b><span class="small muted">pediram amostras</span></div>
+      <div class="kpi"><b>3 min</b><span class="small muted">tempo médio de resposta</span></div>
+    </div>
+    <div class="card stack">
+      <h3>Setores que mais responderam</h3>
+      <div class="stack small" id="bars"></div>
+    </div>
+    <div class="card stack">
+      <h3>Famílias mais sugeridas</h3>
+      <p class="small muted">Ajuda a planejar amostras e estoque de fragrâncias para as próximas reuniões.</p>
+      <div class="stack small" id="bars2"></div>
+    </div>
+  </section>
+
+  <footer>
+    Demonstração preparada pela Sana Essência · Assinatura de Ambiente. A Prévia Olfativa sugere famílias olfativas para orientar a conversa comercial; não revela nem substitui as fórmulas dos perfumistas da empresa parceira. Conteúdo informativo, sem alegações de saúde. Fragrâncias para ambientes devem seguir as normas IFRA e a ficha de segurança do fornecedor. · <a href="/assinatura-de-ambiente/">Conheça a Assinatura de Ambiente</a> · hello@sanaessencia.co.uk
+  </footer>
+</div>
+<div class="toast" id="toast" hidden></div>
+
+<script>
+(function(){
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+function toast(m){const t=$("#toast");t.textContent=m;t.hidden=false;clearTimeout(toast.t);toast.t=setTimeout(()=>t.hidden=true,3200)}
+
+/* ---------- referências (verificadas) ---------- */
+const REFS={
+ spang96:"Spangenberg, Crowley & Henderson (1996). Improving the store environment: do olfactory cues affect evaluations and behaviors? Journal of Marketing, 60(2), 67–80.",
+ mitchell95:"Mitchell, Kahn & Knasko (1995). There's something in the air: effects of congruent or incongruent ambient odor on consumer decision making. Journal of Consumer Research, 22(2), 229–238.",
+ mattila01:"Mattila & Wirtz (2001). Congruency of scent and music as a driver of in-store evaluations and behavior. Journal of Retailing, 77(2), 273–289.",
+ herrmann13:"Herrmann, Zidansek, Sprott & Spangenberg (2013). The power of simplicity: processing fluency and the effects of olfactory cues on retail sales. Journal of Retailing, 89(1), 30–43.",
+ roschk17:"Roschk, Loureiro & Breitsohl (2017). Calibrating 30 years of experimental research: a meta-analysis of the atmospheric effects of music, scent, and color. Journal of Retailing, 93(2), 228–240.",
+ herz04:"Herz, Eliassen, Beland & Souza (2004). Neuroimaging evidence for the emotional potency of odor-evoked memory. Neuropsychologia, 42(3), 371–378.",
+ lehrner05:"Lehrner, Marwinski, Lehr, Jöhren & Deecke (2005). Ambient odors of orange and lavender reduce anxiety and improve mood in a dental office. Physiology & Behavior, 86(1–2), 92–95.",
+ stein16:"Steinemann (2016). Fragranced consumer products: exposures and effects from emissions. Air Quality, Atmosphere & Health, 9, 861–866."
+};
+const RK=Object.keys(REFS); const rn=k=>RK.indexOf(k)+1;
+const cite=k=>`<span class="ref">[${rn(k)}]</span>`;
+
+/* ---------- dados ---------- */
+const SECTORS=[
+ {id:"hotel",n:"Hotel ou pousada",sp:["lobby","corredor","restaurante_n","spa","quarto"],fav:{floral:1,amadeirado:1,ambar:1},say:"Um aroma criado para receber bem e para que o hóspede se lembre da estadia.",no:"Nosso aroma reduz o estresse da viagem"},
+ {id:"varejo",n:"Loja ou varejo",sp:["salao","provador","caixa","vitrine"],fav:{citrico:1,floral:1,amadeirado:1},say:"O aroma da marca, presente em cada loja da rede.",no:"Aumenta suas vendas em 30%"},
+ {id:"escritorio",n:"Escritório corporativo",sp:["recepcao","reuniao","convivencia","corredor"],fav:{verde:1,citrico:1,aquatico:1},say:"Um aroma suave na recepção, para receber bem quem chega.",no:"Melhora a produtividade da equipe"},
+ {id:"saude",n:"Clínica ou consultório",sp:["espera","recepcao","atendimento_n"],fav:{citrico:1,aquatico:1,floral:1},say:"Um aroma leve na sala de espera, pensado para receber bem.",no:"Diminui a ansiedade dos pacientes"},
+ {id:"academia",n:"Academia ou estúdio",sp:["recepcao","treino","vestiario"],fav:{citrico:1,verde:1,aquatico:1},say:"Um ambiente com cara de frescor do começo ao fim do treino.",no:"Aumenta seu rendimento no treino"},
+ {id:"auto",n:"Concessionária ou showroom",sp:["showroom","lounge","entrega"],fav:{amadeirado:1,ambar:1,verde:1},say:"O aroma que acompanha o momento de escolher e receber o carro novo.",no:"Ajuda o cliente a decidir mais rápido"},
+ {id:"shopping",n:"Shopping, aeroporto ou grande circulação",sp:["entrada","corredor","praca"],fav:{citrico:1,aquatico:1,verde:1},say:"Uma assinatura olfativa leve que ajuda a reconhecer o espaço.",no:"Faz o visitante ficar mais tempo e gastar mais"},
+ {id:"evento",n:"Evento ou ativação de marca",sp:["entrada","palco","lounge"],fav:{citrico:1,ambar:1,floral:1},say:"Um aroma que faz parte da experiência do evento.",no:"Garante que o público vai lembrar da marca"}
+];
+const SPACES={
+ lobby:["Lobby e recepção","m","Ligado durante o dia, em ciclos (ex.: 30 min ligado, 30 min desligado).","Primeira impressão: é aqui que a assinatura mais aparece."],
+ corredor:["Corredores e circulação","s","Suave e constante, sem acúmulo.","Ajuda a dar continuidade sem cansar o nariz."],
+ restaurante_n:["Restaurante e áreas de comida","n","Sem aroma.","Aroma compete com a comida e incomoda."],
+ spa:["Spa ou área de descanso","s","Suave, só durante o uso. Ofereça horários sem aroma.","Quem está ali escolheu estar."],
+ quarto:["Quartos","n","Sem aroma, ou só a pedido do hóspede.","O hóspede não escolhe o ar que respira à noite."],
+ salao:["Salão de vendas","m","Ciclos durante o horário de funcionamento.","Aroma simples e congruente com os produtos funciona melhor."],
+ provador:["Provadores","s","Bem suave.","Espaço pequeno e fechado: o aroma acumula."],
+ caixa:["Caixa e saída","s","Suave.","Fecha a experiência com a mesma assinatura."],
+ vitrine:["Entrada e vitrine","m","Moderado na entrada, sem invadir a calçada.","Convida a entrar."],
+ recepcao:["Recepção","m","30–60 min ligado e 30–60 min desligado.","Boa recepção, sem incomodar quem trabalha ali o dia todo."],
+ reuniao:["Salas de reunião","s","20–30 min antes da reunião e desligado quando ela começa.","Ar leve, não pesado."],
+ convivencia:["Copa e convivência","s","Só com o acordo da equipe; longe da comida.","Ninguém deveria ficar o dia todo num aroma que não escolheu."],
+ espera:["Sala de espera","s","Bem suave, em ciclos. Desligue se alguém pedir.","Pacientes podem estar sensíveis, grávidas ou com alergias."],
+ atendimento_n:["Salas de atendimento","n","Sem aroma.","Ali o paciente não pode escolher sair."],
+ treino:["Área de treino","s","Suave e fresco, com boa ventilação.","Respiração intensa pede leveza."],
+ vestiario:["Vestiários","m","Frescor moderado.","Sensação de limpeza."],
+ showroom:["Showroom","m","Ciclos durante o atendimento.","Assinatura reconhecível em todas as lojas da rede."],
+ lounge:["Lounge","s","Suave.","Espaço de conversa e espera."],
+ entrega:["Sala de entrega","m","Só durante a entrega.","Momento marcante: o aroma ajuda a criar a memória."],
+ entrada:["Entradas e acessos","m","Moderado, nos horários de maior fluxo.","É onde a assinatura é percebida."],
+ praca:["Praças e áreas de estar","s","Suave.","Espaços grandes pedem difusão bem distribuída."],
+ palco:["Área principal","s","Suave, sem competir com o conteúdo.","O aroma acompanha, não protagoniza."]
+};
+const LVL={s:["suave","s"],m:["moderado","m"],n:["sem aroma","n"]};
+const PERS=["Acolhedora","Sofisticada","Energética","Natural","Inovadora","Tradicional","Jovem","Minimalista","Calorosa","Fresca","Elegante","Divertida"];
+const FEEL=[
+ {id:"boasvindas",n:"Boas-vindas"},{id:"calma",n:"Tranquilidade"},{id:"energia",n:"Energia"},{id:"confianca",n:"Confiança"},
+ {id:"sofisticacao",n:"Sofisticação"},{id:"frescor",n:"Frescor e limpeza"},{id:"aconchego",n:"Aconchego"},{id:"memoria",n:"Ser lembrada"}
+];
+const CARE=[
+ {id:"sens",n:"Público sensível (crianças, gestantes, pacientes)"},{id:"comida",n:"Há comida ou bebida no espaço"},
+ {id:"fechado",n:"Ambientes pequenos ou fechados com ar-condicionado"},{id:"equipe",n:"Pessoas trabalham o dia todo no espaço"},{id:"pets",n:"Pets circulam no local"}
+];
+const FAM={
+ citrico:{n:"Cítrico luminoso",c:"#C2932A",notes:["laranja-doce","bergamota","limão","tangerina"],d:"Alegre, limpo e muito bem aceito. Comunica boas-vindas e clareza.",
+  p:{Energética:2,Jovem:2,Fresca:2,Divertida:2,Acolhedora:1,Minimalista:1},f:{boasvindas:2,energia:2,frescor:2,memoria:1},
+  sci:`Aromas simples e conhecidos são processados com mais facilidade. Num estudo em loja real, um aroma simples de laranja esteve associado a gasto maior do que um blend complexo. ${cite("herrmann13")}`},
+ verde:{n:"Verde e herbal",c:"#5E7D64",notes:["alecrim","capim-limão","chá verde","manjericão"],d:"Natural e lúcido. Combina com marcas ligadas a natureza, bem-estar e tecnologia limpa.",
+  p:{Natural:3,Fresca:2,Minimalista:2,Inovadora:1,Energética:1},f:{frescor:2,energia:1,calma:1,confianca:1},
+  sci:`O que mais pesa é a combinação entre aroma e ambiente: aromas coerentes com o lugar e a marca tendem a ser avaliados de forma mais positiva. ${cite("mitchell95")} ${cite("mattila01")}`},
+ floral:{n:"Floral leve",c:"#B0605A",notes:["flor de laranjeira","lavanda","jasmim suave","rosa leve"],d:"Delicado e acolhedor, quando bem dosado. Bom para hospitalidade e beleza.",
+  p:{Acolhedora:2,Elegante:2,Sofisticada:1,Calorosa:1,Tradicional:1},f:{boasvindas:2,calma:2,aconchego:1,sofisticacao:1},
+  sci:`Ambientes perfumados com aromas agradáveis receberam avaliações mais positivas do que ambientes sem aroma em estudos clássicos de varejo. ${cite("spang96")}`},
+ amadeirado:{n:"Amadeirado",c:"#6E5641",notes:["cedro","sândalo","vetiver","couro suave"],d:"Sólido e confiável. Transmite qualidade e permanência.",
+  p:{Sofisticada:2,Tradicional:2,Elegante:2,Minimalista:1,Calorosa:1},f:{confianca:3,sofisticacao:2,memoria:1},
+  sci:`Memórias evocadas por aromas ativam áreas do cérebro ligadas à emoção com mais intensidade do que as evocadas por imagens. ${cite("herz04")}`},
+ ambar:{n:"Âmbar e especiado",c:"#8F5410",notes:["âmbar","baunilha suave","cardamomo","fava-tonka"],d:"Caloroso e envolvente. Elegante à noite e no inverno; pede dose baixa.",
+  p:{Calorosa:3,Sofisticada:2,Elegante:1,Acolhedora:1},f:{aconchego:3,sofisticacao:2,memoria:1},
+  sci:`Aroma e música coerentes em intensidade (por exemplo, calmos ou animados juntos) melhoraram a avaliação do ambiente. ${cite("mattila01")}`},
+ aquatico:{n:"Aquático e limpo",c:"#2C5140",notes:["brisa marinha","algodão","notas ozônicas","chá branco"],d:"Fresco e neutro, agrada a públicos amplos e passa sensação de limpeza.",
+  p:{Fresca:3,Minimalista:2,Inovadora:2,Jovem:1},f:{frescor:3,calma:1,boasvindas:1},
+  sci:`Uma revisão de 30 anos de experimentos encontrou efeitos reais, porém moderados, do aroma no ambiente, maiores quando o aroma combina com o contexto. ${cite("roschk17")}`}
+};
+
+/* ---------- estado ---------- */
+const st={name:"",sector:null,pers:[],feel:[],care:[]};
+const STEPS=[
+ {t:"Como se chama a sua empresa?",s:"Opcional. Usamos só para personalizar a prévia.",ok:()=>true},
+ {t:"Qual é o seu tipo de espaço?",s:"Escolha um.",ok:()=>!!st.sector},
+ {t:"Como você descreveria a sua marca?",s:"Escolha até 3 palavras.",ok:()=>st.pers.length>0},
+ {t:"O que o cliente deve sentir ao entrar?",s:"Escolha até 2.",ok:()=>st.feel.length>0},
+ {t:"Algum cuidado especial?",s:"Marque o que se aplica. Ajuda a definir a intensidade e onde não usar aroma.",ok:()=>true}
+];
+let step=0;
+function chip(label,on,attr){return `<button type="button" class="chip" aria-pressed="${on}" ${attr}>${esc(label)}</button>`}
+function renderStep(){
+ $("#w-step").textContent=`Etapa ${step+1} de ${STEPS.length}`;
+ $("#w-prog").innerHTML=STEPS.map((_,i)=>`<span class="${i<=step?"on":""}"></span>`).join("");
+ $("#w-title").textContent=STEPS[step].t; $("#w-sub").textContent=STEPS[step].s;
+ let h="";
+ if(step===0) h=`<label class="small muted" for="nm">Nome da empresa</label><input type="text" id="nm" maxlength="60" placeholder="Ex.: Hotel Serra Azul" value="${esc(st.name)}">`;
+ if(step===1) h=`<div class="chips">${SECTORS.map(s=>chip(s.n,st.sector===s.id,`data-sector="${s.id}"`)).join("")}</div>`;
+ if(step===2) h=`<div class="chips">${PERS.map(p=>chip(p,st.pers.includes(p),`data-pers="${p}"`)).join("")}</div>`;
+ if(step===3) h=`<div class="chips">${FEEL.map(f=>chip(f.n,st.feel.includes(f.id),`data-feel="${f.id}"`)).join("")}</div>`;
+ if(step===4) h=`<div class="chips">${CARE.map(c=>chip(c.n,st.care.includes(c.id),`data-care="${c.id}"`)).join("")}</div>`;
+ $("#w-body").innerHTML=h;
+ $("#w-back").style.visibility=step?"visible":"hidden";
+ $("#w-next").textContent=step===STEPS.length-1?"Ver minha prévia":"Continuar";
+ $("#w-next").disabled=!STEPS[step].ok();
+ const nm=$("#nm"); if(nm) nm.addEventListener("input",e=>st.name=e.target.value.trim());
+}
+document.addEventListener("click",e=>{
+ const s=e.target.closest("[data-sector]"); if(s){st.sector=s.dataset.sector;renderStep();return}
+ const p=e.target.closest("[data-pers]"); if(p){toggle(st.pers,p.dataset.pers,3);renderStep();return}
+ const f=e.target.closest("[data-feel]"); if(f){toggle(st.feel,f.dataset.feel,2);renderStep();return}
+ const c=e.target.closest("[data-care]"); if(c){toggle(st.care,c.dataset.care,9);renderStep();return}
+});
+function toggle(arr,v,max){const i=arr.indexOf(v); if(i>=0)arr.splice(i,1); else {if(arr.length>=max)arr.shift(); arr.push(v)}}
+$("#w-back").addEventListener("click",()=>{if(step>0){step--;renderStep()}});
+$("#w-next").addEventListener("click",()=>{ if(step<STEPS.length-1){step++;renderStep()} else showResult(); });
+
+/* ---------- resultado ---------- */
+function score(){
+ const sec=SECTORS.find(s=>s.id===st.sector);
+ const res=Object.entries(FAM).map(([id,F])=>{
+  let sc=0, why=[], pm=[], fm=[];
+  st.pers.forEach(p=>{if(F.p[p]){sc+=F.p[p];pm.push(p.toLowerCase())}});
+  st.feel.forEach(f=>{if(F.f[f]){sc+=F.f[f]*1.5;fm.push(FEEL.find(x=>x.id===f).n.toLowerCase())}});
+  const lst=a=>a.length>1?a.slice(0,-1).join(", ")+" e "+a[a.length-1]:a[0];
+  if(pm.length)why.push(`combina com uma marca ${lst(pm)}`);
+  if(fm.length)why.push(`ajuda a transmitir ${lst(fm)}`);
+  if(sec.fav[id]){sc+=2;why.push(`é uma escolha frequente em ${sec.n.toLowerCase()}`)}
+  if(id==="ambar"&&(st.care.includes("fechado")||st.care.includes("sens")||st.care.includes("comida")))sc-=2.5;
+  if(id==="floral"&&st.care.includes("sens"))sc-=1;
+  if((id==="citrico"||id==="aquatico")&&st.care.includes("sens"))sc+=1;
+  return {id,F,sc,why:[...new Set(why)].slice(0,3)};
+ }).sort((a,b)=>b.sc-a.sc);
+ const max=Math.max(res[0].sc,1);
+ return res.slice(0,2).map(r=>({...r,pct:Math.max(55,Math.min(96,Math.round(60+36*r.sc/max)))}));
+}
+let summary="";
+function showResult(){
+ const sec=SECTORS.find(s=>s.id===st.sector), top=score(), who=st.name||"sua empresa";
+ const soft=st.care.includes("sens")||st.care.includes("fechado")||st.care.includes("equipe");
+ const rows=sec.sp.map(k=>{let [n,l,when,why]=SPACES[k]; if(soft&&l==="m")l="s"; if(k==="recepcao"&&st.care.includes("equipe"))when+=" Combine com quem trabalha ali.";
+   return `<tr><td><b>${esc(n)}</b></td><td><span class="lvl ${LVL[l][1]}">${LVL[l][0]}</span></td><td>${esc(when)}</td><td class="muted">${esc(why)}</td></tr>`}).join("");
+ const care=[
+  "Comece com menos intensidade do que parece necessário: o nariz se acostuma em minutos e quem chega percebe mais.",
+  "Avise que o espaço tem aroma e desligue se alguém pedir. Uma pesquisa nos EUA encontrou cerca de um terço dos adultos relatando algum incômodo com produtos perfumados. "+cite("stein16"),
+  st.care.includes("comida")?"Mantenha o aroma longe de onde há comida e bebida.":null,
+  st.care.includes("pets")?"Gatos são especialmente sensíveis a óleos essenciais: mantenha difusores fora do alcance e o ambiente ventilado.":null,
+  st.care.includes("equipe")?"Quem trabalha o dia todo no espaço deve participar da decisão e ter áreas sem aroma.":null,
+  "Use fragrâncias com certificado IFRA e ficha de segurança do fornecedor."
+ ].filter(Boolean);
+ $("#result").innerHTML=`
+  <div class="card stack">
+   <span class="eyebrow">Prévia de identidade olfativa</span>
+   <h2>${esc(who)}</h2>
+   <p class="small muted">${esc(sec.n)} · marca ${esc(st.pers.join(", ").toLowerCase())} · sensação: ${esc(st.feel.map(f=>FEEL.find(x=>x.id===f).n.toLowerCase()).join(" e "))}</p>
+  </div>
+  <h3>Famílias olfativas sugeridas</h3>
+  ${top.map((r,i)=>`<div class="fam" style="--c:${r.F.c}">
+    <div class="top"><h3>${i===0?"1ª":"2ª"} sugestão · ${esc(r.F.n)}</h3><span class="match">${r.pct}% de afinidade</span></div>
+    <p class="small">${esc(r.F.d)}</p>
+    <div class="notes">${r.F.notes.map(n=>`<span>${esc(n)}</span>`).join("")}</div>
+    <ul class="why small">${r.why.map(w=>`<li>${esc(w.charAt(0).toUpperCase()+w.slice(1))}</li>`).join("")}</ul>
+    <div class="sci"><b>O que a pesquisa mostra:</b> ${r.F.sci}</div>
+   </div>`).join("")}
+  <p class="small muted">As famílias orientam a conversa. A fórmula final é criada pelos perfumistas da empresa de aromatização, a partir de amostras que você sente pessoalmente.</p>
+  <div class="card stack">
+   <h3>Plano por espaço</h3>
+   <div style="overflow-x:auto"><table><thead><tr><th>Espaço</th><th>Intensidade</th><th>Quando</th><th>Por quê</th></tr></thead><tbody>${rows}</tbody></table></div>
+  </div>
+  <div class="card stack">
+   <h3>Boas práticas</h3>
+   <ul class="why small">${care.map(c=>`<li>${c}</li>`).join("")}</ul>
+  </div>
+  <div class="card stack">
+   <h3>Como falar do seu aroma</h3>
+   <div class="say"><div class="yes">“${esc(sec.say)}”</div><div class="no">“${esc(sec.no)}”</div></div>
+   <p class="small muted">Descreva o aroma, a experiência e a marca. Promessas de saúde ou de resultado precisam de prova e costumam esbarrar no CONAR e no CDC.</p>
+  </div>
+  <div class="card stack" style="background:var(--forest);color:var(--cream)">
+   <h3 style="color:var(--cream)">Próximo passo</h3>
+   <p class="small" style="color:rgba(245,241,232,.9)">Nossa equipe leva amostras dessas famílias para você sentir no seu próprio espaço.</p>
+   <div class="row"><button class="btn accent" type="button" id="ask">Quero receber amostras</button><button class="btn ghost" style="border-color:var(--cream);color:var(--cream)" type="button" id="copy">Copiar resumo</button><button class="btn ghost" style="border-color:var(--cream);color:var(--cream)" type="button" id="restart">Refazer</button></div>
+  </div>
+  <div class="card"><p class="small muted"><b>Referências:</b> ${top.map(r=>r.F.sci.match(/\[(\d+)\]/g)).flat().filter(Boolean).concat(["["+rn("stein16")+"]"]).filter((v,i,a)=>a.indexOf(v)===i).map(x=>{const k=RK[+x.replace(/\D/g,"")-1];return esc(x+" "+REFS[k])}).join(" ")}</p></div>`;
+ summary=[`PRÉVIA OLFATIVA · ${who}`,`${sec.n} · marca ${st.pers.join(", ").toLowerCase()}`,"",
+  ...top.map((r,i)=>`${i+1}ª sugestão: ${r.F.n} (${r.pct}%) · ${r.F.notes.join(", ")}`),"","PLANO POR ESPAÇO",
+  ...sec.sp.map(k=>{let [n,l,when]=SPACES[k]; if(soft&&l==="m")l="s"; return `- ${n}: ${LVL[l][0]} · ${when}`}),"","Ciência por Sana Essência · sanaessencia.com.br"].join("\n");
+ $("#wizard").hidden=true; $("#result").hidden=false; window.scrollTo({top:$("#result").offsetTop-10,behavior:"smooth"});
+ $("#ask").onclick=()=>toast("Na versão real, este botão avisa o vendedor e agenda a visita com amostras.");
+ $("#copy").onclick=()=>{try{navigator.clipboard.writeText(summary).then(()=>toast("Resumo copiado"),()=>toast("Não foi possível copiar aqui"))}catch(e){toast("Não foi possível copiar aqui")}};
+ $("#restart").onclick=()=>{Object.assign(st,{name:"",sector:null,pers:[],feel:[],care:[]});step=0;$("#result").hidden=true;$("#wizard").hidden=false;renderStep();window.scrollTo(0,0)};
+}
+
+/* ---------- equipe comercial ---------- */
+const QA=[
+ ["“Isso funciona mesmo?”",`Funciona, com efeito real e moderado. Uma meta-análise de 30 anos de experimentos encontrou efeitos positivos do aroma na avaliação do ambiente e no comportamento, maiores quando o aroma combina com o lugar ${cite("roschk17")}. Diga isso com essas palavras: “efeito real, que depende de escolher o aroma certo”.`],
+ ["“Quanto as vendas vão aumentar?”",`Não prometa um número. Há estudos com efeito em vendas, como o do aroma simples de laranja ${cite("herrmann13")}, mas o resultado varia por loja, produto e público. Proponha medir junto: um período com aroma e outro sem, nas mesmas condições.`],
+ ["“Qual aroma é o melhor?”",`O que combina com a marca e o espaço. Aromas coerentes com o contexto são avaliados melhor do que aromas agradáveis porém fora de lugar ${cite("mitchell95")} ${cite("mattila01")}. Aromas simples e conhecidos costumam funcionar melhor do que blends muito complexos ${cite("herrmann13")}.`],
+ ["“Por que o aroma fica na memória?”",`O olfato tem ligação direta com áreas do cérebro ligadas à emoção e à memória. Lembranças evocadas por aromas são mais emocionais do que as evocadas por imagens ${cite("herz04")}. Por isso uma assinatura olfativa ajuda o cliente a reconhecer a marca.`],
+ ["“E se algum funcionário ou cliente não gostar?”",`É uma preocupação legítima: numa pesquisa nos EUA, cerca de um terço dos adultos relatou algum incômodo com produtos perfumados ${cite("stein16")}. A resposta é intensidade baixa, ciclos, áreas sem aroma e combinar com a equipe. Isso protege o cliente e a sua marca.`],
+ ["“Posso dizer que o aroma acalma os pacientes?”",`Não. Estudos em salas de espera odontológicas associaram laranja e lavanda a relatos de humor melhor ${cite("lehrner05")}, mas uma clínica não pode prometer efeito na saúde. Diga: “um aroma leve, pensado para receber bem”.`]
+];
+const MYTHS=[
+ ["“75% das nossas emoções são geradas pelo olfato.”","Costuma ser atribuído a livros de marketing, sem estudo publicado por trás. Use no lugar: memórias evocadas por aromas são mais emocionais do que as evocadas por imagens [herz04]."],
+ ["“Lembramos 35% do que cheiramos e só 5% do que vemos.”","Atribuído a uma universidade americana, mas não encontramos o estudo original. Use no lugar: o olfato tem ligação direta com áreas do cérebro ligadas à emoção e à memória [herz04]."],
+ ["“O olfato influencia 80% das decisões de compra.”","Sem fonte rastreável. Use no lugar: estudos de varejo mostram efeitos reais e moderados, maiores quando o aroma combina com o ambiente [roschk17]."]
+];
+$("#faq").innerHTML=QA.map(([q,a],i)=>`<details ${i===0?"open":""}><summary>${q}</summary><p>${a}</p></details>`).join("");
+$("#myths").innerHTML=MYTHS.map(([m,a])=>`<div class="myth"><b>${esc(m)}</b><p class="small" style="margin-top:6px">${a.replace(/\[(\w+)\]/g,(_,k)=>cite(k))}</p></div>`).join("");
+$("#refs").innerHTML=RK.map(k=>`<li>${esc(REFS[k])}</li>`).join("");
+
+/* ---------- painel (exemplo) ---------- */
+const bars=(el,data)=>{const m=Math.max(...data.map(d=>d[1]));$(el).innerHTML=data.map(([n,v])=>`<div><div class="row" style="justify-content:space-between"><span>${n}</span><b>${v}</b></div><div class="bar"><i style="width:${v/m*100}%"></i></div></div>`).join("")};
+bars("#bars",[["Hotel ou pousada",14],["Loja ou varejo",11],["Escritório corporativo",8],["Clínica ou consultório",5],["Concessionária",3]]);
+bars("#bars2",[["Cítrico luminoso",16],["Amadeirado",12],["Floral leve",9],["Aquático e limpo",7],["Verde e herbal",5]]);
+
+/* ---------- abas ---------- */
+$$(".tab").forEach(b=>b.addEventListener("click",()=>{
+ $$(".tab").forEach(x=>x.setAttribute("aria-selected",x===b?"true":"false"));
+ ["cliente","equipe","painel"].forEach(t=>$("#p-"+t).hidden=t!==b.dataset.tab);
+}));
+renderStep();
+})();
+</script>
+</body>
+</html>
