@@ -216,8 +216,8 @@ const SPACES={
 const LVL={s:["suave","s"],m:["moderado","m"],n:["sem aroma","n"]};
 const PERS=["Acolhedora","Sofisticada","Energética","Natural","Inovadora","Tradicional","Jovem","Minimalista","Calorosa","Fresca","Elegante","Divertida"];
 const FEEL=[
- {id:"boasvindas",n:"Boas-vindas"},{id:"calma",n:"Tranquilidade"},{id:"energia",n:"Energia"},{id:"confianca",n:"Confiança"},
- {id:"sofisticacao",n:"Sofisticação"},{id:"frescor",n:"Frescor e limpeza"},{id:"aconchego",n:"Aconchego"},{id:"memoria",n:"Ser lembrada"}
+ {id:"boasvindas",n:"Boas-vindas",t:"boas-vindas"},{id:"calma",n:"Tranquilidade",t:"tranquilidade"},{id:"energia",n:"Energia",t:"energia"},{id:"confianca",n:"Confiança",t:"confiança"},
+ {id:"sofisticacao",n:"Sofisticação",t:"sofisticação"},{id:"frescor",n:"Frescor e limpeza",t:"frescor e limpeza"},{id:"aconchego",n:"Aconchego",t:"aconchego"},{id:"memoria",n:"Ser lembrada",t:"lembrança da marca"}
 ];
 const CARE=[
  {id:"sens",n:"Público sensível (crianças, gestantes, pacientes)"},{id:"comida",n:"Há comida ou bebida no espaço"},
@@ -287,10 +287,10 @@ function score(){
  const res=Object.entries(FAM).map(([id,F])=>{
   let sc=0, why=[], pm=[], fm=[];
   st.pers.forEach(p=>{if(F.p[p]){sc+=F.p[p];pm.push(p.toLowerCase())}});
-  st.feel.forEach(f=>{if(F.f[f]){sc+=F.f[f]*1.5;fm.push(FEEL.find(x=>x.id===f).n.toLowerCase())}});
+  st.feel.forEach(f=>{if(F.f[f]){sc+=F.f[f]*1.5;fm.push(FEEL.find(x=>x.id===f).t)}});
   const lst=a=>a.length>1?a.slice(0,-1).join(", ")+" e "+a[a.length-1]:a[0];
   if(pm.length)why.push(`combina com uma marca ${lst(pm)}`);
-  if(fm.length)why.push(`ajuda a transmitir ${lst(fm)}`);
+  if(fm.length)why.push(`favorece ${lst(fm)}`);
   if(sec.fav[id]){sc+=2;why.push(`é uma escolha frequente em ${sec.n.toLowerCase()}`)}
   if(id==="ambar"&&(st.care.includes("fechado")||st.care.includes("sens")||st.care.includes("comida")))sc-=2.5;
   if(id==="floral"&&st.care.includes("sens"))sc-=1;
@@ -318,7 +318,7 @@ function showResult(){
   <div class="card stack">
    <span class="eyebrow">Prévia de identidade olfativa</span>
    <h2>${esc(who)}</h2>
-   <p class="small muted">${esc(sec.n)} · marca ${esc(st.pers.join(", ").toLowerCase())} · sensação: ${esc(st.feel.map(f=>FEEL.find(x=>x.id===f).n.toLowerCase()).join(" e "))}</p>
+   <p class="small muted">${esc(sec.n)} · marca ${esc(st.pers.join(", ").toLowerCase())} · sensação: ${esc(st.feel.map(f=>FEEL.find(x=>x.id===f).t).join(" e "))}</p>
   </div>
   <h3>Famílias olfativas sugeridas</h3>
   ${top.map((r,i)=>`<div class="fam" style="--c:${r.F.c}">
