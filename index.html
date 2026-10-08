@@ -209,7 +209,34 @@
       .offer, .env-box { padding: 28px 22px; }
       .btn { width: 100%; }
     }
-  </style>
+  
+    .article { max-width: 760px; margin-inline: auto; }
+    .article h1 { font-size: clamp(2.1rem, 5vw, 3.1rem); margin: 10px 0 14px; }
+    .article .meta { color: var(--muted); font-size: .9rem; margin-bottom: 28px; }
+    .article h2 { font-size: clamp(1.6rem, 3.4vw, 2.1rem); margin: 42px 0 12px; }
+    .article h3 { font-size: 1.35rem; margin: 26px 0 8px; }
+    .article p, .article li { font-size: 1.05rem; margin-bottom: 14px; }
+    .article ul, .article ol { padding-left: 22px; margin-bottom: 14px; }
+    .article .answer { background: var(--white); border-left: 5px solid var(--terracotta); border-radius: 14px; padding: 20px 22px; box-shadow: var(--shadow); font-size: 1.08rem; }
+    .article table { width: 100%; border-collapse: collapse; margin: 10px 0 22px; font-size: .97rem; background: var(--white); border-radius: 12px; overflow: hidden; }
+    .article th, .article td { text-align: left; padding: 10px 12px; border-bottom: 1px solid rgba(31,61,47,.1); vertical-align: top; }
+    .article th { background: var(--cream-2); color: var(--forest); font-size: .85rem; text-transform: uppercase; letter-spacing: .05em; }
+    .article .tablewrap { overflow-x: auto; }
+    .article .myth { border: 1px dashed var(--terracotta); border-radius: 14px; padding: 16px 18px; margin-bottom: 12px; background: var(--white); }
+    .article .myth b { color: var(--terracotta); }
+    .article .cta-inline { background: var(--forest); color: var(--cream); border-radius: 22px; padding: 28px; margin: 40px 0 10px; }
+    .article .cta-inline h3 { color: var(--cream); margin-top: 0; }
+    .article .cta-inline p { color: rgba(245,241,232,.9); }
+    .article .cta-inline .btn-outline { border-color: var(--cream); color: var(--cream); }
+    .article .refs { font-size: .88rem; color: var(--muted); }
+    .article .refs li { font-size: .88rem; margin-bottom: 6px; }
+    .article .note { font-size: .9rem; color: var(--muted); }
+    .cards { display: grid; gap: 20px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); margin-top: 30px; }
+    .cards a { display: block; background: var(--white); border-radius: var(--radius); padding: 26px; box-shadow: var(--shadow); text-decoration: none; }
+    .cards a span { font-size: .78rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--terracotta); }
+    .cards a h3 { margin: 10px 0 8px; }
+    .cards a p { color: var(--muted); font-size: .95rem; }
+</style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "Sana Essência", "alternateName": ["Sana Essencia"], "url": "https://sanaessencia.com.br/", "logo": "https://sanaessencia.com.br/og-image.png", "email": "hello@sanaessencia.co.uk", "founder": {"@type": "Person", "name": "Patricia Cruz"}, "sameAs": ["https://sanaessencia.co.uk/", "https://www.linkedin.com/in/patricia-cruz-7a3a90412/"], "description": "Sana Essência traduz a ciência dos aromas para marcas e empresas e apoia pequenas empresas na gestão de riscos psicossociais (NR-1)."}</script>
 </head>
 <body>
@@ -224,6 +251,7 @@
         <li><a href="#solucoes">Soluções</a></li>
         <li><a href="/estudio/">Estúdio de Blends</a></li>
         <li><a href="/assinatura-de-ambiente/">Assinatura de Ambiente</a></li>
+        <li><a href="/artigos/">Artigos</a></li>
         <li><a href="#como-funciona">Como funciona</a></li>
         <li><a href="#duvidas">Dúvidas</a></li>
         <li><a href="#contato">Contato</a></li>
@@ -467,6 +495,14 @@
       </div>
     </section>
 
+    <section id="artigos">
+      <div class="container">
+        <span class="eyebrow">Artigos</span>
+        <h2>Ciência dos aromas, sem exagero</h2>
+        <div class="cards"><a href="/artigos/marketing-olfativo-funciona/"><span>Ciência dos aromas</span><h3>Marketing olfativo funciona? O que a pesquisa mostra</h3><p>Marketing olfativo funciona, com efeito real e moderado. Veja o que 30 anos de pesquisa mostram, os números famosos sem fonte e como medir no seu negócio.</p></a><a href="/artigos/como-precificar-vela-artesanal/"><span>Para quem faz velas</span><h3>Como precificar vela artesanal: o cálculo completo</h3><p>Aprenda a calcular o preço da vela artesanal com insumos, embalagem, seu tempo, custos fixos, taxas e margem. Exemplo completo de uma vela de 200 g.</p></a><a href="/artigos/como-escolher-essencia-velas-difusores/"><span>Para quem faz velas e difusores</span><h3>Como escolher a essência certa para velas e difusores</h3><p>Essência ou óleo essencial? Perguntas para o fornecedor, carga recomendada, como testar e o que evitar no rótulo de velas e difusores.</p></a></div>
+      </div>
+    </section>
+
     <section class="faq" id="duvidas">
       <div class="container">
         <span class="eyebrow">Dúvidas frequentes</span>
@@ -528,6 +564,7 @@
         <div class="foot-links">
           <a href="/estudio/">Estúdio de Blends</a>
           <a href="/assinatura-de-ambiente/">Assinatura de Ambiente</a>
+          <a href="/artigos/">Artigos</a>
           <a href="politica-de-privacidade.html">Política de Privacidade</a>
           <a href="termos-de-uso.html">Termos de Uso</a>
           <a href="politica-de-reembolso.html">Política de Reembolso</a>
