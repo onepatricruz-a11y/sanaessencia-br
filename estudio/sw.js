@@ -1,5 +1,5 @@
 /* Sana Essencia Studio: offline support. Pages load fresh when online and from cache when offline. */
-const CACHE = "se-studio-v2";
+const CACHE = "se-studio-v3";
 const CORE = ["./", "./manifest.webmanifest", "./icon-192.png", "./icon-512.png", "./icon-maskable-512.png", "./apple-touch-icon.png"];
 
 self.addEventListener("install", e => {
