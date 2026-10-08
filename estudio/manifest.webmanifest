@@ -1,11 +1,13 @@
 {
   "name": "Sana Essência Estúdio de Blends",
+  "id": "./",
   "short_name": "Estúdio",
   "description": "Monte blends aromáticos com quantidades reais, ciência honesta e textos dentro das regras da Anvisa e do CONAR.",
   "lang": "pt-BR",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
+  "orientation": "portrait",
   "background_color": "#F5F1E8",
   "theme_color": "#1F3D2F",
   "icons": [
@@ -24,6 +26,37 @@
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"
+    }
+  ],
+  "categories": [
+    "lifestyle",
+    "productivity",
+    "education"
+  ],
+  "screenshots": [
+    {
+      "src": "screenshots/1-describe.jpg",
+      "sizes": "1080x1920",
+      "type": "image/jpeg",
+      "form_factor": "narrow"
+    },
+    {
+      "src": "screenshots/2-formula.jpg",
+      "sizes": "1080x1920",
+      "type": "image/jpeg",
+      "form_factor": "narrow"
+    },
+    {
+      "src": "screenshots/3-science.jpg",
+      "sizes": "1080x1920",
+      "type": "image/jpeg",
+      "form_factor": "narrow"
+    },
+    {
+      "src": "screenshots/4-moods.jpg",
+      "sizes": "1080x1920",
+      "type": "image/jpeg",
+      "form_factor": "narrow"
     }
   ]
 }
