@@ -1,0 +1,8 @@
+[{
+      "relation": ["delegate_permission/common.handle_all_urls"],
+      "target": {
+        "namespace": "android_app",
+        "package_name": "br.com.sanaessencia.estudio",
+        "sha256_cert_fingerprints": ["89:57:E8:38:A2:61:E8:7A:C9:41:C5:76:88:3E:9A:C0:ED:55:0F:2C:F6:54:11:27:2A:AA:58:5D:9C:2A:D2:DC"]
+      }
+    }]
