@@ -353,6 +353,13 @@ mark.info { background: var(--info-bg); box-shadow: inset 0 -2px 0 var(--info); 
 .nose .input { font-size: 0.86rem; padding: 7px 10px; }
 .toast { border-radius: 16px; text-align: center; line-height: 1.4; }
 
+.scentcard { display: grid; gap: 10px; }
+.sc-bar { display: flex; gap: 2px; height: 44px; border-radius: 12px; overflow: hidden; background: var(--paper-2, #EEE8DC); }
+.sc-bar span { display: flex; align-items: center; justify-content: center; min-width: 4px; transition: flex-grow .3s ease; overflow: hidden; }
+.sc-bar b { font-size: .78rem; font-weight: 700; white-space: nowrap; padding: 0 6px; text-overflow: ellipsis; overflow: hidden; }
+.sc-legend { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: .86rem; }
+.sc-legend i { display: inline-block; width: 12px; height: 12px; border-radius: 4px; margin-right: 6px; vertical-align: -1px; }
+.sc-line { margin: 0; font-size: .95rem; }
 </style>
 </head>
 <body>
@@ -429,6 +436,7 @@ mark.info { background: var(--info-bg); box-shadow: inset 0 -2px 0 var(--info); 
         </div>
 
         <div class="stack" id="bench-right">
+          <div class="card scentcard" id="scentcard" aria-live="polite"></div>
           <article class="sheet" aria-labelledby="sheet-title">
             <div class="sheet-head">
               <h3 id="sheet-title">Ficha de fórmula</h3>
@@ -2087,6 +2095,22 @@ if (typeof module !== "undefined") module.exports = { fitToSkin, styleFor, distr
     return `<p class="mono small" style="margin-bottom:10px">${esc(summaryLine(rec))}</p><table><thead>${head}</thead><tbody>${rows}${foot}</tbody></table>`;
   }
 
+  const FAMILY_COLOURS = { Citrus: "#E2B33B", Floral: "#D9809F", Herbal: "#6EA56A", Minty: "#45ADA3", Woody: "#9C6B45", Resinous: "#B88A2E", Spicy: "#C8562E", Sweet: "#D7A777" };
+  const FAMILY_INK = { Woody: "#FFF8F0", Spicy: "#FFF8F0" };
+  const SC = {"title": "Seu aroma, por família", "empty": "Adicione ingredientes para ver o seu aroma tomar forma.", "fam": {"Citrus": "Cítrico", "Floral": "Floral", "Herbal": "Herbal", "Minty": "Mentolado", "Woody": "Amadeirado", "Resinous": "Resinoso", "Spicy": "Especiado", "Sweet": "Doce"}, "mostly": "Principalmente {f}, com {rest}.", "only": "Todo {f}.", "aria": "Blend por ingrediente"};
+  function renderScentCard(rec) {
+    const box = $("#scentcard"); if (!box) return;
+    if (!rec.rows.length) { box.innerHTML = `<span class="eyebrow">${SC.title}</span><p class="small muted">${SC.empty}</p>`; return; }
+    const fam = {}; rec.rows.forEach(r => { fam[r.oil.family] = (fam[r.oil.family] || 0) + r.frac; });
+    const fams = Object.entries(fam).sort((a, b) => b[1] - a[1]);
+    const name = f => (SC.fam[f] || f).toLowerCase();
+    const line = fams.length === 1 ? SC.only.replace("{f}", name(fams[0][0])) : SC.mostly.replace("{f}", name(fams[0][0])).replace("{rest}", (l => l.length > 1 ? l.slice(0, -1).join(", ") + " e " + l[l.length - 1] : l[0])(fams.slice(1).map(([f]) => name(f))));
+    const aria = SC.aria + ": " + rec.rows.map(r => `${r.oil.name} ${Math.round(r.frac * 100)}%`).join(", ");
+    box.innerHTML = `<span class="eyebrow">${SC.title}</span>
+      <div class="sc-bar" role="img" aria-label="${esc(aria)}">${rec.rows.map(r => `<span style="flex-grow:${r.frac};background:${FAMILY_COLOURS[r.oil.family] || "#999"};color:${FAMILY_INK[r.oil.family] || "#231A12"}" title="${esc(r.oil.name)} ${Math.round(r.frac * 100)}%"><b>${r.frac >= 0.14 ? esc(r.oil.name.split(" (")[0]) : ""}</b></span>`).join("")}</div>
+      <div class="sc-legend">${fams.map(([f, v]) => `<span><i style="background:${FAMILY_COLOURS[f] || "#999"}"></i>${esc(SC.fam[f] || f)} ${Math.round(v * 100)}%</span>`).join("")}</div>
+      <p class="sc-line">${esc(line.charAt(0).toUpperCase() + line.slice(1))}</p>`;
+  }
   function renderOutputs() {
     const b = state.blend;
     renderMeta();
@@ -2094,13 +2118,14 @@ if (typeof module !== "undefined") module.exports = { fitToSkin, styleFor, distr
     const formula = $("#formula");
     if (!rec.rows.length) {
       formula.innerHTML = `<div class="empty">Adicione ingredientes para ver as quantidades.</div>`;
-      $("#premix").textContent = ""; $("#pyramid").innerHTML = ""; $("#checks").innerHTML = "";
+      renderScentCard(rec); $("#premix").textContent = ""; $("#pyramid").innerHTML = ""; $("#checks").innerHTML = "";
       $("#effects").innerHTML = `<p class="muted small">Adicione ingredientes para ver a pesquisa por trás deles.</p>`;
       $("#say-text").textContent = ""; $("#avoid-list").innerHTML = "";
       $("#shop-box").hidden = true;
       persist(); return;
     }
     formula.innerHTML = formulaTable(rec);
+    renderScentCard(rec);
     $("#premix").innerHTML = `<b>Faça um pré-blend de 10 ml</b> com os óleos puros e meça a partir dele: ${rec.rows.map(r => `${esc(r.oil.name)} ${r.premixDrops}`).join(" · ")} gotas.`;
 
     const sh = noteShares(b.items).parts;
