@@ -26,7 +26,19 @@
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Estúdio">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
-<style>html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}img{max-width:100%}[hidden]{display:none!important}</style>
+<style>html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}img{max-width:100%}[hidden]{display:none!important}
+/* smoother: tabs, simple mode, action bar */
+.tabs:not(.open) .tab.more:not([aria-selected="true"]) { display: none; }
+.tabs.open { flex-wrap: wrap; }
+.tab-toggle { border-style: dashed; }
+.modebar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: 4px 0 14px; }
+body.simple #strength-field, body.simple #premix { display: none; }
+.actionbar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 40; display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; padding: 10px 12px calc(10px + env(safe-area-inset-bottom, 0px)); background: var(--paper); border-top: 1px solid var(--line-strong); box-shadow: 0 -6px 18px rgba(0,0,0,.06); }
+.actionbar[hidden] { display: none; }
+.actionbar .btn { flex: 1 1 auto; max-width: 240px; }
+body.has-bar { padding-bottom: 76px; }
+body.has-bar .toast { bottom: calc(84px + env(safe-area-inset-bottom, 0px)); }
+</style>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -378,13 +390,14 @@ mark.info { background: var(--info-bg); box-shadow: inset 0 -2px 0 var(--info); 
 
   <nav class="tabs" role="tablist" aria-label="Seções">
     <button class="tab" role="tab" id="tab-blend" aria-controls="panel-blend" aria-selected="true" data-tab="blend">Blend</button>
-    <button class="tab" role="tab" id="tab-moods" aria-controls="panel-moods" aria-selected="false" data-tab="moods">Sensações</button>
-    <button class="tab" role="tab" id="tab-spaces" aria-controls="panel-spaces" aria-selected="false" data-tab="spaces">Empresas</button>
-    <button class="tab" role="tab" id="tab-check" aria-controls="panel-check" aria-selected="false" data-tab="check">Verificar texto</button>
-    <button class="tab" role="tab" id="tab-library" aria-controls="panel-library" aria-selected="false" data-tab="library">Biblioteca</button>
-    <button class="tab" role="tab" id="tab-learn" aria-controls="panel-learn" aria-selected="false" data-tab="learn">Ciência</button>
-    <button class="tab" role="tab" id="tab-safety" aria-controls="panel-safety" aria-selected="false" data-tab="safety">Segurança e regras</button>
+    <button class="tab more" role="tab" id="tab-moods" aria-controls="panel-moods" aria-selected="false" data-tab="moods">Sensações</button>
+    <button class="tab more" role="tab" id="tab-spaces" aria-controls="panel-spaces" aria-selected="false" data-tab="spaces">Empresas</button>
+    <button class="tab more" role="tab" id="tab-check" aria-controls="panel-check" aria-selected="false" data-tab="check">Verificar texto</button>
+    <button class="tab more" role="tab" id="tab-library" aria-controls="panel-library" aria-selected="false" data-tab="library">Biblioteca</button>
+    <button class="tab more" role="tab" id="tab-learn" aria-controls="panel-learn" aria-selected="false" data-tab="learn">Ciência</button>
+    <button class="tab more" role="tab" id="tab-safety" aria-controls="panel-safety" aria-selected="false" data-tab="safety">Segurança e regras</button>
     <button class="tab tab-services" role="tab" id="tab-services" aria-controls="panel-services" aria-selected="false" data-tab="services">Serviços</button>
+    <button class="tab tab-toggle" type="button" id="more-tabs" aria-expanded="false">Mais ferramentas ▾</button>
   </nav>
 
   <main>
@@ -406,6 +419,7 @@ mark.info { background: var(--info-bg); box-shadow: inset 0 -2px 0 var(--info); 
         <div class="result" id="desc-result" hidden></div>
       </div>
 
+      <div class="modebar" role="group" aria-label="Mostrar"><span class="small muted">Mostrar:</span><button type="button" class="chip" data-mode="simple" aria-pressed="true">Simples</button><button type="button" class="chip" data-mode="maker" aria-pressed="false">Já faço velas ou óleos</button></div>
       <div class="workbench" id="workbench">
         <div class="stack" id="bench-left">
           <div class="field">
@@ -504,7 +518,7 @@ mark.info { background: var(--info-bg); box-shadow: inset 0 -2px 0 var(--info); 
       <div class="section" id="saved-section">
         <div class="section-head">
           <h2>Meus blends</h2>
-          <p class="muted small" id="saved-note">O seu diário do nariz, salvo neste navegador. Cheire cada blend numa fita olfativa depois de um minuto, uma hora e um dia, e dê estrelas e uma anotação. Copie ou baixe a receita para guardar onde quiser.</p>
+          <p class="muted small" id="saved-note">O seu diário do nariz, salvo neste navegador. Cheire cada blend numa fita olfativa depois de um minuto, uma hora e um dia, e dê estrelas e uma anotação. Copie ou baixe a receita para guardar onde quiser. Os blends ficam salvos só neste aparelho: toque em “Enviar por e-mail” para guardar uma cópia onde quiser.</p>
         </div>
         <div class="chips" id="saved-sort"></div>
         <div class="saved-list" id="saved"></div>
@@ -688,6 +702,7 @@ mark.info { background: var(--info-bg); box-shadow: inset 0 -2px 0 var(--info); 
     <div class="panel-list" id="picker-list"></div>
   </div>
 </div>
+<div class="actionbar" id="actionbar"><button type="button" class="btn ghost small" id="ab-copy">Copiar</button><button type="button" class="btn ghost small" id="ab-email">Enviar por e-mail</button><button type="button" class="btn primary small" data-order="review">Revisão · R$ 190</button></div>
 <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
 <script>
 /* Sana Essência Estúdio de Blends — biblioteca de conteúdo (português do Brasil).
@@ -1897,13 +1912,15 @@ if (typeof module !== "undefined") module.exports = { fitToSkin, styleFor, distr
       $("#tab-" + t).setAttribute("aria-selected", on ? "true" : "false");
       $("#panel-" + t).hidden = !on;
     });
+    const bar = $("#actionbar"); if (bar) { bar.hidden = name !== "blend"; document.body.classList.toggle("has-bar", name === "blend"); }
     if (!keepScroll) {
       const nav = $(".tabs");
       const y = nav.getBoundingClientRect().top + window.scrollY;
       if (window.scrollY > y) window.scrollTo(0, Math.max(0, y - 2));
     }
   }
-  $$(".tab").forEach(b => b.addEventListener("click", () => openTab(b.dataset.tab)));
+  $$(".tab[data-tab]").forEach(b => b.addEventListener("click", () => openTab(b.dataset.tab)));
+  $("#more-tabs").addEventListener("click", () => { const n = $(".tabs"); const o = n.classList.toggle("open"); $("#more-tabs").setAttribute("aria-expanded", String(o)); $("#more-tabs").textContent = o ? "Menos ferramentas ▴" : "Mais ferramentas ▾"; });
   $(".tabs").addEventListener("keydown", e => {
     if (!["ArrowLeft", "ArrowRight"].includes(e.key)) return;
     const cur = TABS.findIndex(t => $("#tab-" + t).getAttribute("aria-selected") === "true");
@@ -2173,6 +2190,7 @@ if (typeof module !== "undefined") module.exports = { fitToSkin, styleFor, distr
     renderBench();
     if (msg) toast(msg);
   }
+  function scrollToSheet() { const w = document.querySelector(".sheet") || $("#workbench"); const y = w.getBoundingClientRect().top + window.scrollY - 70; window.scrollTo({ top: Math.max(0, y), behavior: "smooth" }); }
   function scrollToBench() { const w = $("#workbench"); const y = w.getBoundingClientRect().top + window.scrollY - 70; window.scrollTo(0, Math.max(0, y)); }
 
   /* ---------- receita, salvar, copiar, baixar ---------- */
@@ -2352,7 +2370,8 @@ if (typeof module !== "undefined") module.exports = { fitToSkin, styleFor, distr
       ${notes.length ? `<ul class="small">${notes.map(w => `<li>${esc(w)}</li>`).join("")}</ul>` : ""}
       <div class="row"><button type="button" class="btn primary small" id="goto-bench">Ver a receita</button><span class="small muted">Carregado como ${esc(f.label.toLowerCase())}. Ajuste o que quiser abaixo.</span></div>`;
     res.hidden = false;
-    $("#goto-bench").addEventListener("click", scrollToBench);
+    $("#goto-bench").addEventListener("click", scrollToSheet);
+    setTimeout(() => { const y = res.getBoundingClientRect().top + window.scrollY - 70; window.scrollTo({ top: Math.max(0, y), behavior: "smooth" }); }, 60);
   }
 
   function localSuggest(text, prefix) {
@@ -2797,6 +2816,22 @@ Responda apenas com JSON exatamente neste formato:
     $("#shop-note").textContent = (SHOP.amazonTag ? "Como Associada da Amazon, a Sana Essência recebe por compras qualificadas, sem custo extra para você. " : "")
       + "Antes de comprar, confira se o fornecedor informa o nome botânico, o laudo do lote e o certificado IFRA, e emite nota fiscal.";
   }
+
+  /* ---------- simple / maker mode ---------- */
+  const KEY_MODE = "se-studio-mode";
+  function setMode(m) {
+    document.body.classList.toggle("simple", m !== "maker");
+    $$(".modebar [data-mode]").forEach(c => c.setAttribute("aria-pressed", String(c.dataset.mode === m)));
+    store.set(KEY_MODE, m);
+  }
+  setMode(store.get(KEY_MODE, "simple"));
+  $$(".modebar [data-mode]").forEach(c => c.addEventListener("click", () => setMode(c.dataset.mode)));
+  $("#ab-copy").addEventListener("click", () => $("#copy-blend").click());
+  $("#ab-email").addEventListener("click", () => {
+    const body = recipeText().slice(0, 1800);
+    window.location.href = "mailto:?subject=" + encodeURIComponent("Meu blend do Estúdio de Blends Sana Essência") + "&body=" + encodeURIComponent(body);
+  });
+  document.body.classList.add("has-bar");
   document.addEventListener("click", e => {
     const o = e.target.closest("[data-order]");
     if (o) { window.location.href = orderLink(o.dataset.order); return; }
