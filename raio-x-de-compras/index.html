@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Raio-X de compras · Sana Essência</title>
+<meta name="description" content="Um raio-x de 5 minutos para quem faz velas, difusores e aromatizadores. Pense nos últimos 6 meses: o que comprou, o que foi desperdiçado e quantas vezes fa">
+<meta property="og:title" content="Raio-X de compras · Sana Essência">
+<meta property="og:description" content="Um raio-x de 5 minutos para quem faz velas, difusores e aromatizadores. Pense nos últimos 6 meses: o que comprou, o que foi desperdiçado e quantas vezes fa">
+<meta property="og:image" content="https://sanaessencia.com.br/og-image.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--cream:#F5F1E8;--cream2:#EDE6D6;--forest:#1F3D2F;--sage:#A7B8A0;--sagew:#E4EADF;--terra:#C0643E;--ink:#1E2520;--muted:#5B665E;--white:#fff;--line:rgba(31,61,47,.14);--r:16px;--serif:"Cormorant Garamond",Georgia,serif;--sans:"Plus Jakarta Sans",system-ui,-apple-system,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--sans);background:var(--cream);color:var(--ink);line-height:1.55;font-size:16px}
+a{color:var(--forest)}
+.wrap{width:min(860px,100% - 32px);margin-inline:auto;padding:24px 0 60px}
+header{display:flex;gap:12px;align-items:center;margin-bottom:18px}
+.mark{width:44px;height:44px;border-radius:50%;background:var(--forest);color:var(--cream);display:grid;place-items:center;font:700 1.5rem var(--serif)}
+.bn{font:700 1.3rem var(--serif);color:var(--forest);line-height:1}.bs{font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--terra)}
+h1{font:700 clamp(2rem,6vw,2.8rem)/1.05 var(--serif);color:var(--forest);margin:8px 0 10px}
+h2{font:700 1.6rem/1.15 var(--serif);color:var(--forest)}
+h3{font:700 1.2rem var(--serif);color:var(--forest)}
+.lead{color:var(--muted);max-width:640px}
+.card{background:var(--white);border:1px solid var(--line);border-radius:var(--r);padding:20px;margin-top:16px}
+.stack{display:grid;gap:12px}
+.eyebrow{font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--terra)}
+.muted{color:var(--muted)}.small{font-size:.88rem}
+label{font-weight:600;font-size:.9rem;display:block;margin-bottom:4px}
+input,select{width:100%;border:1px solid rgba(31,61,47,.3);border-radius:10px;padding:10px 12px;font:500 1rem var(--sans);background:var(--white);color:var(--ink)}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.mat{border:1px solid var(--line);border-radius:14px;padding:14px;display:grid;gap:10px;background:var(--cream)}
+.mat .top{display:flex;gap:8px;align-items:end}
+.mat .top>div{flex:1}
+.x{border:0;background:transparent;font-size:1.3rem;color:var(--muted);cursor:pointer;padding:6px 8px}
+.btn{border:0;border-radius:999px;padding:12px 20px;font:600 .95rem var(--sans);cursor:pointer;display:inline-flex;align-items:center;justify-content:center;text-decoration:none}
+.btn.primary{background:var(--forest);color:var(--cream)}.btn.ghost{background:transparent;border:1.5px solid var(--forest);color:var(--forest)}.btn.accent{background:var(--terra);color:#fff}
+.row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px}
+.kpi{background:var(--cream);border-radius:14px;padding:14px}.kpi b{display:block;font:700 1.9rem/1 var(--serif);color:var(--forest)}.kpi.save b{color:var(--terra)}
+table{width:100%;border-collapse:collapse;font-size:.9rem}th,td{text-align:left;padding:8px 6px;border-bottom:1px solid var(--line)}th{font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}td.n,th.n{text-align:right}
+.note{background:var(--sagew);border-radius:12px;padding:12px 14px;font-size:.88rem}
+details{margin-top:6px}summary{cursor:pointer;font-weight:600;color:var(--forest)}
+.range{display:flex;gap:10px;align-items:center}.range input{padding:0}.range output{min-width:48px;font-weight:700;text-align:right}
+footer{margin-top:30px;font-size:.78rem;color:var(--muted)}
+.toast{position:fixed;left:50%;bottom:20px;transform:translateX(-50%);background:var(--forest);color:var(--cream);padding:10px 16px;border-radius:12px;font-size:.9rem;z-index:9}
+[hidden]{display:none!important}
+@media(max-width:560px){.btn{width:100%}.hide-sm{display:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header><span class="mark" aria-hidden="true">S</span><div><div class="bn">Sana Essência</div><div class="bs" id="t-sub"></div></div></header>
+  <h1 id="t-h1"></h1>
+  <p class="lead" id="t-lead"></p>
+
+  <section class="card stack">
+    <span class="eyebrow" id="t-s1"></span>
+    <div class="grid2">
+      <div><label for="make" id="t-make"></label><select id="make"></select></div>
+      <div><label for="batches" id="t-batches"></label><input id="batches" type="number" min="0" step="1" inputmode="numeric" value="20"></div>
+    </div>
+  </section>
+
+  <section class="card stack">
+    <span class="eyebrow" id="t-s2"></span>
+    <p class="small muted" id="t-s2h"></p>
+    <datalist id="mats"></datalist>
+    <div id="mat-list" class="stack"></div>
+    <div class="row"><button class="btn ghost" id="add" type="button"></button></div>
+  </section>
+
+  <section class="card stack">
+    <span class="eyebrow" id="t-s3"></span>
+    <div class="grid2">
+      <div><label for="orders" id="t-orders"></label><input id="orders" type="number" min="0" step="0.5" inputmode="decimal" value="3"></div>
+      <div><label for="ship" id="t-ship"></label><input id="ship" type="number" min="0" step="0.5" inputmode="decimal"></div>
+      <div><label for="rush" id="t-rush"></label><input id="rush" type="number" min="0" step="1" inputmode="numeric" value="2"></div>
+      <div><label for="rushx" id="t-rushx"></label><input id="rushx" type="number" min="0" step="0.5" inputmode="decimal"></div>
+    </div>
+    <details><summary id="t-assume"></summary>
+      <div class="stack" style="margin-top:10px">
+        <p class="small muted" id="t-assumeh"></p>
+        <div><label for="a-waste" id="t-awaste"></label><div class="range"><input id="a-waste" type="range" min="0" max="100" step="5" value="50"><output id="o-waste"></output></div></div>
+        <div><label for="a-orders" id="t-aorders"></label><input id="a-orders" type="number" min="0.5" step="0.5" value="1"></div>
+        <div><label for="a-disc" id="t-adisc"></label><div class="range"><input id="a-disc" type="range" min="0" max="20" step="1" value="5"><output id="o-disc"></output></div></div>
+      </div>
+    </details>
+  </section>
+
+  <section class="card stack" id="result">
+    <span class="eyebrow" id="t-r"></span>
+    <h2 id="t-rh"></h2>
+    <div class="kpis" id="kpis"></div>
+    <div style="overflow-x:auto"><table id="tbl"></table></div>
+    <div class="note" id="t-honest"></div>
+    <div class="row">
+      <button class="btn primary" id="send" type="button"></button>
+      <button class="btn ghost" id="copy" type="button"></button>
+      <a class="btn accent" id="studio" href="/estudio/"></a>
+    </div>
+    <p class="small muted" id="t-sendh"></p>
+  </section>
+
+  <footer id="t-foot"></footer>
+</div>
+<div class="toast" id="toast" hidden></div>
+<script>
+(function(){
+const L = {"cur": "BRL", "locale": "pt-BR", "mo": "mês", "wasteWord": "desperdiçado", "outWord": "vezes em falta", "t": {"sub": "Raio-X de compras", "h1": "Quanto os seus insumos realmente custam?", "lead": "Um raio-x de 5 minutos para quem faz velas, difusores e aromatizadores. Pense nos últimos 6 meses: o que comprou, o que foi desperdiçado e quantas vezes faltou. Você vê para onde o dinheiro escapa e quanto uma compra mensal planejada poderia economizar.", "s1": "O que você produz", "make": "O que você mais faz?", "batches": "Peças produzidas por mês (em média)", "s2": "Seus insumos · últimos 6 meses", "s2h": "Números aproximados servem. Para cada insumo: gasto médio por mês, quanto mais ou menos nunca foi usado (venceu, derramou, lote perdido, sobrou) e quantas vezes faltou.", "s3": "Seus pedidos", "orders": "Pedidos feitos por mês", "ship": "Frete médio por pedido (R$)", "rush": "Pedidos urgentes ou expressos em 6 meses", "rushx": "Valor extra pago por pedido urgente (R$)", "assume": "Premissas da compra planejada (você pode mudar)", "assumeh": "Com uma compra mensal planejada a partir de receitas reais, supomos menos desperdício, pedidos juntos e um pequeno desconto de assinante. São estimativas, não promessas: ajuste à sua realidade.", "awaste": "Parte do desperdício atual evitada", "aorders": "Pedidos planejados por mês", "adisc": "Desconto de assinante do fornecedor", "r": "Seu resultado", "rh": "Seus últimos 6 meses, e o que o planejamento pode mudar", "honest": "<b>Uma estimativa honesta.</b> O resultado vem das suas respostas e das premissas acima. A economia real depende dos preços do seu fornecedor e de quanto você segue as suas receitas.", "sendh": "“Enviar meu resultado” abre um e-mail para a Sana Essência só com estes números. Só divulgamos totais somados de muitas pessoas, nunca quem enviou, para mostrar aos fornecedores por que a compra planejada importa.", "foot": "Sana Essencia Ltd · Empresa nº 17298884 (Inglaterra e País de Gales) · hello@sanaessencia.co.uk · Suas respostas ficam neste navegador, a menos que você escolha enviá-las."}, "add": "+ Adicionar insumo", "send": "Enviar meu resultado à Sana Essência", "copy": "Copiar resultado", "studio": "Planeje receitas exatas no Estúdio de Blends", "makes": ["Velas", "Difusores de varetas", "Home spray e água de lençol", "Wax melts", "Sabonetes ou banho", "Perfumes ou óleos corporais", "Um pouco de tudo"], "mats": ["Cera de soja", "Cera vegetal", "Cera de coco", "Essências", "Óleos essenciais", "Base para difusor", "Álcool de cereais", "Óleos carreadores", "Pavios", "Potes e recipientes", "Frascos e tampas", "Rótulos e embalagens"], "start": [{"name": "Cera", "spend": 300, "waste": 10, "out": 1}, {"name": "Essências e óleos essenciais", "spend": 400, "waste": 20, "out": 2}, {"name": "Potes e recipientes", "spend": 200, "waste": 5, "out": 1}], "mname": "Insumo", "mspend": "Gasto médio por mês (R$)", "mwaste": "Desperdício aproximado", "mout": "Vezes que faltou", "delw": "Remover", "k1": "Gasto em 6 meses (com frete)", "k2": "Insumos desperdiçados", "k3": "Vezes que faltou", "k4": "Economia possível em 6 meses", "k5": "Economia possível por ano", "k6": "Custo por peça, hoje → planejado", "th1": "Insumo", "th2": "Gasto em 6 meses", "th3": "Desperdício", "th4": "Faltou", "shipRow": "Frete e pedidos urgentes", "sumTitle": "RAIO-X DE COMPRAS · últimos 6 meses", "sumFoot": "Estimativa do Raio-X de compras Sana Essência · sanaessencia.com.br", "mailSubj": "Resultado anônimo do raio-x de compras", "copied": "Resultado copiado", "nocopy": "Não foi possível copiar", "defShip": 25, "defRush": 30};
+const $=s=>document.querySelector(s);
+const cur=L.cur, nf=new Intl.NumberFormat(L.locale,{style:"currency",currency:cur,maximumFractionDigits:0}), pf=new Intl.NumberFormat(L.locale,{maximumFractionDigits:0});
+const money=v=>nf.format(Math.round(v||0));
+function toast(m){const t=$("#toast");t.textContent=m;t.hidden=false;clearTimeout(toast.t);toast.t=setTimeout(()=>t.hidden=true,2600)}
+// static text
+Object.entries(L.t).forEach(([k,v])=>{const e=document.getElementById("t-"+k); if(e) e.innerHTML=v;});
+$("#add").textContent=L.add; $("#send").textContent=L.send; $("#copy").textContent=L.copy; $("#studio").textContent=L.studio;
+$("#make").innerHTML=L.makes.map(m=>`<option>${m}</option>`).join("");
+$("#mats").innerHTML=L.mats.map(m=>`<option value="${m}">`).join("");
+$("#ship").value=L.defShip; $("#rushx").value=L.defRush;
+// materials
+let mats=L.start.map(m=>({...m}));
+const KEY="se-checkup-"+L.locale;
+try{const s=JSON.parse(localStorage.getItem(KEY)||"null"); if(s&&Array.isArray(s.mats)){mats=s.mats; ["make","batches","orders","ship","rush","rushx"].forEach(id=>{if(s[id]!=null)$("#"+id).value=s[id]});}}catch(e){}
+function renderMats(){
+ $("#mat-list").innerHTML=mats.map((m,i)=>`<div class="mat" data-i="${i}">
+  <div class="top"><div><label for="mn${i}">${L.mname}</label><input id="mn${i}" list="mats" data-k="name" value="${(m.name||"").replace(/"/g,"&quot;")}"></div><button class="x" type="button" data-del="${i}" aria-label="${L.delw}">×</button></div>
+  <div class="grid2">
+   <div><label for="ms${i}">${L.mspend}</label><input id="ms${i}" type="number" min="0" step="1" inputmode="decimal" data-k="spend" value="${m.spend}"></div>
+   <div><label for="mw${i}">${L.mwaste}</label><div class="range"><input id="mw${i}" type="range" min="0" max="60" step="5" data-k="waste" value="${m.waste}"><output>${m.waste}%</output></div></div>
+   <div><label for="mo${i}">${L.mout}</label><input id="mo${i}" type="number" min="0" step="1" inputmode="numeric" data-k="out" value="${m.out}"></div>
+  </div></div>`).join("");
+}
+$("#mat-list").addEventListener("input",e=>{const box=e.target.closest(".mat"); if(!box)return; const i=+box.dataset.i,k=e.target.dataset.k; if(!k)return;
+ mats[i][k]=k==="name"?e.target.value:Number(e.target.value)||0; if(k==="waste") e.target.nextElementSibling.textContent=e.target.value+"%"; calc();});
+$("#mat-list").addEventListener("click",e=>{const d=e.target.closest("[data-del]"); if(d){mats.splice(+d.dataset.del,1); renderMats(); calc();}});
+$("#add").addEventListener("click",()=>{mats.push({name:"",spend:0,waste:10,out:0}); renderMats(); calc(); const ins=$("#mat-list").querySelectorAll('input[data-k="name"]'); ins[ins.length-1].focus();});
+document.addEventListener("input",e=>{ if(e.target.closest(".mat"))return; calc(); });
+
+let summary="";
+function calc(){
+ const v=id=>Number($("#"+id).value)||0;
+ const batches=v("batches"), orders=v("orders"), ship=v("ship"), rush=v("rush"), rushx=v("rushx");
+ const aw=v("a-waste")/100, ao=Math.max(.5,v("a-orders")), ad=v("a-disc")/100;
+ $("#o-waste").textContent=Math.round(aw*100)+"%"; $("#o-disc").textContent=Math.round(ad*100)+"%";
+ const rows=mats.filter(m=>m.spend>0).map(m=>{const s6=m.spend*6, w6=s6*m.waste/100; return {...m,s6,w6}});
+ const spend6=rows.reduce((a,r)=>a+r.s6,0), waste6=rows.reduce((a,r)=>a+r.w6,0), outs=rows.reduce((a,r)=>a+(r.out||0),0);
+ const ship6=orders*6*ship, rush6=rush*rushx;
+ // planned monthly order
+ const wasteSaved6=waste6*aw;
+ const shipSaved6=Math.max(0,(orders-ao))*6*ship;
+ const rushSaved6=rush6;
+ const usedSpend6=spend6-wasteSaved6;
+ const disc6=usedSpend6*ad;
+ const total6=wasteSaved6+shipSaved6+rushSaved6+disc6;
+ const perBatch=batches>0?(spend6+ship6+rush6)/(batches*6):0;
+ const perBatchNew=batches>0?(spend6+ship6+rush6-total6)/(batches*6):0;
+ $("#kpis").innerHTML=[
+  [money(spend6+ship6+rush6),L.k1],[money(waste6),L.k2+(spend6?` · ${pf.format(waste6/spend6*100)}%`:"")],[pf.format(outs),L.k3],[money(total6),L.k4,"save"],[money(total6*2),L.k5,"save"],
+  batches?[`${money(perBatch)} → ${money(perBatchNew)}`,L.k6]:null
+ ].filter(Boolean).map(([b,s,c])=>`<div class="kpi ${c||""}"><b>${b}</b><span class="small muted">${s}</span></div>`).join("");
+ $("#tbl").innerHTML=`<thead><tr><th>${L.th1}</th><th class="n">${L.th2}</th><th class="n">${L.th3}</th><th class="n hide-sm">${L.th4}</th></tr></thead><tbody>`+
+  rows.map(r=>`<tr><td>${(r.name||"—").replace(/</g,"&lt;")}</td><td class="n">${money(r.s6)}</td><td class="n">${money(r.w6)}</td><td class="n hide-sm">${pf.format(r.out||0)}</td></tr>`).join("")+
+  `<tr><td>${L.shipRow}</td><td class="n">${money(ship6+rush6)}</td><td class="n">—</td><td class="n hide-sm">—</td></tr></tbody>`;
+ summary=[L.sumTitle, `${L.t.make.replace(/<[^>]+>/g,"")}: ${$("#make").value} · ${L.t.batches.replace(/<[^>]+>/g,"")}: ${batches}`, "",
+  ...rows.map(r=>`- ${r.name||"—"}: ${money(r.spend)}/${L.mo} · ${r.waste}% ${L.wasteWord} · ${r.out||0} ${L.outWord}`),
+  `${L.t.orders.replace(/<[^>]+>/g,"")}: ${orders} · ${L.t.ship.replace(/<[^>]+>/g,"")}: ${money(ship)} · ${L.t.rush.replace(/<[^>]+>/g,"")}: ${rush}`,"",
+  `${L.k1}: ${money(spend6+ship6+rush6)}`,`${L.k2}: ${money(waste6)}`,`${L.k3}: ${outs}`,`${L.k4}: ${money(total6)}`,"",L.sumFoot].join("\n");
+ try{localStorage.setItem(KEY,JSON.stringify({mats,make:$("#make").value,batches,orders,ship,rush,rushx}))}catch(e){}
+}
+$("#copy").addEventListener("click",()=>{try{navigator.clipboard.writeText(summary).then(()=>toast(L.copied),()=>toast(L.nocopy))}catch(e){toast(L.nocopy)}});
+$("#send").addEventListener("click",()=>{window.location.href="mailto:hello@sanaessencia.co.uk?subject="+encodeURIComponent(L.mailSubj)+"&body="+encodeURIComponent(summary.slice(0,1800))});
+renderMats(); calc();
+})();
+</script>
+</body>
+</html>
