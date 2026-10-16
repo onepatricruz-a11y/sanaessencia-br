@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Toolkit de Riscos Psicossociais · Sana Essência</title>
+<meta name="description" content="Ferramenta gratuita para consultorias de SST, RH e contadores: planeje medidas para riscos psicossociais ambiente por ambiente, com NR-1, Guia do MTE, NR-17, NR-24 e base científica graduada.">
+<link rel="canonical" href="https://sanaessencia.com.br/toolkit-riscos-psicossociais/">
+<link rel="alternate" hreflang="en-GB" href="https://sanaessencia.co.uk/psychosocial-risk-toolkit/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Sana Essência">
+<meta property="og:title" content="Toolkit de Riscos Psicossociais, por Sana Essência">
+<meta property="og:description" content="Ferramenta gratuita para consultorias de SST, RH e contadores: planeje medidas para riscos psicossociais ambiente por ambiente, com NR-1, Guia do MTE, NR-17, NR-24 e base científica graduada.">
+<meta property="og:url" content="https://sanaessencia.com.br/toolkit-riscos-psicossociais/">
+<meta property="og:image" content="https://sanaessencia.com.br/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="627">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='46' fill='%231F3D2F'/><text x='50' y='66' font-size='50' text-anchor='middle' fill='%23F5F1E8' font-family='Georgia'>S</text></svg>">
+<style>html{color-scheme:light}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+Condensed:wght@500;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<style>
+/* Layout: an H&S working document. Document-control strip, tabbed workspace, inputs left / generated room plan right, stacking on phones. */
+:root{
+  --paper:#F3F6F7; --surface:#FFFFFF; --ink:#13202A; --ink-2:#4B5966; --ink-3:#71808C; --line:#D6DEE3; --line-2:#E7ECEF;
+  --accent:#0E6470; --accent-ink:#FFFFFF; --accent-soft:#E0EEEF;
+  --amber:#9A6200; --amber-soft:#FAF0DA;
+  --green:#2C744A; --green-soft:#E3F1E8;
+  --blue:#2B5C9C; --blue-soft:#E4ECF7;
+  --red:#AE3636; --red-soft:#F8E4E4;
+  --display:"IBM Plex Sans Condensed","Arial Narrow",Arial,sans-serif;
+  --body:"IBM Plex Sans","Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+  --r:6px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#0E151B; --surface:#152029; --ink:#E4EBEF; --ink-2:#A3B1BC; --ink-3:#7F8E9A; --line:#2A3843; --line-2:#1F2B35;
+  --accent:#55B5BF; --accent-ink:#06262A; --accent-soft:#123238;
+  --amber:#E2AA45; --amber-soft:#35290F;
+  --green:#66C08A; --green-soft:#16301F;
+  --blue:#86AEE6; --blue-soft:#18273B;
+  --red:#EB7C7C; --red-soft:#3A1B1B; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#0E151B; --surface:#152029; --ink:#E4EBEF; --ink-2:#A3B1BC; --ink-3:#7F8E9A; --line:#2A3843; --line-2:#1F2B35;
+  --accent:#55B5BF; --accent-ink:#06262A; --accent-soft:#123238;
+  --amber:#E2AA45; --amber-soft:#35290F;
+  --green:#66C08A; --green-soft:#16301F;
+  --blue:#86AEE6; --blue-soft:#18273B;
+  --red:#EB7C7C; --red-soft:#3A1B1B; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.55;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1180px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3,h4{font-family:var(--display);text-wrap:balance;margin:0;line-height:1.15}
+p{margin:0}
+a{color:var(--accent)}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,label:focus-within{outline:2px solid var(--accent);outline-offset:2px}
+.mono{font-family:var(--mono)}
+.label{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3)}
+
+/* Header */
+header.top{background:var(--surface);border-bottom:1px solid var(--line)}
+.top-in{display:flex;flex-wrap:wrap;gap:16px 28px;align-items:flex-end;justify-content:space-between;padding-block:22px 18px}
+.brand h1{font-size:clamp(26px,4vw,36px);font-weight:700;letter-spacing:-.01em}
+.brand h1 span{color:var(--accent)}
+.brand p{color:var(--ink-2);max-width:62ch;margin-top:8px}
+.by{font-family:var(--display);font-size:15px;font-weight:500;color:var(--ink-2);margin-top:2px}
+.prep{margin-top:8px;font-size:13px;color:var(--ink-2)}
+.prep b{color:var(--ink);font-weight:600}
+.docctl{display:grid;grid-template-columns:repeat(3,auto);border:1px solid var(--line);border-radius:var(--r);font-family:var(--mono);font-size:12px;background:var(--paper)}
+.docctl div{padding:6px 12px;border-left:1px solid var(--line)}
+.docctl div:first-child{border-left:0}
+.docctl small{display:block;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3)}
+@media (max-width:520px){.docctl{grid-template-columns:1fr 1fr 1fr;width:100%}.docctl div{padding:6px 8px}}
+
+nav.tabs{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none}
+nav.tabs::-webkit-scrollbar{display:none}
+.tab{appearance:none;border:0;background:none;font:600 14px var(--body);color:var(--ink-2);padding:12px 14px 11px;border-bottom:3px solid transparent;cursor:pointer;white-space:nowrap}
+.tab:hover{color:var(--ink)}
+.tab[aria-selected="true"]{color:var(--accent);border-bottom-color:var(--accent)}
+
+main{padding-block:26px 48px}
+.panel-intro{display:flex;flex-wrap:wrap;gap:8px 24px;align-items:baseline;justify-content:space-between;margin-bottom:18px}
+.panel-intro h2{font-size:24px;font-weight:600}
+.panel-intro p{color:var(--ink-2);max-width:70ch}
+
+/* Planner */
+.planner{display:grid;grid-template-columns:minmax(0,370px) minmax(0,1fr);gap:24px;align-items:start}
+@media (max-width:880px){.planner{grid-template-columns:1fr}}
+.inputs{display:flex;flex-direction:column;gap:20px}
+fieldset{border:0;margin:0;padding:0;min-width:0}
+legend{font-family:var(--display);font-weight:600;font-size:16px;margin-bottom:8px;padding:0}
+legend .label{display:block;margin-bottom:2px}
+.rooms{display:grid;gap:6px}
+.opt{position:relative;display:flex;gap:10px;align-items:flex-start;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:10px 12px;cursor:pointer}
+.opt:hover{border-color:var(--ink-3)}
+.opt input{margin:3px 0 0;accent-color:var(--accent);flex:none}
+.opt b{display:block;font-weight:600;font-size:14px}
+.opt small{display:block;color:var(--ink-2);font-size:12.5px;line-height:1.4}
+.opt:has(input:checked){border-color:var(--accent);background:var(--accent-soft)}
+.stds{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+@media (max-width:400px){.stds{grid-template-columns:1fr}}
+.toggle{display:flex;gap:10px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:10px 12px;cursor:pointer;font-size:14px}
+.toggle input{accent-color:var(--amber);width:16px;height:16px}
+
+.plan{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);min-width:0}
+.plan-head{display:flex;flex-wrap:wrap;gap:10px 20px;justify-content:space-between;align-items:flex-start;padding:18px 20px;border-bottom:1px solid var(--line)}
+.plan-head h3{font-size:22px;font-weight:600}
+.plan-head p{color:var(--ink-2);font-size:13.5px;margin-top:4px}
+.btn{appearance:none;border:1px solid var(--accent);background:var(--accent);color:var(--accent-ink);font:600 13.5px var(--body);padding:8px 14px;border-radius:var(--r);cursor:pointer}
+.btn:hover{filter:brightness(1.08)}
+.btn.ghost{background:transparent;color:var(--accent)}
+.copied{font-size:12.5px;color:var(--green);margin-top:6px;min-height:1em;text-align:right}
+.step{padding:18px 20px;border-bottom:1px solid var(--line-2)}
+.step:last-child{border-bottom:0}
+.step-h{display:flex;gap:12px;align-items:baseline;margin-bottom:10px}
+.step-n{font-family:var(--mono);font-size:12px;color:var(--accent);border:1px solid var(--accent);border-radius:999px;width:24px;height:24px;display:grid;place-items:center;flex:none;transform:translateY(-2px)}
+.step-h h4{font-size:17px;font-weight:600}
+.step-h p{color:var(--ink-2);font-size:13px}
+.step.scent .step-n{color:var(--amber);border-color:var(--amber)}
+ul.acts{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+ul.acts li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 14px;padding:9px 0;border-top:1px dashed var(--line)}
+ul.acts li:first-child{border-top:0;padding-top:2px}
+.act-t{font-size:14px}
+.act-t b{font-weight:600}
+.tags{display:flex;flex-wrap:wrap;gap:4px;justify-content:flex-end;align-content:flex-start}
+@media (max-width:560px){ul.acts li{grid-template-columns:1fr}.tags{justify-content:flex-start}}
+.tag{font-family:var(--mono);font-size:10.5px;letter-spacing:.03em;padding:2px 7px;border-radius:3px;white-space:nowrap;border:1px solid var(--line);color:var(--ink-2);background:var(--paper)}
+.tag.law{border-color:var(--ink-2);color:var(--ink)}
+.tag.est{background:var(--green-soft);color:var(--green);border-color:transparent}
+.tag.sup{background:var(--blue-soft);color:var(--blue);border-color:transparent}
+.tag.emg{background:var(--amber-soft);color:var(--amber);border-color:transparent}
+.tag.risk{background:var(--red-soft);color:var(--red);border-color:transparent}
+.empty{color:var(--ink-2);font-size:14px;padding:6px 0}
+.subhead{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);margin:14px 0 4px}
+.subhead:first-child{margin-top:0}
+
+.scent-box{border:1px solid var(--line);border-radius:var(--r);padding:12px 14px;background:var(--paper)}
+.scent-box.off{border-style:dashed}
+.scent-profile{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:baseline;justify-content:space-between}
+.scent-profile b{font-family:var(--display);font-size:16px;font-weight:600}
+.scent-box p{font-size:13.5px;color:var(--ink-2);margin-top:6px}
+.gate{margin-top:12px;display:grid;gap:4px}
+.gate label{display:flex;gap:9px;align-items:flex-start;font-size:13.5px;cursor:pointer;padding:3px 0}
+.gate input{accent-color:var(--amber);margin-top:3px;flex:none}
+.pill{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:11.5px;padding:3px 9px;border-radius:999px;font-weight:500}
+.pill::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor}
+.pill.no{background:var(--red-soft);color:var(--red)}
+.pill.yes{background:var(--green-soft);color:var(--green)}
+.pill.na{background:var(--line-2);color:var(--ink-2)}
+.note{font-size:13px;color:var(--ink-2);border-left:3px solid var(--amber);padding:2px 0 2px 10px;margin-top:12px}
+.rs{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:6px}
+@media (max-width:640px){.rs{grid-template-columns:1fr}}
+.rs div{border:1px solid var(--line);border-radius:var(--r);padding:8px 10px;font-size:12.5px;color:var(--ink-2);line-height:1.4}
+.rs b{display:block;font-family:var(--display);color:var(--ink);font-size:14px;font-weight:600}
+
+/* Room check */
+.check{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:24px;align-items:start}
+@media (max-width:880px){.check{grid-template-columns:1fr}}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:18px 20px;min-width:0}
+.card h3{font-size:18px;font-weight:600;margin-bottom:4px}
+.card > p{color:var(--ink-2);font-size:13.5px}
+.selrow{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;margin:14px 0 6px}
+select{font:500 14px var(--body);color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:7px 10px;max-width:100%}
+.example{font-family:var(--mono);font-size:11px;color:var(--amber);background:var(--amber-soft);padding:2px 8px;border-radius:3px}
+.factor{display:grid;grid-template-columns:minmax(0,1fr) 120px 34px;gap:4px 12px;align-items:center;padding:10px 0;border-top:1px solid var(--line-2)}
+.factor:first-of-type{border-top:0}
+.factor .lab{font-size:13.5px}
+.factor .lab small{display:block;font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3)}
+.factor input[type=range]{width:100%;accent-color:var(--accent)}
+.factor output{font-family:var(--mono);font-size:13px;text-align:right;font-variant-numeric:tabular-nums}
+@media (max-width:460px){.factor{grid-template-columns:minmax(0,1fr) 34px}.factor input[type=range]{grid-column:1 / -1;grid-row:2}}
+.group-h{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin:16px 0 0}
+.bars{display:grid;gap:7px;margin-top:12px}
+.bar{display:grid;grid-template-columns:96px minmax(0,1fr) 30px;gap:10px;align-items:center;font-size:12.5px}
+.bar span:first-child{color:var(--ink-2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.track{height:12px;background:var(--line-2);border-radius:2px;position:relative;overflow:hidden}
+.track i{position:absolute;inset:0 auto 0 0;border-radius:2px}
+.track .r{background:var(--red)} .track .a{background:var(--amber)} .track .g{background:var(--green)}
+.track::after{content:"";position:absolute;left:62.5%;top:-2px;bottom:-2px;width:1px;background:var(--ink-3);opacity:.6}
+.bar b{font-family:var(--mono);font-weight:500;text-align:right;font-variant-numeric:tabular-nums}
+.legend{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:12px;color:var(--ink-2);margin-top:10px}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.legend i{width:10px;height:10px;border-radius:2px;display:inline-block}
+.prio{list-style:none;padding:0;margin:14px 0 16px;display:grid;gap:8px}
+.prio li{border:1px solid var(--line);border-radius:var(--r);padding:10px 12px;font-size:13.5px}
+.prio li b{font-family:var(--display);font-size:15px;font-weight:600;display:flex;justify-content:space-between;gap:10px}
+.prio li b em{font-style:normal;font-family:var(--mono);font-size:12px;color:var(--red)}
+.prio li p{color:var(--ink-2);margin-top:3px}
+.facil{margin-top:16px;border-top:1px solid var(--line);padding-top:14px}
+.facil ol{margin:8px 0 0;padding-left:20px;display:grid;gap:5px;font-size:13.5px;color:var(--ink-2)}
+
+/* Law */
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border:1px solid var(--line);border-radius:var(--r);background:var(--surface);margin-bottom:22px}
+@media (max-width:760px){.stats{grid-template-columns:1fr 1fr}}
+.stat{padding:14px 16px;border-left:1px solid var(--line)}
+.stat:first-child{border-left:0}
+@media (max-width:760px){.stat:nth-child(3){border-left:0}.stat:nth-child(n+3){border-top:1px solid var(--line)}}
+.stat b{display:block;font-family:var(--display);font-size:clamp(24px,3.4vw,32px);font-weight:700;color:var(--accent);font-variant-numeric:tabular-nums;line-height:1.1}
+.stat span{font-size:12.5px;color:var(--ink-2);display:block;margin-top:4px;line-height:1.4}
+.stats-src{grid-column:1 / -1;border-top:1px solid var(--line);padding:6px 16px;font-size:11.5px;color:var(--ink-3)}
+.why{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px;margin-bottom:24px}
+@media (max-width:760px){.why{grid-template-columns:1fr}}
+.why .card{border-left:4px solid var(--accent)}
+.why .card.date{border-left-color:var(--amber)}
+.why h3{font-size:17px}
+.why p{font-size:14px;color:var(--ink-2);margin-top:4px}
+.laws{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+@media (max-width:760px){.laws{grid-template-columns:1fr}}
+.laws .law-c:last-child:nth-child(odd){grid-column:1 / -1}
+.law-c{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:14px 16px;display:flex;flex-direction:column;gap:6px;min-width:0}
+.law-top{display:flex;gap:8px;justify-content:space-between;align-items:flex-start}
+.law-c h4{font-size:16px;font-weight:600}
+.law-c p{font-size:13.5px;color:var(--ink-2)}
+.law-c .use{font-size:13px;color:var(--ink);border-top:1px dashed var(--line);padding-top:7px;margin-top:2px}
+.law-c .use b{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);font-weight:500;margin-right:6px}
+.kind{font-family:var(--mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;padding:2px 7px;border-radius:3px;white-space:nowrap;flex:none}
+.kind.l{background:var(--ink);color:var(--surface)}
+.kind.g{background:var(--accent-soft);color:var(--accent)}
+.kind.s{background:var(--line-2);color:var(--ink-2)}
+.fives{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:0;border:1px solid var(--line);border-radius:var(--r);background:var(--surface);margin:24px 0 0}
+@media (max-width:760px){.fives{grid-template-columns:1fr}}
+.fives div{padding:12px 14px;border-left:1px solid var(--line);font-size:13px;color:var(--ink-2)}
+.fives div:first-child{border-left:0}
+@media (max-width:760px){.fives div{border-left:0;border-top:1px solid var(--line)}.fives div:first-child{border-top:0}}
+.fives b{display:block;font-family:var(--display);color:var(--ink);font-size:15px;font-weight:600}
+
+/* Evidence */
+.grades{display:flex;flex-wrap:wrap;gap:10px 18px;margin-bottom:16px;font-size:13px;color:var(--ink-2)}
+.grades span{display:inline-flex;gap:8px;align-items:center}
+.tablewrap{overflow-x:auto;background:var(--surface);border:1px solid var(--line);border-radius:var(--r)}
+table{border-collapse:collapse;width:100%;min-width:720px;font-size:13.5px}
+th{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);text-align:left;font-weight:500;padding:10px 14px;border-bottom:1px solid var(--line);background:var(--paper)}
+td{padding:11px 14px;border-bottom:1px solid var(--line-2);vertical-align:top}
+tr:last-child td{border-bottom:0}
+td:first-child{font-family:var(--display);font-weight:600;font-size:15px;white-space:nowrap}
+td small{display:block;color:var(--ink-3);font-size:12px;margin-top:3px}
+.verdict{margin-top:18px;background:var(--amber-soft);border-radius:var(--r);padding:14px 16px;font-size:14px}
+.verdict b{font-family:var(--display);font-size:16px;display:block;margin-bottom:2px}
+.refs{margin-top:22px;columns:2 320px;column-gap:28px;font-size:12.5px;color:var(--ink-2)}
+.refs p{break-inside:avoid;margin-bottom:7px;padding-left:14px;text-indent:-14px}
+
+/* Partners */
+.partner{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:24px;align-items:start}
+@media (max-width:880px){.partner{grid-template-columns:1fr}}
+.offer{list-style:none;padding:0;margin:12px 0 0;display:grid;gap:10px}
+.offer li{display:grid;grid-template-columns:22px minmax(0,1fr);gap:10px;font-size:14px}
+.offer li::before{content:"";width:14px;height:14px;margin-top:4px;border:2px solid var(--accent);border-radius:2px;background:linear-gradient(var(--accent),var(--accent)) center/6px 6px no-repeat}
+.offer b{font-weight:600}
+.field{display:grid;gap:5px;margin-top:14px}
+.field label{font-size:13px;font-weight:600}
+.field input{font:15px var(--body);color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:9px 11px;width:100%}
+.contact{margin-top:14px;display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.contact code{font-family:var(--mono);font-size:14px;background:var(--paper);border:1px solid var(--line);padding:6px 10px;border-radius:var(--r);user-select:all}
+
+footer{border-top:1px solid var(--line);background:var(--surface)}
+.foot{padding-block:18px 26px;font-size:12.5px;color:var(--ink-2);display:grid;gap:6px}
+.foot b{color:var(--ink)}
+
+@media (prefers-reduced-motion:no-preference){.track i{transition:width .25s ease}}
+textarea.fallback{width:100%;height:160px;margin-top:8px;font:12px var(--mono);background:var(--paper);color:var(--ink);border:1px solid var(--line);border-radius:var(--r);padding:8px}
+
+.home{display:inline-block;font-family:var(--mono);font-size:12px;color:var(--ink-2);text-decoration:none;margin-bottom:10px}
+.home:hover{color:var(--accent)}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <div class="top-in">
+      <div class="brand">
+        <a class="home" href="/">&larr; sanaessencia.com.br</a>
+        <div class="label">Ferramentas com base científica para ambientes de trabalho seguros e confortáveis</div>
+        <h1>Toolkit de Riscos <span>Psicossociais</span></h1>
+        <div class="by">por Sana Essência</div>
+        <p>Planeje medidas de controle ambiente por ambiente, com base na NR-1, no Guia do MTE, na NR-17 e numa base científica graduada. O aroma é opcional e vem por último, só com consentimento.</p>
+        <div class="prep" id="prepLine" hidden>Elaborado por <b id="prepName"></b> · Com tecnologia Sana Essência</div>
+      </div>
+      <div class="docctl" aria-label="Controle do documento">
+        <div><small>Ref.</small>SE-RPS-BR</div>
+        <div><small>Versão</small>1.0</div>
+        <div><small>Conteúdo revisado</small>16 out 2026</div>
+      </div>
+    </div>
+    <nav class="tabs" role="tablist" aria-label="Seções">
+      <button class="tab" role="tab" id="t-planner" aria-controls="planner" aria-selected="true">Planejador por ambiente</button>
+      <button class="tab" role="tab" id="t-check" aria-controls="check" aria-selected="false">Checagem em equipe</button>
+      <button class="tab" role="tab" id="t-law" aria-controls="law" aria-selected="false">A lei, explicada</button>
+      <button class="tab" role="tab" id="t-evidence" aria-controls="evidence" aria-selected="false">Base científica</button>
+      <button class="tab" role="tab" id="t-partners" aria-controls="partners" aria-selected="false">Para consultores</button>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+<!-- ============ PLANEJADOR ============ -->
+<section id="planner" role="tabpanel" aria-labelledby="t-planner">
+  <div class="panel-intro">
+    <h2>Planejador por ambiente</h2>
+    <p>Escolha um ambiente e os fatores psicossociais que aparecem nele. O plano segue a ordem que o Guia do MTE pede: primeiro mudar a organização do trabalho, depois o ambiente físico e, só então, medidas de conforto.</p>
+  </div>
+  <div class="planner">
+    <div class="inputs">
+      <fieldset>
+        <legend><span class="label">Passo A</span>Qual ambiente?</legend>
+        <div class="rooms" id="roomOpts"></div>
+      </fieldset>
+      <fieldset>
+        <legend><span class="label">Passo B</span>Quais fatores aparecem?</legend>
+        <div class="stds" id="stdOpts"></div>
+      </fieldset>
+      <fieldset>
+        <legend><span class="label">Passo C</span>Camada de conforto</legend>
+        <label class="toggle"><input type="checkbox" id="scentOn" checked> Incluir a camada opcional de aroma</label>
+      </fieldset>
+    </div>
+
+    <article class="plan" aria-live="polite">
+      <div class="plan-head">
+        <div>
+          <div class="label" id="planLabel">Plano do ambiente</div>
+          <h3 id="planTitle">Sala de reunião</h3>
+          <p id="planSub"></p>
+        </div>
+        <div>
+          <button class="btn" id="copyBtn" type="button">Copiar plano em texto</button>
+          <div class="copied" id="copied"></div>
+        </div>
+      </div>
+      <div id="fallbackWrap" hidden><div class="step"><p class="empty">Seu navegador bloqueou a cópia. Selecione o texto abaixo e copie manualmente.</p><textarea class="fallback" id="fallbackText" readonly></textarea></div></div>
+
+      <div class="step">
+        <div class="step-h"><span class="step-n">1</span><div><h4>Atacar a causa: medidas organizacionais</h4><p>Com base nos fatores do Guia do MTE. São as medidas que mais pesam no GRO/PGR.</p></div></div>
+        <div id="orgOut"></div>
+      </div>
+      <div class="step">
+        <div class="step-h"><span class="step-n">2</span><div><h4>Melhorar o ambiente: medidas ambientais</h4><p>Conforto acústico, térmico, ar e iluminação. Cada medida mostra a base legal e o grau de evidência.</p></div></div>
+        <ul class="acts" id="envOut"></ul>
+      </div>
+      <div class="step scent">
+        <div class="step-h"><span class="step-n">3</span><div><h4>Camada opcional de conforto: aroma</h4><p>Nunca é medida de controle de risco psicossocial. Use só se a equipe quiser e todos os itens abaixo estiverem atendidos.</p></div></div>
+        <div id="scentOut"></div>
+      </div>
+      <div class="step">
+        <div class="step-h"><span class="step-n">4</span><div><h4>Tornar rotina</h4><p>Ciclo de melhoria contínua do GRO, aplicado a este ambiente.</p></div></div>
+        <div class="rs" id="rsOut"></div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ============ CHECAGEM ============ -->
+<section id="check" role="tabpanel" aria-labelledby="t-check" hidden>
+  <div class="panel-intro">
+    <h2>Checagem em equipe</h2>
+    <p>Um exercício de 15 minutos para treinamentos, SIPAT ou reunião de equipe. Cada pessoa avalia dez frases de 1 (discordo totalmente) a 5 (concordo totalmente). Insira a média da equipe e transforme as notas mais baixas em plano.</p>
+  </div>
+  <div class="check">
+    <div class="card">
+      <h3>Notas da equipe</h3>
+      <p>Um ponto de partida para a conversa sobre um ambiente. Não substitui o levantamento de riscos psicossociais do PGR.</p>
+      <div class="selrow">
+        <label for="checkRoom" class="label">Ambiente avaliado</label>
+        <select id="checkRoom"></select>
+        <span class="example" id="exampleTag">Notas de exemplo</span>
+      </div>
+      <div id="factorList"></div>
+    </div>
+    <div class="card">
+      <h3>Perfil do ambiente</h3>
+      <p id="profileSum"></p>
+      <div class="bars" id="bars"></div>
+      <div class="legend"><span><i style="background:var(--red)"></i>Abaixo de 2,5: agir agora</span><span><i style="background:var(--amber)"></i>2,5 a 3,4: revisar</span><span><i style="background:var(--green)"></i>3,5 ou mais: manter</span><span><i style="background:var(--ink-3);width:2px"></i>linha 3,5</span></div>
+      <div class="subhead" style="margin-top:18px">Três prioridades</div>
+      <ol class="prio" id="prio"></ol>
+      <button class="btn" type="button" id="toPlanner">Montar plano com estes resultados</button>
+      <div class="facil">
+        <div class="label">Notas para quem conduz</div>
+        <ol>
+          <li>Colete as notas de forma anônima (papel ou enquete rápida). Divulgue apenas a média, como pede o Guia do MTE.</li>
+          <li>Comece pelas duas notas mais baixas. Pergunte o que as deixa baixas e o que faria subir um ponto.</li>
+          <li>Combine no máximo três ações, cada uma com responsável e prazo.</li>
+          <li>Repita a checagem em três meses e compare. Leve os resultados à CIPA, se houver.</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LEI ============ -->
+<section id="law" role="tabpanel" aria-labelledby="t-law" hidden>
+  <div class="panel-intro">
+    <h2>A lei, explicada</h2>
+    <p>No Brasil, os riscos psicossociais entram pela gestão de riscos ocupacionais da NR-1, com apoio da NR-17 (ergonomia), da NR-24, das regras da CIPA sobre assédio e das normas de qualidade do ar.</p>
+  </div>
+  <div class="stats">
+    <div class="stat"><b>546 mil</b><span>afastamentos do trabalho por transtornos mentais em 2025, o maior número da década</span></div>
+    <div class="stat"><b>166 mil</b><span>afastamentos por ansiedade em 2025</span></div>
+    <div class="stat"><b>126 mil</b><span>afastamentos por episódios depressivos em 2025</span></div>
+    <div class="stat"><b>165</b><span>doenças incluídas na lista de doenças relacionadas ao trabalho em 2023, entre elas burnout, ansiedade e depressão</span></div>
+    <div class="stats-src">Fontes: Ministério da Previdência Social / INSS (dados de 2025, divulgados em janeiro de 2026); Portaria GM/MS nº 1.999/2023.</div>
+  </div>
+  <div class="why">
+    <div class="card date"><h3>Desde 26 de maio de 2026: riscos psicossociais no GRO</h3><p>Com a Portaria MTE nº 1.419/2024 (prorrogada pela Portaria nº 765/2025), os fatores de riscos psicossociais passaram a fazer parte obrigatória do Gerenciamento de Riscos Ocupacionais. As multas ligadas a esses itens estão suspensas pelo STF (ADPF 1316), com prorrogação de 90 dias decidida em setembro de 2026, mas a norma continua em vigor e o risco trabalhista também.</p></div>
+    <div class="card"><h3>Organização primeiro, indivíduo depois</h3><p>O Guia do MTE dá preferência a intervenções que mudam a organização do trabalho, em vez de ações individuais ou comportamentais. Por isso este toolkit coloca o aroma por último.</p></div>
+  </div>
+  <div class="laws" id="lawCards"></div>
+  <div class="fives">
+    <div><b>Ouvir</b>Conversar com os trabalhadores e a CIPA, com anonimato garantido.</div>
+    <div><b>Identificar</b>Levantar os fatores ligados ao trabalho, não sintomas individuais.</div>
+    <div><b>Agir</b>Priorizar medidas que mudam a organização do trabalho.</div>
+    <div><b>Revisar</b>Verificar se as medidas funcionaram e ajustar o plano de ação.</div>
+    <div><b>Registrar</b>Manter o inventário de riscos e o plano de ação do PGR atualizados.</div>
+  </div>
+  <p class="label" style="margin-top:8px">O ciclo do GRO aplicado aos riscos psicossociais</p>
+</section>
+
+<!-- ============ EVIDÊNCIAS ============ -->
+<section id="evidence" role="tabpanel" aria-labelledby="t-evidence" hidden>
+  <div class="panel-intro">
+    <h2>Base científica</h2>
+    <p>O que a pesquisa sustenta, em linguagem direta, para você citar em relatórios. Os fatores ambientais com evidência mais forte vêm primeiro; o aroma vem por último, porque tem a evidência mais fraca e um risco conhecido.</p>
+  </div>
+  <div class="grades">
+    <span><span class="tag est">Consolidada</span> Norma oficial e estudos controlados</span>
+    <span><span class="tag sup">Sustentada</span> Estudos controlados ou de campo, na mesma direção</span>
+    <span><span class="tag emg">Emergente</span> Estudos pequenos de laboratório, efeito varia por pessoa</span>
+    <span><span class="tag risk">Risco conhecido</span> Evidência populacional de dano</span>
+  </div>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>Fator</th><th>O que os estudos encontraram</th><th>Grau</th><th>Use para</th></tr></thead>
+      <tbody id="evRows"></tbody>
+    </table>
+  </div>
+  <div class="verdict"><b>Como a Sana Essência posiciona o aroma</b>O aroma pode tornar um ambiente mais agradável e, para algumas pessoas, melhorar o humor ou o estado de alerta. Ele não trata estresse e não substitui nenhuma medida dos passos 1 e 2. Em pesquisas nacionais em quatro países, cerca de um em cada três adultos relatou problemas de saúde com produtos perfumados. Por isso o aroma é sempre opcional, localizado, suave e pode ser desligado a qualquer momento.</div>
+  <div class="refs" id="refs"></div>
+</section>
+
+<!-- ============ CONSULTORES ============ -->
+<section id="partners" role="tabpanel" aria-labelledby="t-partners" hidden>
+  <div class="panel-intro">
+    <h2>Para consultores</h2>
+    <p>Para consultorias de SST, técnicos e engenheiros de segurança, RH e escritórios de contabilidade. Ofereça o toolkit aos seus clientes com o seu nome. O relacionamento com o cliente continua seu; a Sana Essência mantém o conteúdo atualizado conforme a lei muda.</p>
+  </div>
+  <div class="partner">
+    <div class="card">
+      <h3>O que você recebe</h3>
+      <ul class="offer">
+        <li><span><b>Seu nome em cada plano.</b> Os planos e o texto copiado levam o nome da sua empresa, com "Com tecnologia Sana Essência" abaixo.</span></li>
+        <li><span><b>Uma ferramenta para visitas técnicas.</b> Monte o plano do ambiente com o cliente durante a inspeção e cole no seu relatório ou no plano de ação do PGR.</span></li>
+        <li><span><b>Uma atividade pronta para treinamentos.</b> A checagem em equipe leva 15 minutos e gera ações com responsáveis. Funciona bem na SIPAT.</span></li>
+        <li><span><b>Uma base científica para citar.</b> Graduada em linguagem direta, com fontes, para o cliente entender o porquê de cada medida.</span></li>
+        <li><span><b>Atualizações conforme a lei muda.</b> Por exemplo, novas orientações do MTE sobre o capítulo 1.5 da NR-1.</span></li>
+        <li><span><b>Comissão por indicação.</b> Você ganha comissão como afiliado do Kit NR-1: Riscos Psicossociais Descomplicados (R$ 85), vendido na Hotmart.</span></li>
+      </ul>
+      <p style="margin-top:14px;font-size:14px"><a href="https://pay.hotmart.com/T107813691K" target="_blank" rel="noopener">Conheça o Kit NR-1 na Hotmart</a></p>
+    </div>
+    <div class="card">
+      <h3>Teste com o seu nome</h3>
+      <p>Digite o nome da sua empresa para ver como os planos aparecem para os seus clientes.</p>
+      <div class="field">
+        <label for="prepInput">Nome da consultoria</label>
+        <input id="prepInput" type="text" placeholder="ex.: Prevenir Consultoria em SST" autocomplete="organization">
+      </div>
+      <div class="subhead" style="margin-top:20px">Fale com a gente</div>
+      <p style="font-size:14px;color:var(--ink-2)">Temos vagas para parceiros fundadores: consultorias de SST, RH e contabilidade em todo o Brasil, começando por São Paulo.</p>
+      <div class="contact"><code id="email">hello@sanaessencia.co.uk</code><button class="btn ghost" type="button" id="copyEmail">Copiar e-mail</button></div>
+      <div class="copied" id="emailCopied" style="text-align:left"></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <p><b>Importante.</b> O Toolkit de Riscos Psicossociais apoia, e não substitui, o GRO/PGR, a AEP e a AET elaborados por profissional legalmente habilitado. É informação geral, não é aconselhamento jurídico nem médico. Não fazemos alegações de saúde sobre nenhum aroma.</p>
+    <p>Sana Essencia Ltd · Empresa nº 17298884 (Inglaterra e País de Gales) · <a href="/">sanaessencia.com.br</a> · <a href="https://sanaessencia.co.uk/psychosocial-risk-toolkit/" hreflang="en-GB">English version</a></p>
+  </div>
+</footer>
+
+<script>
+(function(){
+"use strict";
+const $=s=>document.querySelector(s);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const n1=v=>v.toFixed(1).replace(".",",");
+const GRADE={est:"Consolidada",sup:"Sustentada",emg:"Emergente",risk:"Risco conhecido"};
+
+const STDS=[
+ {id:"demands",name:"Demandas",q:"Sobrecarga, subcarga, metas",acts:[
+   "Revisar com a equipe volume de trabalho, metas e prazos; combinar o que pode ser cortado, delegado ou reprogramado.",
+   "Verificar jornadas: pausas de fato usufruídas, horas extras e mensagens fora do expediente.",
+   "Conferir se metas e avaliação de desempenho ligadas a remuneração consideram os efeitos sobre a saúde (NR-17, 17.4.4)."]},
+ {id:"control",name:"Controle e autonomia",q:"Voz sobre como o trabalho é feito",acts:[
+   "Dar às pessoas voz sobre como e quando as tarefas são feitas, e sobre a ordem das prioridades.",
+   "Permitir escolher onde fazer o trabalho que exige concentração, por exemplo reservando uma sala silenciosa.",
+   "Quando possível, deixar as pessoas ajustarem o próprio entorno: janelas, persianas, iluminação local."]},
+ {id:"support",name:"Suporte e reconhecimento",q:"Apoio, recursos, reconhecimento",acts:[
+   "Treinar lideranças para perceber sinais precoces e conduzir uma conversa sobre bem-estar.",
+   "Garantir que todos saibam onde buscar ajuda: liderança, RH, SESMT, programa de apoio ou plano de saúde.",
+   "Reconhecer o trabalho bem feito de forma regular e justa, não só com metas atingidas."]},
+ {id:"relationships",name:"Relacionamentos e assédio",q:"Conflitos, assédio, violência",acts:[
+   "Ter regras de conduta sobre assédio sexual e outras violências, amplamente divulgadas (Lei 14.457/2022).",
+   "Manter canal de denúncias com anonimato garantido, apuração dos fatos e aplicação de sanções quando cabível.",
+   "Fazer treinamento sobre violência, assédio, igualdade e diversidade no mínimo a cada 12 meses, para todos os níveis."]},
+ {id:"role",name:"Papel e justiça",q:"Clareza de função, justiça",acts:[
+   "Conferir se cada pessoa entende sua função e responsabilidades, e resolver demandas conflitantes.",
+   "Deixar critérios de promoção, escalas e distribuição de tarefas claros e iguais para todos.",
+   "Definir regras simples e visíveis para ambientes compartilhados: quem reserva, para quê e por quanto tempo."]},
+ {id:"change",name:"Mudanças e comunicação",q:"Mudanças, comunicação, isolamento",acts:[
+   "Consultar os trabalhadores e a CIPA antes de mudar layout, escalas ou o ambiente, incluindo qualquer aroma.",
+   "Explicar o motivo, o cronograma e como dar retorno; depois, contar o que mudou com base no retorno.",
+   "Para quem trabalha remoto ou isolado, garantir contato regular com a liderança e a equipe."]}
+];
+
+const L={nr1:"NR-1, cap. 1.5 (GRO)",guia:"Guia MTE",nr17a:"NR-17, 17.8.4.1",nr17t:"NR-17, 17.8.4.2",nr17l:"NR-17, 17.8.3 · NHO 11",nr17o:"NR-17, 17.4",nr24:"NR-24, 24.5",ar:"NBR 17037 · Lei 13.589/2018",lbi:"LBI, art. 37",ass:"Lei 14.457/2022 · NR-5"};
+
+const ROOMS={
+ open:{name:"Escritório aberto",short:"Concentração, ar compartilhado, conversas ao fundo",
+  sub:"Conversas ao fundo e ar abafado são os dois fatores ambientais mais claramente ligados a pior concentração em escritórios.",
+  focus:["Combinar horários ou zonas de silêncio para trabalho que exige concentração, e um lugar para ligações.","Verificar se o sistema de mesas compartilhadas não deixa pessoas sem um lugar confiável para trabalhar."],
+  env:[
+   {t:"Ar",x:"Em ambientes climatizados, manter o PMOC em dia. Referência: CO2 até 700 ppm acima do nível externo. Medir com um monitor na altura da cabeça, longe de janelas.",law:L.ar,ev:"est"},
+   {t:"Ruído",x:"Reduzir a inteligibilidade da fala: painéis de absorção, zonas separadas para ligações e concentração, salas silenciosas reserváveis. Ruído de fundo até 65 dB(A) quando não houver norma técnica específica.",law:L.nr17a,ev:"sup"},
+   {t:"Temperatura",x:"Controlar temperatura, velocidade e umidade do ar. Em ambientes climatizados, faixa de 18 a 25 °C, sem correntes de ar direto nas pessoas.",law:L.nr17t,ev:"sup"},
+   {t:"Iluminação",x:"Iluminação adequada à atividade, com níveis mínimos da NHO 11 e sem ofuscamento nas telas.",law:L.nr17l},
+   {t:"Plantas",x:"Distribuir plantas pelo espaço, não só na recepção.",ev:"sup"}],
+  scent:{mode:"off",profile:"Sem aroma (padrão)",why:"No ar compartilhado ninguém consegue optar por não sentir. Mantenha escritórios abertos sem aroma e ofereça qualquer aroma só numa sala separada e opcional."}},
+ meeting:{name:"Sala de reunião",short:"Várias pessoas, porta fechada, sessões longas",
+  sub:"O CO2 sobe mais rápido em salas pequenas com várias pessoas falando, por isso a ventilação é a primeira medida ambiental aqui.",
+  focus:["Evitar reuniões em sequência; terminar cinco minutos antes para as pessoas fazerem uma pausa e a sala ser ventilada.","Combinar regras de reunião: pauta, horário de término e alguém que conduza com respeito."],
+  env:[
+   {t:"Ar",x:"Verificar o CO2 no meio de uma reunião. Se passar de 700 ppm acima do nível externo, aumentar a renovação de ar ou reduzir a ocupação.",law:L.ar,ev:"est"},
+   {t:"Temperatura",x:"Salas pequenas esquentam rápido. Calor, ar abafado e ruído juntos reduziram a memória de trabalho e aumentaram a fadiga num estudo controlado. Manter 18 a 25 °C.",law:L.nr17t,ev:"sup"},
+   {t:"Iluminação",x:"Luz uniforme, sem ofuscamento, com persianas que as pessoas possam ajustar.",law:L.nr17l},
+   {t:"Plantas",x:"Algumas plantas deixam uma sala vazia menos fria.",ev:"sup"}],
+  scent:{mode:"optional",profile:"Cítrico leve ou hortelã-pimenta, com timer",why:"Ligar por 20 minutos antes da reunião e desligar. A hortelã-pimenta foi associada a melhor memória e mais alerta num estudo de laboratório; o efeito varia por pessoa.",ev:"emg"}},
+ staff:{name:"Copa / refeitório / descanso",short:"Pausas, recuperação, convivência",
+  sub:"O local para refeições é exigência legal, e um espaço que as pessoas usam de verdade para se recuperar ajuda nos fatores de demanda e suporte.",
+  focus:["Fazer dele um espaço sem trabalho: sem reuniões, sem notebook, sem chamar a pessoa de volta no intervalo.","Garantir que turnos e quem trabalha em escala consigam usar o espaço nos horários reais de pausa."],
+  env:[
+   {t:"Local para refeições",x:"Arejado, limpo, com assentos e mesas para todos. Com mais de 30 trabalhadores, deve ficar fora da área de trabalho.",law:L.nr24},
+   {t:"Ar",x:"Boa ventilação, principalmente onde se aquece comida. Ambiente abafado afasta as pessoas.",law:L.nr24,ev:"est"},
+   {t:"Luz e vista",x:"Luz natural e vista para fora quando possível; um canto com luz mais baixa para pausas tranquilas.",law:L.nr17l},
+   {t:"Plantas",x:"Plantas aumentaram a satisfação e a percepção de qualidade do ar em experimentos de campo no Reino Unido e na Holanda.",ev:"sup"}],
+  scent:{mode:"optional",profile:"Cítrico leve (limão)",why:"Num estudo randomizado, o limão melhorou de forma consistente o humor positivo relatado, mas não melhorou marcadores fisiológicos de estresse. Mantenha uma segunda área de descanso sem aroma.",ev:"emg"}},
+ quiet:{name:"Sala silenciosa / de descompressão",short:"Pouco estímulo, adaptação razoável",
+  sub:"Uma sala com pouco estímulo é uma adaptação comum para pessoas com transtornos mentais, neurodivergência ou sensibilidade sensorial.",
+  focus:["Qualquer pessoa pode reservar, sem precisar justificar.","Manter um sistema simples de reserva para a sala não virar sala de reunião informal."],
+  env:[
+   {t:"Estímulos",x:"Pouco ruído, luz regulável e nenhum cheiro forte. A adaptação razoável do ambiente de trabalho é garantida às pessoas com deficiência.",law:L.lbi},
+   {t:"Ar",x:"Ventilar sem depender de ventiladores barulhentos, quando possível.",law:L.ar,ev:"est"},
+   {t:"Temperatura",x:"Temperatura estável e confortável, dentro de 18 a 25 °C se climatizada.",law:L.nr17t}],
+  scent:{mode:"off",profile:"Sem aroma (sempre)",why:"Esta sala atende pessoas com sensibilidade sensorial. Entre adultos autistas pesquisados nos EUA, Austrália e Reino Unido, 83,7% relataram efeitos adversos de produtos perfumados."}},
+ client:{name:"Recepção / atendimento ao público",short:"Visitantes, clientes, terceiros",
+  sub:"O Guia do MTE inclui assédio de qualquer natureza e eventos violentos ou traumáticos entre os fatores psicossociais. Quem atende o público está mais exposto.",
+  focus:["Divulgar regras de conduta esperada para visitantes e explicar à equipe como registrar incidentes.","Combinar o que fazer se um cliente ficar agressivo, e quem dá apoio na hora."],
+  env:[
+   {t:"Layout",x:"Boa visibilidade, balcão ou espaço que dê distância à equipe, e uma rota para se afastar para uma área reservada.",law:L.guia},
+   {t:"Ar",x:"Boa ventilação nas áreas de espera, principalmente nos horários de pico.",law:L.ar,ev:"est"},
+   {t:"Iluminação",x:"Luz forte e uniforme no balcão e na entrada.",law:L.nr17l},
+   {t:"Plantas",x:"Plantas deixam o espaço mais acolhedor para equipe e visitantes.",ev:"sup"}],
+  scent:{mode:"optional",profile:"Aroma muito leve e neutro de boas-vindas",why:"Trate como hospitalidade, não como medida de bem-estar. Visitantes não são consultados, então mantenha bem suave e evite florais fortes."}}
+};
+
+const GATE=[
+ "Os trabalhadores do ambiente (e a CIPA, se houver) foram consultados e a maioria quer",
+ "Existe um espaço sem aroma por perto",
+ "FDS (antiga FISPQ) consultada; agentes químicos registrados no inventário de riscos do PGR",
+ "Produto regularizado na ANVISA e usado só para o olfato: nada na pele, sem borrifar em pessoas",
+ "Menor intensidade eficaz, com timer e ventilação funcionando",
+ "Qualquer pessoa pode pedir para desligar, sem precisar justificar"
+];
+
+const state={room:"meeting",stds:new Set(["demands","support"]),scent:true,gate:new Array(GATE.length).fill(false)};
+
+const roomOpts=$("#roomOpts");
+Object.entries(ROOMS).forEach(([k,r])=>{
+  const l=document.createElement("label");l.className="opt";
+  l.innerHTML=`<input type="radio" name="room" id="room-${k}" value="${k}"${k===state.room?" checked":""}><span><b>${esc(r.name)}</b><small>${esc(r.short)}</small></span>`;
+  roomOpts.appendChild(l);
+});
+roomOpts.addEventListener("change",e=>{state.room=e.target.value;state.gate.fill(false);render();});
+const stdOpts=$("#stdOpts");
+STDS.forEach(s=>{
+  const l=document.createElement("label");l.className="opt";
+  l.innerHTML=`<input type="checkbox" id="std-${s.id}" value="${s.id}"${state.stds.has(s.id)?" checked":""}><span><b>${esc(s.name)}</b><small>${esc(s.q)}</small></span>`;
+  stdOpts.appendChild(l);
+});
+stdOpts.addEventListener("change",e=>{e.target.checked?state.stds.add(e.target.value):state.stds.delete(e.target.value);render();});
+$("#scentOn").addEventListener("change",e=>{state.scent=e.target.checked;render();});
+
+function tags(it){
+  let h="";
+  if(it.law)h+=`<span class="tag law">${esc(it.law)}</span>`;
+  if(it.ev)h+=`<span class="tag ${it.ev}">${GRADE[it.ev]}</span>`;
+  if(!it.ev&&it.law)h+=`<span class="tag">Exigência legal</span>`;
+  return h;
+}
+function actTag(s,a){
+  if(s.id==="relationships")return `<span class="tag law">${L.ass}</span>`;
+  if(a.indexOf("NR-17")>-1)return `<span class="tag law">${L.nr17o}</span>`;
+  return `<span class="tag">${L.guia}</span>`;
+}
+
+function render(){
+  const r=ROOMS[state.room];
+  $("#planTitle").textContent=r.name;
+  $("#planSub").textContent=r.sub;
+  const prep=getPrep();
+  $("#planLabel").textContent=prep?`Plano do ambiente · Elaborado por ${prep}`:"Plano do ambiente";
+  const sel=STDS.filter(s=>state.stds.has(s.id));
+  let o=`<div class="subhead">Para este ambiente</div><ul class="acts">`+r.focus.map(f=>`<li><span class="act-t">${esc(f)}</span><span class="tags"><span class="tag law">${L.nr1}</span></span></li>`).join("")+`</ul>`;
+  if(sel.length){
+    sel.forEach(s=>{
+      o+=`<div class="subhead">${esc(s.name)}</div><ul class="acts">`+s.acts.map(a=>`<li><span class="act-t">${esc(a)}</span><span class="tags">${actTag(s,a)}</span></li>`).join("")+`</ul>`;
+    });
+  }else{
+    o+=`<p class="empty" style="margin-top:12px">Selecione pelo menos um fator no Passo B para incluir medidas organizacionais.</p>`;
+  }
+  $("#orgOut").innerHTML=o;
+  $("#envOut").innerHTML=r.env.map(e=>`<li><span class="act-t"><b>${esc(e.t)}.</b> ${esc(e.x)}</span><span class="tags">${tags(e)}</span></li>`).join("");
+  const sc=r.scent;let s="";
+  if(!state.scent){
+    s=`<div class="scent-box off"><div class="scent-profile"><b>Camada de aroma não incluída</b><span class="pill na">Fora do plano</span></div><p>O plano se sustenta só com os passos 1, 2 e 4.</p></div>`;
+  }else if(sc.mode==="off"){
+    s=`<div class="scent-box off"><div class="scent-profile"><b>${esc(sc.profile)}</b><span class="pill na">Não indicado aqui</span></div><p>${esc(sc.why)}</p></div>`;
+  }else{
+    const n=state.gate.filter(Boolean).length,ok=n===GATE.length;
+    s=`<div class="scent-box"><div class="scent-profile"><b>${esc(sc.profile)}</b><span class="tags">${sc.ev?`<span class="tag emg">${GRADE.emg}</span>`:""}<span class="tag risk">~1 em 3 adultos sensível a fragrâncias</span></span></div><p>${esc(sc.why)}</p>
+    <div class="gate" id="gate">`+GATE.map((g,i)=>`<label><input type="checkbox" id="gate-${i}" data-i="${i}"${state.gate[i]?" checked":""}> ${esc(g)}</label>`).join("")+`</div>
+    <div style="margin-top:10px"><span class="pill ${ok?"yes":"no"}">${ok?"Pronto para teste":`Ainda não · ${n} de ${GATE.length} itens atendidos`}</span></div></div>
+    <p class="note">Teste por quatro semanas e depois pergunte à equipe. Interrompa se alguém relatar dor de cabeça, falta de ar ou irritação.</p>`;
+  }
+  $("#scentOut").innerHTML=s;
+  const g=$("#gate");
+  if(g)g.addEventListener("change",e=>{const i=+e.target.dataset.i;state.gate[i]=e.target.checked;render();});
+  const rs=[
+    ["Ouvir","Perguntar a quem usa este ambiente o que ajuda e o que atrapalha."],
+    ["Identificar","Fazer a checagem em equipe e registrar os fatores no inventário de riscos do PGR."],
+    ["Agir","Combinar até três ações deste plano, cada uma com responsável e prazo, no plano de ação."],
+    ["Revisar","Reavaliar em três meses: notas da equipe, medições de CO2 e retorno das pessoas."],
+    ["Registrar","Incluir o ambiente nas inspeções periódicas e na revisão do PGR."]];
+  $("#rsOut").innerHTML=rs.map(x=>`<div><b>${x[0]}</b>${esc(x[1])}</div>`).join("");
+}
+
+function planText(){
+  const r=ROOMS[state.room],prep=getPrep();
+  const d=new Date(),rev=new Date(d.getFullYear(),d.getMonth()+3,d.getDate());
+  const fmt=x=>x.toLocaleDateString("pt-BR",{day:"numeric",month:"short",year:"numeric"});
+  let t=`PLANO DO AMBIENTE: ${r.name.toUpperCase()}\n`;
+  if(prep)t+=`Elaborado por ${prep} · Toolkit de Riscos Psicossociais, por Sana Essência\n`;
+  t+=`Data: ${fmt(d)} · Revisar até: ${fmt(rev)}\n\n${r.sub}\n\n1. ATACAR A CAUSA: MEDIDAS ORGANIZACIONAIS\n`;
+  r.focus.forEach(f=>t+=`- ${f}\n`);
+  STDS.filter(s=>state.stds.has(s.id)).forEach(s=>{t+=`${s.name}:\n`;s.acts.forEach(a=>t+=`- ${a}\n`);});
+  t+=`\n2. MELHORAR O AMBIENTE: MEDIDAS AMBIENTAIS\n`;
+  r.env.forEach(e=>t+=`- ${e.t}: ${e.x}${e.law?` [${e.law}]`:""}${e.ev?` [Evidência: ${GRADE[e.ev]}]`:""}\n`);
+  t+=`\n3. CAMADA OPCIONAL DE CONFORTO: AROMA\n`;
+  if(!state.scent)t+=`- Não incluída neste plano.\n`;
+  else if(r.scent.mode==="off")t+=`- ${r.scent.profile}. ${r.scent.why}\n`;
+  else{
+    const n=state.gate.filter(Boolean).length;
+    t+=`- Perfil: ${r.scent.profile}. ${r.scent.why}\n- Situação: ${n===GATE.length?"Pronto para teste":`Ainda não (${n} de ${GATE.length} itens atendidos)`}\n`;
+    GATE.forEach((g,i)=>t+=`  [${state.gate[i]?"x":" "}] ${g}\n`);
+  }
+  t+=`\n4. TORNAR ROTINA\n- Ouvir, identificar, agir, revisar e registrar no PGR. Revisar este plano até ${fmt(rev)}.\n\nEste plano apoia, e não substitui, o GRO/PGR e a AEP/AET elaborados por profissional legalmente habilitado.`;
+  return t;
+}
+async function copyText(text,okEl,fallback){
+  try{await navigator.clipboard.writeText(text);okEl.textContent="Copiado";setTimeout(()=>okEl.textContent="",2200);if(fallback)fallback.hidden=true;return true;}
+  catch(e){return false;}
+}
+$("#copyBtn").addEventListener("click",async()=>{
+  const t=planText();
+  const ok=await copyText(t,$("#copied"),$("#fallbackWrap"));
+  if(!ok){$("#fallbackWrap").hidden=false;const ta=$("#fallbackText");ta.value=t;ta.focus();ta.select();}
+});
+$("#copyEmail").addEventListener("click",async()=>{
+  const ok=await copyText("hello@sanaessencia.co.uk",$("#emailCopied"));
+  if(!ok){const r=document.createRange();r.selectNodeContents($("#email"));const s=getSelection();s.removeAllRanges();s.addRange(r);$("#emailCopied").textContent="Selecionado. Use Ctrl+C ou Cmd+C para copiar.";}
+});
+
+function getPrep(){return ($("#prepInput").value||"").trim();}
+function applyPrep(){
+  const p=getPrep();$("#prepLine").hidden=!p;$("#prepName").textContent=p;render();
+  try{localStorage.setItem("se-rps-prep",p);}catch(e){}
+}
+try{const v=localStorage.getItem("se-rps-prep");if(v)$("#prepInput").value=v;}catch(e){}
+$("#prepInput").addEventListener("input",applyPrep);
+
+const FACTORS=[
+ {id:"demands",g:"Work",lab:"Demandas",st:"Consigo dar conta do meu trabalho no tempo disponível.",std:"demands",act:"Revisar volume, metas e prazos com a equipe; combinar o que pode ser cortado ou reprogramado."},
+ {id:"control",g:"Work",lab:"Autonomia",st:"Tenho voz sobre como e onde faço meu trabalho.",std:"control",act:"Deixar a equipe escolher onde fazer trabalho de concentração e envolvê-la no planejamento das prioridades."},
+ {id:"support",g:"Work",lab:"Suporte",st:"Sei onde buscar ajuda e recebo quando preciso.",std:"support",act:"Divulgar os canais de apoio; treinar lideranças para conversas sobre bem-estar."},
+ {id:"relationships",g:"Work",lab:"Respeito",st:"Aqui as pessoas se tratam com respeito.",std:"relationships",act:"Revisar regras de conduta e canal de denúncias com anonimato; combinar acordos de convivência."},
+ {id:"role",g:"Work",lab:"Clareza",st:"Sei com clareza o que esperam de mim.",std:"role",act:"Esclarecer funções e resolver demandas conflitantes nas conversas individuais."},
+ {id:"change",g:"Work",lab:"Mudanças",st:"As mudanças são explicadas e somos consultados antes.",std:"change",act:"Consultar a equipe e a CIPA antes da próxima mudança e dar retorno sobre o que foi ouvido."},
+ {id:"air",g:"Room",lab:"Ar",st:"O ar deste ambiente parece fresco, não abafado.",act:"Medir CO2 por uma semana; agir se passar de 700 ppm acima do nível externo e revisar o PMOC."},
+ {id:"sound",g:"Room",lab:"Ruído",st:"Consigo me concentrar sem as conversas me tirarem do foco.",act:"Separar zonas de ligação e de concentração; incluir absorção acústica ou sala silenciosa."},
+ {id:"comfort",g:"Room",lab:"Conforto",st:"A temperatura e a iluminação são confortáveis aqui.",act:"Conferir a faixa de 18 a 25 °C, correntes de ar e ofuscamento nas telas."},
+ {id:"recovery",g:"Room",lab:"Pausas",st:"Consigo sair para uma pausa de verdade.",act:"Proteger um espaço de descanso fora da área de trabalho e tornar as pausas normais."}
+];
+const EXAMPLE={demands:2.4,control:3.1,support:3.8,relationships:4.1,role:3.9,change:2.8,air:2.2,sound:2.6,comfort:3.4,recovery:2.9};
+const scores={...EXAMPLE};let edited=false;
+const cr=$("#checkRoom");
+Object.entries(ROOMS).forEach(([k,r])=>{const o=document.createElement("option");o.value=k;o.textContent=r.name;if(k==="open")o.selected=true;cr.appendChild(o);});
+const fl=$("#factorList");let lastG="";
+FACTORS.forEach(f=>{
+  if(f.g!==lastG){const h=document.createElement("div");h.className="group-h";h.textContent=f.g==="Work"?"Como o trabalho é organizado":"O ambiente em si";fl.appendChild(h);lastG=f.g;}
+  const row=document.createElement("div");row.className="factor";
+  row.innerHTML=`<label class="lab" for="f-${f.id}"><small>${esc(f.lab)}</small>${esc(f.st)}</label><input type="range" id="f-${f.id}" min="1" max="5" step="0.1" value="${scores[f.id]}"><output id="o-${f.id}" for="f-${f.id}">${n1(scores[f.id])}</output>`;
+  fl.appendChild(row);
+});
+fl.addEventListener("input",e=>{
+  if(e.target.type!=="range")return;
+  const id=e.target.id.slice(2);scores[id]=+e.target.value;$("#o-"+id).textContent=n1(scores[id]);
+  if(!edited){edited=true;$("#exampleTag").textContent="Notas da sua equipe";}
+  renderCheck();
+});
+const band=v=>v<2.5?"r":v<3.5?"a":"g";
+function renderCheck(){
+  $("#bars").innerHTML=FACTORS.map(f=>{const v=scores[f.id];return `<div class="bar"><span>${esc(f.lab)}</span><span class="track"><i class="${band(v)}" style="width:${((v-1)/4*100).toFixed(1)}%"></i></span><b>${n1(v)}</b></div>`;}).join("");
+  const c={r:0,a:0,g:0};FACTORS.forEach(f=>c[band(scores[f.id])]++);
+  $("#profileSum").textContent=`${ROOMS[cr.value].name}: ${c.r} para agir agora, ${c.a} para revisar, ${c.g} para manter.`;
+  const top=[...FACTORS].sort((a,b)=>scores[a.id]-scores[b.id]).slice(0,3);
+  $("#prio").innerHTML=top.map(f=>`<li><b>${esc(f.lab)}<em>${n1(scores[f.id])} / 5</em></b><p>${esc(f.act)}</p></li>`).join("");
+}
+cr.addEventListener("change",renderCheck);
+$("#toPlanner").addEventListener("click",()=>{
+  state.room=cr.value;state.gate.fill(false);
+  state.stds=new Set(FACTORS.filter(f=>f.std&&scores[f.id]<3.5).map(f=>f.std));
+  $("#room-"+state.room).checked=true;
+  STDS.forEach(s=>$("#std-"+s.id).checked=state.stds.has(s.id));
+  render();showTab("planner");window.scrollTo({top:0,behavior:"smooth"});
+});
+
+const LAWS=[
+ {k:"l",n:"CLT, art. 157",p:"Cabe às empresas cumprir e fazer cumprir as normas de segurança e medicina do trabalho, e instruir os empregados sobre como evitar acidentes e doenças.",u:"A base de toda medida deste toolkit."},
+ {k:"n",n:"NR-1: Gerenciamento de Riscos Ocupacionais",p:"Desde 26/05/2026, o GRO deve incluir os fatores de riscos psicossociais relacionados ao trabalho, como parte dos fatores ergonômicos (subitem 1.5.3.1.4). Portaria MTE nº 1.419/2024, prorrogada pela nº 765/2025. As sanções ligadas a esses itens estão temporariamente suspensas pelo STF (ADPF 1316); a norma segue em vigor.",u:"Por que o levantamento psicossocial não é opcional."},
+ {k:"g",n:"Guia MTE de fatores de riscos psicossociais",p:"Lista 13 fatores, como sobrecarga, falta de autonomia, falta de suporte, assédio, baixa clareza de função e má gestão de mudanças. Pede participação dos trabalhadores, anonimato e preferência por medidas organizacionais.",u:"As seis áreas do Passo B agrupam esses 13 fatores."},
+ {k:"n",n:"NR-17: Ergonomia",p:"Exige a Avaliação Ergonômica Preliminar (AEP), obrigatória para todas as empresas, inclusive as dispensadas do PGR. Trata da organização do trabalho (17.4) e das condições de conforto (17.8).",u:"As bases legais de ruído, temperatura e iluminação do Passo 2."},
+ {k:"n",n:"NR-24: Condições sanitárias e de conforto",p:"Exige local para refeições arejado, limpo e com assentos para todos (24.5). Com mais de 30 trabalhadores, deve ficar fora da área de trabalho.",u:"Copa, refeitório e área de descanso."},
+ {k:"l",n:"Lei 14.457/2022 e NR-5 (CIPA)",p:"Desde 20/03/2023, a CIPA é a Comissão Interna de Prevenção de Acidentes e de Assédio. Empresas obrigadas a ter CIPA devem ter regras de conduta, canal de denúncias com anonimato e treinamento no mínimo a cada 12 meses.",u:"O fator Relacionamentos e assédio e a recepção."},
+ {k:"t",n:"ABNT NBR 17037 e Lei 13.589/2018",p:"A Lei 13.589 exige o PMOC em edifícios de uso público e coletivo climatizados. Desde julho de 2024, a NBR 17037 substitui a RE 9/2003 da ANVISA como referência de qualidade do ar, com CO2 até 700 ppm acima do nível externo.",u:"A medida de Ar em todos os ambientes."},
+ {k:"l",n:"Lei Brasileira de Inclusão (Lei 13.146/2015), art. 37",p:"Garante às pessoas com deficiência regras de acessibilidade e adaptação razoável no ambiente de trabalho.",u:"Salas silenciosas, espaços sem aroma e ajustes sensoriais."},
+ {k:"g",n:"Portaria GM/MS nº 1.999/2023",p:"Atualizou a lista de doenças relacionadas ao trabalho, incluindo 165 novas doenças, entre elas burnout, ansiedade e depressão.",u:"Por que a saúde mental entrou na pauta jurídica das empresas."},
+ {k:"s",n:"Lei 14.831/2024: Empresa Promotora da Saúde Mental",p:"Cria um certificado federal, concedido às empresas interessadas que cumprem diretrizes de promoção da saúde mental e bem-estar. Vale por 2 anos.",u:"Um objetivo de reconhecimento para clientes mais maduros."},
+ {k:"s",n:"ISO 45003:2021",p:"Norma internacional de orientação sobre riscos psicossociais dentro de um sistema ISO 45001. Cita a organização do trabalho, fatores sociais e o ambiente de trabalho como fontes de perigo psicossocial.",u:"Para clientes que buscam a ISO 45001."}
+];
+const KIND={l:"Lei",n:"Norma regulamentadora",g:"Guia / portaria",t:"Norma técnica",s:"Voluntário"};
+$("#lawCards").innerHTML=LAWS.map(x=>`<div class="law-c"><div class="law-top"><h4>${esc(x.n)}</h4><span class="kind ${x.k==="n"||x.k==="t"?"l":x.k==="g"?"g":x.k==="l"?"l":"s"}">${KIND[x.k]}</span></div><p>${esc(x.p)}</p><div class="use"><b>No toolkit</b>${esc(x.u)}</div></div>`).join("");
+
+const EV=[
+ {f:"Ventilação e CO2",s:"Allen et al. 2016",w:"Num estudo controlado com 24 trabalhadores de escritório, as notas cognitivas foram 61% maiores com ar de baixa poluição e 101% maiores com ventilação reforçada, em comparação com o ar de um escritório convencional. CO2 e compostos orgânicos voláteis se associaram às notas de forma independente.",g:"est",u:"Medidas de Ar do Passo 2; referência de CO2 da NBR 17037."},
+ {f:"Conversas ao fundo",s:"Jahncke 2012; Radun et al. 2019",w:"A fala irrelevante prejudicou tarefas de escritório que dependem de memória, como buscar informação e memorizar conteúdo. Em outro estudo, a fala ao fundo também elevou o estresse fisiológico, além de reduzir o desempenho.",g:"sup",u:"Zonas, absorção acústica e salas silenciosas."},
+ {f:"Calor, ar abafado e ruído juntos",s:"Varjo et al. 2015",w:"Com 65 participantes, uma sala quente (29,5 °C), mal ventilada e com fala bem audível reduziu a memória de trabalho e aumentou a carga mental, a fadiga e os sintomas.",g:"sup",u:"Salas de reunião e escritórios pequenos e cheios."},
+ {f:"Plantas",s:"Nieuwenhuis et al. 2014",w:"Experimentos de campo em escritórios do Reino Unido e da Holanda: plantas aumentaram a satisfação, a concentração relatada e a percepção de qualidade do ar. Um experimento mostrou ganho de 15% de produtividade; uma medida de call center não mostrou diferença significativa.",g:"sup",u:"Uma melhoria de baixo custo para a maioria dos ambientes."},
+ {f:"Aroma: limão e lavanda",s:"Kiecolt-Glaser et al. 2008",w:"Estudo randomizado com 56 adultos: o limão melhorou de forma consistente o humor positivo relatado, em comparação com água e lavanda, independentemente das expectativas. Nenhum dos óleos melhorou medidas fisiológicas de estresse ou imunidade.",g:"emg",u:"Copa e descanso, só como medida de conforto."},
+ {f:"Aroma: hortelã-pimenta e ylang-ylang",s:"Moss et al. 2008",w:"144 voluntários: a hortelã-pimenta melhorou a memória e aumentou o alerta. O ylang-ylang aumentou a calma, mas prejudicou a memória e deixou o processamento mais lento.",g:"emg",u:"Uso curto, com timer, antes de reuniões ou treinamentos."},
+ {f:"Aroma: alecrim e lavanda",s:"Moss et al. 2003",w:"O alecrim se associou a melhor qualidade geral da memória. Os dois aromas deixaram as pessoas mais satisfeitas que a ausência de aroma, mas a lavanda reduziu o desempenho da memória de trabalho.",g:"emg",u:"Um motivo para evitar lavanda onde é preciso concentração."},
+ {f:"Aroma: visão geral",s:"Herz 2009 (revisão sistemática)",w:"Entre 18 estudos com critérios rigorosos, houve evidência confiável de que odores podem afetar humor, fisiologia e comportamento. Os efeitos foram melhor explicados por fatores psicológicos: expectativa, experiência anterior e se a pessoa gosta do cheiro.",g:"emg",u:"Por que a consulta e a preferência pessoal importam."},
+ {f:"Sensibilidade a fragrâncias",s:"Steinemann 2018; 2019",w:"Pesquisas nacionais nos EUA, Austrália, Reino Unido e Suécia: 32,2% dos adultos relatam efeitos adversos de produtos perfumados, como enxaqueca e crises de asma; 17,4% por aromatizadores de ambiente. Não encontramos levantamento equivalente no Brasil.",g:"risk",u:"O motivo da lista de verificação e dos espaços sem aroma."}
+];
+$("#evRows").innerHTML=EV.map(e=>`<tr><td>${esc(e.f)}<small>${esc(e.s)}</small></td><td>${esc(e.w)}</td><td><span class="tag ${e.g}">${GRADE[e.g]}</span></td><td>${esc(e.u)}</td></tr>`).join("");
+
+const REFS=[
+ ["Ministério do Trabalho e Emprego (2025). Guia de informações sobre os fatores de riscos psicossociais relacionados ao trabalho.","https://sicepot2.task.com.br/DiaDia/GuiaFatoresRiscosPsicossociais-MTE.pdf"],
+ ["NR-17 Ergonomia (texto atualizado), Ministério do Trabalho e Emprego.","https://www.gov.br/trabalho-e-emprego/pt-br/acesso-a-informacao/participacao-social/conselhos-e-orgaos-colegiados/comissao-tripartite-partitaria-permanente/normas-regulamentadora/normas-regulamentadoras-vigentes/nr-17-atualizada-2023.pdf"],
+ ["NR-24 Condições sanitárias e de conforto (texto atualizado), Ministério do Trabalho e Emprego.","https://www.gov.br/trabalho-e-emprego/pt-br/acesso-a-informacao/participacao-social/conselhos-e-orgaos-colegiados/comissao-tripartite-partitaria-permanente/arquivos/normas-regulamentadoras/nr-24-atualizada-2022.pdf"],
+ ["Contábeis (2026). NR-1 entra em fase de fiscalização.","https://www.contabeis.com.br/noticias/76472/nr-1-entra-em-fase-de-fiscalizacao-e-pressiona-empresas/"],
+ ["LegisWeb (2026). STF prorroga por mais 90 dias a suspensão de sanções da NR-1 (ADPF 1316).","https://www.legisweb.com.br/noticia/?id=34443"],
+ ["Folha de Pernambuco (2026). Crescem afastamentos por transtornos mentais no Brasil.","https://www.folhape.com.br/economia/crescem-afastamentos-por-transtornos-mentais-no-brasil/489221/"],
+ ["Lei 13.589/2018 (PMOC).","https://planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13589.htm"],
+ ["Lei 14.831/2024 (Certificado Empresa Promotora da Saúde Mental).","https://planalto.gov.br/ccivil_03/_ato2023-2026/2024/lei/l14831.htm"],
+ ["BMA Advogados. Alterações na CIPA em vigor a partir de 20/03/2023.","https://www.bmalaw.com.br/conteudo/direito-trabalhista/artigos-e-noticias/alteracoes-na-cipa-em-vigor-a-partir-de-20032023-confira/pdf"],
+ ["ABRAVA (2024). Alterações na legislação brasileira sobre qualidade do ar interno (NBR 17037).","https://abrava.com.br/wp-content/uploads/2024/08/Comunicado-de-Alteracoes-na-legislacao-brasileira-sobre-qualidade-do-ar-interno-Confira.pdf"],
+ ["Forbes Brasil (2023). Nova lista de doenças do trabalho (Portaria GM/MS nº 1.999/2023).","https://forbes.com.br/carreira/2023/11/burnout-e-transtornos-por-uso-de-cafe-e-drogas-veja-nova-lista-de-doencas-do-trabalho/"],
+ ["Lei 13.146/2015 (Lei Brasileira de Inclusão), art. 37.","https://www.legjur.com/legislacao/art/lei_00131462015-37"],
+ ["BSI. ISO 45003 Psychological health and safety at work.","https://www.bsigroup.com/iso-45003"],
+ ["Allen JG et al. (2016). Environmental Health Perspectives 124(6):805-12.","https://pubmed.ncbi.nlm.nih.gov/26502459/"],
+ ["Jahncke H (2012). Noise & Health 14(61):315-20.","https://doaj.org/article/9076d4a8e45e4e19be38daa71fbc7654"],
+ ["Radun J et al. (2019). Physiological, psychological and performance effects of office noise. ICA 2019.","https://research.utu.fi/converis/portal/detail/Publication/52264981?lang=en_US"],
+ ["Varjo J et al. (2015). Journal of Environmental Psychology 44:16-33.","https://doi.org/10.1016/j.jenvp.2015.08.001"],
+ ["Nieuwenhuis M et al. (2014). Journal of Experimental Psychology: Applied 20(3):199-214.","https://www.cardiff.ac.uk/news/view/47147-flower-power"],
+ ["Kiecolt-Glaser JK et al. (2008). Psychoneuroendocrinology 33(3):328-39.","https://pubmed.ncbi.nlm.nih.gov/18178322/"],
+ ["Moss M et al. (2008). International Journal of Neuroscience 118(1):59-77.","https://nrl.northumbria.ac.uk/id/eprint/153"],
+ ["Moss M et al. (2003). International Journal of Neuroscience 113(1).",""],
+ ["Herz RS (2009). International Journal of Neuroscience 119:263-90.",""],
+ ["Steinemann A (2019). International prevalence of fragrance sensitivity. Air Quality, Atmosphere & Health.","https://findanexpert.unimelb.edu.au/scholarlywork/1399731-international-prevalence-of-fragrance-sensitivity"]
+];
+$("#refs").innerHTML='<p class="label" style="text-indent:0;padding-left:0">Fontes</p>'+REFS.map(r=>`<p>${r[1]?`<a href="${r[1]}" target="_blank" rel="noopener">${esc(r[0])}</a>`:esc(r[0])}</p>`).join("");
+
+const tabs=[...document.querySelectorAll(".tab")];
+function showTab(id){
+  tabs.forEach(t=>{const on=t.getAttribute("aria-controls")===id;t.setAttribute("aria-selected",on);t.tabIndex=on?0:-1;document.getElementById(t.getAttribute("aria-controls")).hidden=!on;});
+}
+tabs.forEach((t,i)=>{
+  t.addEventListener("click",()=>showTab(t.getAttribute("aria-controls")));
+  t.addEventListener("keydown",e=>{
+    if(e.key!=="ArrowRight"&&e.key!=="ArrowLeft")return;
+    const n=tabs[(i+(e.key==="ArrowRight"?1:tabs.length-1))%tabs.length];n.focus();showTab(n.getAttribute("aria-controls"));
+  });
+});
+const h=(location.hash||"").slice(1);
+if(["planner","check","law","evidence","partners"].includes(h))showTab(h);else showTab("planner");
+
+applyPrep();
+renderCheck();
+})();
+</script>
+
+</body>
+</html>
