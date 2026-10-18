@@ -399,6 +399,66 @@ mark.info { background: var(--info-bg); box-shadow: inset 0 -2px 0 var(--info); 
   .at-sheet { box-shadow: none; }
   .at-bar span, .sc-legend i { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 }
+/* ---- Host tools ---- */
+.eyebrow-host { margin: 0; font-size: .75rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--terracotta); }
+.host-intro { display: grid; gap: 14px; }
+.kit-head, .kit-row { display: grid; grid-template-columns: minmax(0, 2.2fr) repeat(3, minmax(64px, 1fr)) auto; gap: 8px; align-items: center; }
+.kit-row .input { padding: 8px 10px; }
+.kit-row .input.num { width: 100%; }
+.guest-row { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.4fr) minmax(0, 1.6fr) auto; gap: 8px; align-items: center; }
+.guest-row .input { padding: 8px 10px; }
+.icon-btn { border: 1px solid var(--line-strong); background: transparent; border-radius: 999px; width: 34px; height: 34px; cursor: pointer; color: var(--muted); }
+.icon-btn:hover { color: var(--bad); border-color: var(--bad); }
+.prep-sum { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; }
+.prep-sum div { background: var(--sage-wash); border-radius: 12px; padding: 10px 12px; }
+.prep-sum b { display: block; font-family: var(--mono); font-size: 1.15rem; color: var(--forest); }
+.prep-sum span { font-size: .8rem; color: var(--muted); }
+.mail-item { border: 1px solid var(--line); border-radius: 12px; background: var(--surface); }
+.mail-item summary { cursor: pointer; padding: 12px 14px; font-weight: 600; list-style: none; display: flex; justify-content: space-between; gap: 8px; }
+.mail-item summary::-webkit-details-marker { display: none; }
+.mail-item[open] summary { border-bottom: 1px solid var(--line); }
+.mail-body { padding: 12px 14px; display: grid; gap: 10px; }
+.mail-body pre { white-space: pre-wrap; font-family: var(--sans); font-size: .9rem; margin: 0; background: var(--paper); border-radius: 10px; padding: 12px; }
+.fav-wide { grid-column: 1 / -1; }
+.fav-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; }
+.host-foot { margin-top: 28px; }
+#print-cards { display: none; }
+.season-tag { justify-self: start; font-size: .72rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #fff; background: var(--terracotta); border-radius: 999px; padding: 4px 10px; }
+.kit-cell { display: grid; gap: 4px; min-width: 0; }
+.kit-cap { display: none; font-size: .72rem; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; color: var(--muted); }
+.kit-row + .kit-row { padding-top: 10px; border-top: 1px solid var(--line); }
+@media (max-width: 640px) {
+  .kit-head { display: none; }
+  .kit-cap { display: block; }
+  .kit-row .icon-btn { align-self: end; }
+  .kit-row { grid-template-columns: repeat(3, minmax(0, 1fr)) auto; }
+  .kit-row .kit-label { grid-column: 1 / -1; }
+  .guest-row { grid-template-columns: minmax(0, 1fr) auto; }
+  .guest-row .g-email, .guest-row .g-blend { grid-column: 1 / 2; }
+  .guest-row .icon-btn { grid-row: 1; grid-column: 2; }
+  .kit-row .input.num::placeholder { font-size: .75rem; }
+}
+@media print {
+  body.host-printing * { visibility: hidden !important; }
+  body.host-printing #print-cards, body.host-printing #print-cards * { visibility: visible !important; }
+  body.host-printing #print-cards { display: grid !important; position: absolute; inset: 0; grid-template-columns: 1fr 1fr; gap: 12mm; padding: 10mm; background: #fff; color: #111; }
+  .fcard { border: 1px solid #999; border-radius: 6mm; padding: 7mm; break-inside: avoid; font-family: Georgia, serif; }
+  .fcard h3 { margin: 0 0 1mm; font-size: 16pt; }
+  .fcard .who { margin: 0 0 3mm; font-size: 10pt; color: #444; }
+  .fcard table { width: 100%; font-size: 9.5pt; border-collapse: collapse; }
+  .fcard td, .fcard th { padding: 1.2mm 0; border-bottom: 0.2mm solid #ccc; text-align: left; }
+  .fcard .num { text-align: right; }
+  .fcard .care { font-size: 8pt; color: #444; margin: 3mm 0 0; }
+  body.host-printing #print-cards.tags { grid-template-columns: repeat(3, 1fr); gap: 6mm; }
+  .ftag { border: 1px dashed #999; border-radius: 4mm; padding: 5mm; break-inside: avoid; font-family: Georgia, serif; text-align: center; }
+  .ftag h3 { margin: 1mm 0; font-size: 14pt; }
+  .ftag .studio { font-size: 7pt; letter-spacing: .1em; text-transform: uppercase; color: #666; margin: 0; }
+  .ftag .who { font-size: 8pt; color: #444; margin: 0 0 2mm; }
+  .ftag .gift { font-size: 10pt; font-style: italic; margin: 0 0 2mm; }
+  .ftag .care { font-size: 6.5pt; color: #666; margin: 0; }
+  .fcard .studio { font-size: 8pt; letter-spacing: .1em; text-transform: uppercase; color: #666; margin: 0 0 3mm; }
+}
+.season-tag { justify-self: start; font-size: .72rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #fff; background: var(--terracotta, #C0643E); border-radius: 999px; padding: 4px 10px; }
 </style>
 </head>
 <body>
@@ -422,6 +482,7 @@ mark.info { background: var(--info-bg); box-shadow: inset 0 -2px 0 var(--info); 
     <button class="tab" role="tab" id="tab-library" aria-controls="panel-library" aria-selected="false" data-tab="library">Biblioteca</button>
     <button class="tab" role="tab" id="tab-learn" aria-controls="panel-learn" aria-selected="false" data-tab="learn">Ciência</button>
     <button class="tab" role="tab" id="tab-safety" aria-controls="panel-safety" aria-selected="false" data-tab="safety">Segurança e regras</button>
+    <button class="tab" role="tab" id="tab-host" aria-controls="panel-host" aria-selected="false" data-tab="host">Anfitrião</button>
   </nav>
 
   <main>
@@ -528,6 +589,15 @@ mark.info { background: var(--info-bg); box-shadow: inset 0 -2px 0 var(--info); 
           <label class="sr" for="copy-fallback">Texto da receita</label>
           <textarea class="input" id="copy-fallback" rows="8" hidden readonly></textarea>
         </div>
+      </div>
+
+      <div class="section" id="season-section">
+        <div class="section-head">
+          <span class="season-tag">Nesta estação</span>
+          <h2>Coleção de Natal</h2>
+          <p class="muted">Seis blends festivos para o Natal de verão, com óleos que temos no ateliê. Carregue como estão ou deixe com a sua cara.</p>
+        </div>
+        <div class="grid-cards" id="season"></div>
       </div>
 
       <div class="section">
@@ -698,6 +768,80 @@ mark.info { background: var(--info-bg); box-shadow: inset 0 -2px 0 var(--info); 
         </ol>
         <p class="small muted">Os serviços são criativos e educativos: não são atendimento de saúde, não fazem promessas terapêuticas e não substituem a regularização dos seus produtos na Anvisa e na vigilância sanitária, que fica com quem fabrica e vende. Cancelamento e reembolso: veja a <a href="https://sanaessencia.com.br/politica-de-reembolso.html" target="_blank" rel="noopener">Política de Reembolso</a>.</p>
       </div>
+    </section>
+
+    <!-- FERRAMENTAS DO ANFITRIÃO -->
+    <section id="panel-host" role="tabpanel" aria-labelledby="tab-host" hidden>
+      <div class="card host-intro">
+        <div class="stack-sm">
+          <p class="eyebrow-host">Para a equipe do ateliê</p>
+          <h2>Ferramentas do anfitrião</h2>
+          <p class="muted measure">Planeje uma oficina a partir dos blends dos participantes: uma lista de preparo para o grupo todo, uma ficha de fórmula para cada pessoa e um e-mail de retorno que traz o cliente de volta. Na versão real do parceiro, esta aba fica atrás do login do ateliê; os participantes não a veem.</p>
+        </div>
+        <div class="field">
+          <label for="host-studio">Nome do ateliê nas fichas e e-mails</label>
+          <input class="input" id="host-studio" type="text" maxlength="60" autocomplete="off">
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-head"><h2>1 · O que cada participante faz</h2><p class="muted small">Uma linha por item do kit da oficina. A carga de fragrância é um % do peso da cera; confira o máximo da sua cera.</p></div>
+        <div class="card stack">
+          <div class="kit-head small muted" aria-hidden="true"><span>Item</span><span>Cera (g)</span><span>Quantidade</span><span>Carga %</span><span></span></div>
+          <div id="host-kit" class="stack-sm"></div>
+          <div class="row">
+            <button class="btn ghost small" id="host-kit-add" type="button">Adicionar item</button>
+            <label class="row inline small muted">Sobra para testes e perdas <input class="input num" id="host-spare" type="number" min="0" max="50" step="1"> %</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-head"><h2>2 · Participantes</h2><p class="muted small">Escolha o blend de cada pessoa: o que ela criou e enviou, ou um dos blends da casa.</p></div>
+        <div class="card stack">
+          <div id="host-guests" class="stack-sm"></div>
+          <div class="row">
+            <button class="btn ghost small" id="host-guest-add" type="button">Adicionar participante</button>
+            <button class="btn ghost small" id="host-guest-sample" type="button">Preencher com 6 participantes de exemplo</button>
+            <button class="btn ghost small" id="host-guest-clear" type="button">Limpar lista</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-head"><h2>3 · Lista de preparo</h2><p class="muted small">Tudo o que pesar antes de os participantes chegarem, já com a sobra.</p></div>
+        <div class="card stack" id="host-prep"></div>
+        <div class="row">
+          <button class="btn primary" id="host-print" type="button">Imprimir fichas de fórmula</button>
+          <button class="btn ghost" id="host-copy-prep" type="button">Copiar lista de preparo</button>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-head"><h2>4 · E-mails de retorno</h2><p class="muted small">Prontos para enviar depois da oficina: a fórmula, os cuidados com a vela e um jeito fácil de comprar de novo ou reservar outra oficina.</p></div>
+        <div class="field">
+          <label for="host-link">Link de reservas ou da sua loja</label>
+          <input class="input" id="host-link" type="url" placeholder="https://seuatelie.com.br/oficinas" autocomplete="off">
+        </div>
+        <div id="host-emails" class="stack-sm"></div>
+      </div>
+
+      <div class="section">
+        <div class="section-head"><h2>Brindes corporativos, lembrancinhas e pedidos de equipe</h2><p class="muted small">Multiplique um blend para qualquer número de velas, para os presentes de fim de ano de uma empresa ou um casamento, e imprima uma tag para cada uma.</p></div>
+        <div class="card stack">
+          <div class="fav-grid">
+            <div class="field"><label for="fav-blend">Blend</label><select class="input" id="fav-blend"></select></div>
+            <div class="field"><label for="fav-count">Quantas velas</label><input class="input" id="fav-count" type="number" min="1" max="2000" step="1"></div>
+            <div class="field"><label for="fav-size">Cera por vela (g)</label><input class="input" id="fav-size" type="number" min="5" max="1000" step="5"></div>
+            <div class="field"><label for="fav-load">Carga %</label><input class="input" id="fav-load" type="number" min="1" max="12" step="0.5"></div>
+            <div class="field fav-wide"><label for="fav-from">Presente de (opcional)</label><input class="input" id="fav-from" type="text" maxlength="60" placeholder="ex.: Silva &amp; Associados Contabilidade" autocomplete="off"></div>
+          </div>
+          <div id="fav-out"></div>
+          <div class="row"><button class="btn ghost small" id="fav-tags" type="button">Imprimir tags de presente</button></div>
+        </div>
+      </div>
+
+      <p class="small muted host-foot">As quantidades são calculadas a partir dos seus blends e cargas. Confira sempre o certificado IFRA de cada fragrância e a carga máxima indicada pelo fornecedor da cera, e verifique as exigências da ANVISA que se aplicam aos produtos que você vende.</p>
     </section>
 
     <section id="panel-safety" role="tabpanel" aria-labelledby="tab-safety" hidden>
@@ -1303,6 +1447,21 @@ const STARTERS = [
   { id: "janela-aberta", name: "Janela Aberta", mood: "fresh", format: "spray", items: [["lemon", 3], ["lime", 2], ["eucalyptus", 1], ["lavender", 2], ["cypress", 2]], blurb: "Cítricos e eucalipto para ambientes frescos." },
   { id: "trilha-na-mata", name: "Trilha na Mata", mood: "nature", format: "diffuser", items: [["bergamot", 1], ["eucalyptus", 1], ["cypress", 3], ["cedarwood", 3], ["frankincense", 2]], blurb: "Ar verde de coníferas com cedro e resina." }
 ];
+/* Coleção sazonal (plano Ateliê): novos blends da casa a cada estação, lançados antes da data */
+const SEASON = {
+  id: "natal-2026", name: "Coleção de Natal", line: "Seis blends festivos para o Natal de verão: oficinas de dezembro, brindes corporativos e lembrancinhas.",
+  blends: [
+    { id: "natal-rabanada", name: "Rabanada", mood: "cosy", format: "candle", items: [["vanilla", 4], ["cinnamon", 1], ["orange", 2], ["cardamom", 1], ["sandalwood", 2]], blurb: "Baunilha, canela e casca de laranja, como a rabanada da ceia." },
+    { id: "natal-noite-feliz", name: "Noite Feliz", mood: "grounded", format: "candle", items: [["breu", 3], ["frankincense", 2], ["cedarwood", 2], ["orange", 2], ["vanilla", 1]], blurb: "Breu-branco e olíbano com um brilho de laranja, para a noite de Natal." },
+    { id: "natal-ceia-frutas", name: "Ceia de Frutas", mood: "joy", format: "reed", items: [["mandarin", 3], ["grapefruit", 2], ["lime", 2], ["ginger", 1], ["vanilla", 2]], blurb: "Tangerina, toranja e limão: a mesa de frutas do fim de ano." },
+    { id: "natal-na-mata", name: "Natal na Mata", mood: "nature", format: "candle", items: [["copaiba", 2], ["cypress", 3], ["eucalyptus", 1], ["priprioca", 1], ["bergamot", 3]], blurb: "Copaíba, cipreste e priprioca: um pinheiro de Natal com raiz brasileira." },
+    { id: "natal-brisa", name: "Brisa de Dezembro", mood: "fresh", format: "spray", items: [["lime", 3], ["peppermint", 1], ["lemongrass", 1], ["cedarwood", 3], ["vetiver", 1]], blurb: "Frescor para o calor de dezembro, com fundo de cedro e vetiver para durar." },
+    { id: "natal-presente", name: "Presente de Cumaru", mood: "cosy", format: "candle", items: [["orange", 3], ["tonka", 1], ["vanilla", 2], ["clove", 1], ["cedarwood", 3]], blurb: "Laranja, cravo e cumaru: o cheiro de abrir presentes." }
+  ]
+};
+SEASON.blends = SEASON.blends.filter(b => b.items.every(([id]) => OILS.some(o => o.id === id)));
+SEASON.blends.slice().reverse().forEach(b => { b.season = SEASON.id; STARTERS.unshift(b); });
+
 
 const TRENDS = [
   { title: "O 2º maior mercado de fragrâncias do mundo", text: "O Brasil só fica atrás dos EUA em fragrâncias e é o 3º em perfumaria fina. O mercado foi de cerca de R$ 50 bilhões em 2025, com projeção de R$ 74 bilhões até 2030, e o consumidor monta um ‘guarda-roupa olfativo’, escolhendo o aroma pelo humor ou pela ocasião.", maker: "Batize e descreva os produtos pelo momento e pela sensação, nunca por um resultado de saúde.", cites: ["forbesBR"] },
@@ -1927,7 +2086,7 @@ if (typeof module !== "undefined") module.exports = { fitToSkin, styleFor, distr
   function toast(msg) { const t = $("#toast"); t.textContent = msg; t.hidden = false; clearTimeout(toastTimer); toastTimer = setTimeout(() => { t.hidden = true; }, 2600); }
 
   /* ---------- abas ---------- */
-  const TABS = ["blend", "moods", "library", "learn", "safety"];
+  const TABS = ["blend", "moods", "library", "learn", "safety", "host"];
   function openTab(name, keepScroll) {
     if (!TABS.includes(name)) name = "blend";
     TABS.forEach(t => {
@@ -2311,7 +2470,10 @@ if (typeof module !== "undefined") module.exports = { fitToSkin, styleFor, distr
       <button type="button" class="btn ghost small" data-starter="${st.id}" style="justify-self:start">Carregar esta fórmula</button>
     </div>`;
   }
-  function renderStarters() { $("#starters").innerHTML = STARTERS.map(s => starterCard(s)).join(""); }
+  function renderStarters() {
+    $("#starters").innerHTML = STARTERS.filter(s => !s.season).map(s => starterCard(s)).join("");
+    const box = $("#season"); if (box) box.innerHTML = STARTERS.filter(s => s.season).map(s => starterCard(s)).join("");
+  }
   document.addEventListener("click", e => {
     const b = e.target.closest("[data-starter]");
     if (!b) return;
@@ -3068,6 +3230,272 @@ Responda apenas com JSON exatamente neste formato:
   connect();
 })();
 
+</script>
+<script>
+(function () {
+  "use strict";
+  const $ = (s, r) => (r || document).querySelector(s);
+  const esc = s => String(s == null ? "" : s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+  const KEY = "atelier-host-plano";
+  const KEY_SAVED = "atelier-demo-salvos";
+  const store = {
+    get(k, d) { try { const v = window.localStorage.getItem(k); return v ? JSON.parse(v) : d; } catch (e) { return d; } },
+    set(k, v) { try { window.localStorage.setItem(k, JSON.stringify(v)); } catch (e) { /* per-browser convenience only */ } }
+  };
+  const fmt1 = n => (Math.round(n * 10) / 10).toLocaleString("pt-BR", { minimumFractionDigits: 1, maximumFractionDigits: 1 });
+  const fmt0 = n => Math.round(n).toLocaleString("pt-BR");
+
+  /* House blends built only from this studio's ingredient list */
+  const HOUSE = [
+    { key: "h-pomar", name: "Manhã no Pomar", items: [["orange", 4], ["grapefruit", 2], ["bergamot", 2], ["cedarwood", 2]] },
+    { key: "h-lavanda", name: "Campo de Lavanda", items: [["lavender", 5], ["geranium", 1], ["bergamot", 2], ["cedarwood", 2]] },
+    { key: "h-cafune", name: "Cafuné", items: [["orange", 3], ["frankincense", 2], ["patchouli", 1], ["vanilla", 3], ["blackpepper", 1]] },
+    { key: "h-horta", name: "Horta Fresca", items: [["peppermint", 1], ["eucalyptus", 1], ["rosemary", 3], ["lemon", 3], ["cedarwood", 2]] },
+    { key: "h-amazonia", name: "Amazônia", items: [["copaiba", 2], ["breu", 2], ["priprioca", 1], ["bergamot", 3], ["cedarwood", 2]] },
+    { key: "h-salvia", name: "Sálvia Serena", items: [["clarysage", 2], ["lavender", 3], ["bergamot", 3], ["frankincense", 2]] }
+  ].map(b => ({ ...b, items: b.items.filter(([id]) => OIL_MAP[id]).map(([id, parts]) => ({ id, parts })) }));
+
+  function allBlends() {
+    const saved = (store.get(KEY_SAVED, []) || []).filter(s => s && Array.isArray(s.items) && withFractions(s.items).length)
+      .map(s => ({ key: "s-" + s.key, name: s.name, items: s.items, saved: true }));
+    const season = (typeof SEASON !== "undefined" ? SEASON.blends : []).map(b => ({ key: "x-" + b.id, name: b.name, items: b.items.map(([id, parts]) => ({ id, parts })), season: true }));
+    return saved.concat(season, HOUSE);
+  }
+  const blendByKey = k => allBlends().find(b => b.key === k) || null;
+
+  const DEFAULT_PLAN = {
+    studio: "Ateliê Lume",
+    spare: 10,
+    link: "",
+    kit: [
+      { label: "Vela em pote de vidro", g: 160, n: 1, load: 8 },
+      { label: "Sachês perfumados de cera", g: 40, n: 2, load: 8 },
+      { label: "Velas tealight", g: 12, n: 4, load: 8 }
+    ],
+    guests: [],
+    fav: { key: "x-natal-rabanada", n: 40, g: 120, load: 8, from: "" }
+  };
+  let plan = Object.assign({}, JSON.parse(JSON.stringify(DEFAULT_PLAN)), store.get(KEY, {}) || {});
+  if (!Array.isArray(plan.kit) || !plan.kit.length) plan.kit = JSON.parse(JSON.stringify(DEFAULT_PLAN.kit));
+  if (!Array.isArray(plan.guests)) plan.guests = [];
+  if (!plan.fav) plan.fav = Object.assign({}, DEFAULT_PLAN.fav);
+  const save = () => store.set(KEY, plan);
+
+  const num = (v, d) => { const n = Number(v); return isFinite(n) && n >= 0 ? n : d; };
+  const fragPerGuest = () => plan.kit.reduce((a, k) => a + num(k.g, 0) * num(k.n, 0) * num(k.load, 0) / 100, 0);
+  const waxPerGuest = () => plan.kit.reduce((a, k) => a + num(k.g, 0) * num(k.n, 0), 0);
+
+  function guestLines(g) {
+    const b = blendByKey(g.blend);
+    if (!b) return null;
+    const rows = withFractions(b.items);
+    const total = fragPerGuest();
+    return { blend: b, rows: rows.map(r => ({ oil: r.oil, frac: r.frac, g: total * r.frac })) };
+  }
+
+  /* ---------- render: kit ---------- */
+  function renderKit() {
+    $("#host-kit").innerHTML = plan.kit.map((k, i) => `<div class="kit-row" data-i="${i}">
+      <input class="input kit-label" data-f="label" aria-label="Item" value="${esc(k.label)}" maxlength="60">
+      <label class="kit-cell"><span class="kit-cap">Cera (g)</span><input class="input num" data-f="g" type="number" min="0" step="5" value="${esc(k.g)}"></label>
+      <label class="kit-cell"><span class="kit-cap">Quantidade</span><input class="input num" data-f="n" type="number" min="0" step="1" value="${esc(k.n)}"></label>
+      <label class="kit-cell"><span class="kit-cap">Carga %</span><input class="input num" data-f="load" type="number" min="0" max="12" step="0.5" value="${esc(k.load)}"></label>
+      <button class="icon-btn" type="button" data-del-kit="${i}" aria-label="Remover ${esc(k.label)}">✕</button></div>`).join("");
+    $("#host-spare").value = plan.spare;
+  }
+
+  /* ---------- render: guests ---------- */
+  function blendOptions(sel) {
+    const list = allBlends();
+    const saved = list.filter(b => b.saved), season = list.filter(b => b.season), house = list.filter(b => !b.saved && !b.season);
+    const opt = b => `<option value="${esc(b.key)}"${b.key === sel ? " selected" : ""}>${esc(b.name)}</option>`;
+    return `<option value="">Escolha um blend…</option>` +
+      (saved.length ? `<optgroup label="Criados pelos participantes">${saved.map(opt).join("")}</optgroup>` : "") +
+      (season.length ? `<optgroup label="${esc(SEASON.name)}">${season.map(opt).join("")}</optgroup>` : "") +
+      `<optgroup label="Blends da casa">${house.map(opt).join("")}</optgroup>`;
+  }
+  function renderGuests() {
+    const box = $("#host-guests");
+    if (!plan.guests.length) { box.innerHTML = `<div class="empty">Nenhum participante ainda. Adicione um por um, ou preencha com participantes de exemplo para ver como funciona.</div>`; return; }
+    box.innerHTML = plan.guests.map((g, i) => `<div class="guest-row" data-i="${i}">
+      <input class="input" data-f="name" aria-label="Nome do participante" placeholder="Nome do participante" value="${esc(g.name)}" maxlength="50">
+      <input class="input g-email" data-f="email" type="email" aria-label="E-mail do participante" placeholder="E-mail (opcional)" value="${esc(g.email || "")}" maxlength="80">
+      <select class="input g-blend" data-f="blend" aria-label="Blend de ${esc(g.name || "participante")}">${blendOptions(g.blend)}</select>
+      <button class="icon-btn" type="button" data-del-guest="${i}" aria-label="Remover ${esc(g.name || "participante")}">✕</button></div>`).join("");
+  }
+
+  /* ---------- render: prep ---------- */
+  function prepData() {
+    const spare = 1 + num(plan.spare, 0) / 100;
+    const ready = plan.guests.map(guestLines).filter(Boolean);
+    const per = {};
+    ready.forEach(l => l.rows.forEach(r => { per[r.oil.id] = per[r.oil.id] || { oil: r.oil, g: 0 }; per[r.oil.id].g += r.g; }));
+    const oils = Object.values(per).map(o => ({ ...o, g: o.g * spare })).sort((a, b) => b.g - a.g);
+    const people = plan.guests.length;
+    return { ready, oils, people, wax: waxPerGuest() * people * spare, frag: fragPerGuest() * ready.length * spare,
+      vessels: plan.kit.filter(k => num(k.n, 0) > 0).map(k => ({ label: k.label, n: num(k.n, 0) * people })) };
+  }
+  function renderPrep() {
+    const d = prepData(), box = $("#host-prep");
+    if (!d.people) { box.innerHTML = `<div class="empty">Adicione participantes para ver a lista de preparo.</div>`; return; }
+    const missing = d.people - d.ready.length;
+    box.innerHTML = `<div class="prep-sum">
+        <div><b>${d.people}</b><span>participantes</span></div>
+        <div><b>${fmt0(d.wax)} g</b><span>de cera no total</span></div>
+        <div><b>${fmt1(d.frag)} g</b><span>de fragrância no total</span></div>
+      </div>
+      ${missing ? `<p class="small" style="color:var(--warn)">${missing} participante${missing > 1 ? "s ainda não têm" : " ainda não tem"} blend, então os óleos não entram na conta.</p>` : ""}
+      <div class="tablewrap"><table><thead><tr><th>Óleo</th><th class="num">Gramas</th><th class="num">ml</th><th class="num">≈ gotas</th></tr></thead><tbody>
+      ${d.oils.map(o => { const ml = o.g / OIL_DENSITY; return `<tr><td>${esc(o.oil.name)}</td><td class="num">${fmt1(o.g)}</td><td class="num">${fmt1(ml)}</td><td class="num">${fmt0(ml * DROPS_PER_ML)}</td></tr>`; }).join("")}
+      </tbody></table></div>
+      <div class="tablewrap"><table><thead><tr><th>Recipientes e kit</th><th class="num">Quantidade</th></tr></thead><tbody>
+      ${d.vessels.map(v => `<tr><td>${esc(v.label)}</td><td class="num">${fmt0(v.n)}</td></tr>`).join("")}
+      </tbody></table></div>
+      <p class="small muted">Inclui ${esc(plan.spare)}% de sobra. Pese os óleos numa balança de 0,1 g; a contagem de gotas é só uma referência.</p>`;
+  }
+  function prepText() {
+    const d = prepData();
+    const lines = [`${plan.studio} · lista de preparo da oficina`, `${d.people} participantes · ${fmt0(d.wax)} g de cera · ${fmt1(d.frag)} g de fragrância (inclui ${plan.spare}% de sobra)`, "", "Óleos:"];
+    d.oils.forEach(o => lines.push(`- ${o.oil.name}: ${fmt1(o.g)} g (${fmt1(o.g / OIL_DENSITY)} ml)`));
+    lines.push("", "Kit:"); d.vessels.forEach(v => lines.push(`- ${v.label}: ${fmt0(v.n)}`));
+    lines.push("", "Por participante:");
+    plan.guests.forEach(g => { const l = guestLines(g); lines.push(`- ${g.name || "Participante"}: ${l ? l.blend.name : "ainda sem blend"}`); });
+    return lines.join("\n");
+  }
+
+  /* ---------- formula cards (print) ---------- */
+  function buildCards() {
+    let host = $("#print-cards");
+    if (!host) { host = document.createElement("div"); host.id = "print-cards"; document.body.appendChild(host); }
+    const date = new Date().toLocaleDateString("pt-BR", { day: "numeric", month: "long", year: "numeric" });
+    host.classList.remove("tags");
+    host.innerHTML = plan.guests.map(g => {
+      const l = guestLines(g); if (!l) return "";
+      return `<div class="fcard"><p class="studio">${esc(plan.studio)}</p><h3>${esc(l.blend.name)}</h3><p class="who">Feito por ${esc(g.name || "você")} · ${esc(date)}</p>
+        <table><thead><tr><th>Óleo</th><th class="num">% do blend</th><th class="num">Seus gramas</th></tr></thead><tbody>
+        ${l.rows.map(r => `<tr><td>${esc(r.oil.name)}</td><td class="num">${Math.round(r.frac * 100)}%</td><td class="num">${fmt1(r.g)}</td></tr>`).join("")}
+        </tbody></table><p class="care">Deixe a vela curar por cerca de duas semanas. Na primeira queima, deixe a cera derreter até a borda. Mantenha o pavio com cerca de 5 mm. Nunca deixe uma vela acesa sem supervisão.</p></div>`;
+    }).join("");
+    return host.innerHTML.trim().length > 0;
+  }
+
+  function buildTags() {
+    const b = blendByKey(plan.fav.key), n = Math.min(500, Math.round(num(plan.fav.n, 0)));
+    if (!b || !n) return false;
+    let host = $("#print-cards");
+    if (!host) { host = document.createElement("div"); host.id = "print-cards"; document.body.appendChild(host); }
+    const from = (plan.fav.from || "").trim();
+    const oils = withFractions(b.items).map(r => r.oil.name).join(" · ");
+    const tag = `<div class="ftag"><p class="studio">${esc(plan.studio)}</p><h3>${esc(b.name)}</h3><p class="who">${esc(oils)}</p>${from ? `<p class="gift">Um presente de ${esc(from)}</p>` : ""}<p class="care">Nunca deixe uma vela acesa sem supervisão. Mantenha longe de crianças e animais.</p></div>`;
+    host.innerHTML = Array.from({ length: n }, () => tag).join("");
+    host.classList.add("tags");
+    return true;
+  }
+
+  /* ---------- follow-up emails ---------- */
+  function emailFor(g) {
+    const l = guestLines(g); if (!l) return null;
+    const first = (g.name || "").trim().split(" ")[0] || "";
+    const link = (plan.link || "").trim();
+    const subject = `A fórmula do seu blend ${l.blend.name} · ${plan.studio}`;
+    const body = [first ? `Olá, ${first}!` : "Olá!", "",
+      `Obrigada por criar o seu aroma com a gente. Aqui está a fórmula do seu blend ${l.blend.name}, para você lembrar exatamente o que entrou nele:`, "",
+      ...l.rows.map(r => `- ${r.oil.name}: ${Math.round(r.frac * 100)}% do blend`), "",
+      "Cuidados com a sua vela: deixe curar por cerca de duas semanas antes de acender. Na primeira vez, deixe queimar até a cera derreter até a borda. Mantenha o pavio com cerca de 5 mm e nunca deixe a vela acesa sem supervisão.", "",
+      `Quer o seu blend de novo? Responda este e-mail que fazemos outra vela ${l.blend.name} para você${link ? `, ou reserve a sua próxima oficina aqui: ${link}` : "."}`, "",
+      "Com carinho,", plan.studio].join("\n");
+    return { subject, body, to: (g.email || "").trim() };
+  }
+  function renderEmails() {
+    const box = $("#host-emails");
+    const items = plan.guests.map((g, i) => ({ g, i, m: emailFor(g) })).filter(x => x.m);
+    if (!items.length) { box.innerHTML = `<div class="empty">Os e-mails aparecem aqui quando os participantes tiverem um blend.</div>`; return; }
+    box.innerHTML = items.map(({ g, i, m }) => `<details class="mail-item"><summary><span>${esc(g.name || "Participante")} · ${esc(guestLines(g).blend.name)}</span><span class="small muted">Ver</span></summary>
+      <div class="mail-body"><p class="small muted"><b>Assunto:</b> ${esc(m.subject)}</p><pre>${esc(m.body)}</pre>
+      <div class="row"><button class="btn ghost small" type="button" data-copy-mail="${i}">Copiar</button><a class="btn ghost small" href="mailto:${encodeURIComponent(m.to)}?subject=${encodeURIComponent(m.subject)}&body=${encodeURIComponent(m.body)}">Abrir no e-mail</a></div></div></details>`).join("");
+  }
+
+  /* ---------- favours ---------- */
+  function renderFavSelect() {
+    const list = allBlends();
+    if (!list.some(b => b.key === plan.fav.key)) plan.fav.key = list[0] ? list[0].key : "";
+    $("#fav-blend").innerHTML = list.map(b => `<option value="${esc(b.key)}"${b.key === plan.fav.key ? " selected" : ""}>${esc(b.name)}${b.saved ? " (participante)" : b.season ? " (Natal)" : ""}</option>`).join("");
+    $("#fav-from").value = plan.fav.from || "";
+    $("#fav-count").value = plan.fav.n; $("#fav-size").value = plan.fav.g; $("#fav-load").value = plan.fav.load;
+  }
+  function renderFav() {
+    const b = blendByKey(plan.fav.key), out = $("#fav-out");
+    const n = num(plan.fav.n, 0), g = num(plan.fav.g, 0), load = num(plan.fav.load, 0);
+    if (!b || !n || !g) { out.innerHTML = `<div class="empty">Escolha um blend, a quantidade e o tamanho.</div>`; return; }
+    const spare = 1 + num(plan.spare, 0) / 100;
+    const wax = n * g * spare, frag = wax * load / 100;
+    const rows = withFractions(b.items);
+    out.innerHTML = `<div class="prep-sum"><div><b>${fmt0(n)}</b><span>velas</span></div><div><b>${fmt0(wax)} g</b><span>de cera com sobra</span></div><div><b>${fmt1(frag)} g</b><span>de fragrância</span></div></div>
+      <div class="tablewrap"><table><thead><tr><th>Óleo</th><th class="num">Gramas</th><th class="num">Por vela</th></tr></thead><tbody>
+      ${rows.map(r => `<tr><td>${esc(r.oil.name)}</td><td class="num">${fmt1(frag * r.frac)}</td><td class="num">${fmt1(g * load / 100 * r.frac)}</td></tr>`).join("")}
+      </tbody></table></div>`;
+  }
+
+  function renderOutputs() { renderPrep(); renderEmails(); renderFav(); save(); }
+  function renderAll() {
+    $("#host-studio").value = plan.studio; $("#host-link").value = plan.link || "";
+    renderKit(); renderGuests(); renderFavSelect(); renderOutputs();
+  }
+
+  /* ---------- events ---------- */
+  const panel = $("#panel-host");
+  panel.addEventListener("input", e => {
+    const t = e.target;
+    if (t.id === "host-studio") { plan.studio = t.value.trim() || DEFAULT_PLAN.studio; renderEmails(); save(); return; }
+    if (t.id === "host-link") { plan.link = t.value; renderEmails(); save(); return; }
+    if (t.id === "host-spare") { plan.spare = Math.min(50, num(t.value, 0)); renderOutputs(); return; }
+    const kr = t.closest(".kit-row");
+    if (kr) { const k = plan.kit[+kr.dataset.i]; k[t.dataset.f] = t.dataset.f === "label" ? t.value : num(t.value, 0); renderOutputs(); return; }
+    const gr = t.closest(".guest-row");
+    if (gr && t.tagName !== "SELECT") { plan.guests[+gr.dataset.i][t.dataset.f] = t.value; renderEmails(); save(); return; }
+    if (t.id === "fav-count") plan.fav.n = num(t.value, 0);
+    if (t.id === "fav-size") plan.fav.g = num(t.value, 0);
+    if (t.id === "fav-load") plan.fav.load = Math.min(12, num(t.value, 0));
+    if (t.id === "fav-from") { plan.fav.from = t.value; save(); return; }
+    if (t.id.startsWith("fav-")) { renderFav(); save(); }
+  });
+  panel.addEventListener("change", e => {
+    const t = e.target;
+    const gr = t.closest(".guest-row");
+    if (gr && t.tagName === "SELECT") { plan.guests[+gr.dataset.i].blend = t.value; renderOutputs(); }
+    if (t.id === "fav-blend") { plan.fav.key = t.value; renderFav(); save(); }
+  });
+  panel.addEventListener("click", e => {
+    const t = e.target.closest("button"); if (!t) return;
+    if (t.id === "host-kit-add") { plan.kit.push({ label: "Novo item", g: 100, n: 1, load: 8 }); renderKit(); renderOutputs(); }
+    else if (t.dataset.delKit != null) { plan.kit.splice(+t.dataset.delKit, 1); renderKit(); renderOutputs(); }
+    else if (t.id === "host-guest-add") { plan.guests.push({ name: "", email: "", blend: "" }); renderGuests(); renderOutputs(); const rows = panel.querySelectorAll(".guest-row input[data-f=name]"); if (rows.length) rows[rows.length - 1].focus(); }
+    else if (t.dataset.delGuest != null) { plan.guests.splice(+t.dataset.delGuest, 1); renderGuests(); renderOutputs(); }
+    else if (t.id === "host-guest-sample") {
+      const names = ["Ana Beatriz Souza", "Juliana Costa", "Mariana Oliveira", "Fernanda Lima", "Camila Rocha", "Patrícia Alves"];
+      plan.guests = names.map((n, i) => ({ name: n, email: "", blend: HOUSE[i % HOUSE.length].key }));
+      renderGuests(); renderOutputs();
+    }
+    else if (t.id === "host-guest-clear") { plan.guests = []; renderGuests(); renderOutputs(); }
+    else if (t.id === "host-print") { if (buildCards()) hostPrint(); else flash("Escolha um blend para pelo menos um participante"); }
+    else if (t.id === "host-copy-prep") { copy(prepText(), "Lista de preparo copiada"); }
+    else if (t.id === "fav-tags") { if (buildTags()) hostPrint(); else flash("Escolha um blend e a quantidade primeiro"); }
+    else if (t.dataset.copyMail != null) { const m = emailFor(plan.guests[+t.dataset.copyMail]); if (m) copy(`Assunto: ${m.subject}\n\n${m.body}`, "E-mail copiado"); }
+  });
+  function hostPrint() { document.body.classList.add("host-printing"); const off = () => { document.body.classList.remove("host-printing"); window.removeEventListener("afterprint", off); }; window.addEventListener("afterprint", off); window.print(); setTimeout(off, 1500); }
+  function flash(msg) { const t = $("#toast"); if (!t) return; t.textContent = msg; t.hidden = false; clearTimeout(flash.t); flash.t = setTimeout(() => { t.hidden = true; }, 2600); }
+  function copy(text, ok) {
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(() => flash(ok), () => fallback(text));
+    else fallback(text);
+  }
+  function fallback(text) { const ta = document.createElement("textarea"); ta.value = text; document.body.appendChild(ta); ta.select(); try { document.execCommand("copy"); flash("Copiado"); } catch (e) { flash("Selecione e copie o texto"); } ta.remove(); }
+
+  // Refresh guest-designed blends whenever the tab is opened
+  const tabBtn = $("#tab-host");
+  if (tabBtn) tabBtn.addEventListener("click", () => { renderGuests(); renderFavSelect(); renderOutputs(); });
+  if (location.hash === "#anfitriao" && tabBtn) setTimeout(() => tabBtn.click(), 0);
+  renderAll();
+})();
 </script>
 <script>
 (function () {
