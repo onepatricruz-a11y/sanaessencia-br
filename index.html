@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sana Essência | NR-1 e riscos psicossociais para empresas</title>
-  <meta name="description" content="Apoio prático para empresas se organizarem na gestão de riscos psicossociais exigida pela NR-1: Programa NR-1 em 30 Dias e Kit NR-1 digital para pequenas empresas.">
+  <meta name="description" content="Ferramentas com base científica para empresas em dia com a NR-1 e ambientes mais confortáveis: Kit NR-1, Programa NR-1 em 30 Dias e, para quem cria aromas, o Estúdio de Blends gratuito.">
   <meta property="og:title" content="Sana Essência | NR-1 e riscos psicossociais">
   <meta property="og:description" content="Capacitação, escuta dos colaboradores e plano de prevenção, tudo registrado para o seu SST incluir no PGR.">
   <meta property="og:url" content="https://sanaessencia.com.br/">
@@ -102,6 +102,17 @@
     .hero-art svg { width: 100%; height: 100%; }
     .trust { display: flex; flex-wrap: wrap; gap: 18px; margin-top: 30px; font-size: 0.9rem; color: var(--muted); }
     .trust span::before { content: "✓ "; color: var(--terracotta); font-weight: 700; }
+    .doors { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 30px; }
+    .door { display: flex; flex-direction: column; gap: 6px; padding: 20px 22px; border-radius: var(--radius);
+      background: var(--white); border: 2px solid var(--forest); text-decoration: none; box-shadow: var(--shadow);
+      transition: transform .15s ease; }
+    .door:hover { transform: translateY(-2px); }
+    .door-warm { border-color: var(--terracotta); background: #FBF4EE; }
+    .door-tag { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--terracotta); }
+    .door strong { font-family: var(--serif); font-size: 1.35rem; line-height: 1.15; color: var(--forest); }
+    .door-text { font-size: 0.9rem; color: var(--muted); line-height: 1.5; }
+    .door-go { margin-top: auto; padding-top: 6px; font-weight: 600; font-size: 0.92rem; color: var(--forest); }
+    .door-warm .door-go { color: var(--terracotta); }
 
     /* Context band */
     .context { background: var(--forest); color: var(--cream); }
@@ -179,6 +190,11 @@
     .foot-links { display: flex; flex-wrap: wrap; gap: 18px; }
     .foot-links a { text-decoration: none; }
     .foot-links a:hover { color: var(--forest); }
+    .foot-cols { display: flex; flex-wrap: wrap; gap: 28px 56px; }
+    .foot-col { display: flex; flex-direction: column; gap: 8px; min-width: 190px; }
+    .foot-head { font-size: 0.74rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--forest); margin-bottom: 2px; }
+    .foot-col a { text-decoration: none; color: inherit; }
+    .foot-col a:hover { color: var(--forest); }
     .disclaimer { margin-top: 22px; font-size: 0.8rem; line-height: 1.6; max-width: 900px; }
 
     /* WhatsApp floating */
@@ -191,7 +207,7 @@
     /* Responsive */
     @media (max-width: 960px) {
       .hero-grid, .env-grid { grid-template-columns: 1fr; }
-      .hero-art { max-width: 300px; order: -1; }
+      .hero-art { display: none; }
       .context-grid, .aud-grid { grid-template-columns: 1fr; }
       .steps-grid { grid-template-columns: 1fr 1fr; }
       .offers-grid { grid-template-columns: 1fr; }
@@ -206,6 +222,7 @@
       }
       .nav-links.open { display: flex; }
       .steps-grid { grid-template-columns: 1fr; }
+      .doors { grid-template-columns: 1fr; }
       .offer, .env-box { padding: 28px 22px; }
       .btn { width: 100%; }
     }
@@ -252,8 +269,7 @@
         <li><a href="/estudio/">Estúdio de Blends</a></li>
         <li><a href="/assinatura-de-ambiente/">Assinatura de Ambiente</a></li>
         <li><a href="/para-ateliers/">Para ateliês</a></li>
-        <li><a href="/artigos/">Artigos</a>
-          <a href="/raio-x-de-compras/">Raio-X de compras</a></li>
+        <li><a href="/artigos/">Artigos</a></li>
         <li><a href="#como-funciona">Como funciona</a></li>
         <li><a href="#duvidas">Dúvidas</a></li>
         <li><a href="#contato">Contato</a></li>
@@ -267,17 +283,27 @@
     <section class="hero" id="inicio">
       <div class="container hero-grid">
         <div>
-          <span class="eyebrow">NR-1 · Riscos psicossociais · Bem-estar no trabalho</span>
+          <span class="eyebrow">Ferramentas com base científica para empresas em dia com a norma e ambientes mais confortáveis</span>
           <h1>Sua empresa organizada na gestão de riscos psicossociais, sem complicação.</h1>
           <p class="lead">A NR-1 agora exige que as empresas identifiquem, avaliem e gerenciem os riscos psicossociais no trabalho. A Sana Essência ajuda você a sair do papel: capacitação, escuta dos colaboradores e plano de prevenção, tudo registrado para o seu responsável de SST incluir no PGR.</p>
-          <div class="btn-row">
-            <a href="#solucoes" class="btn btn-primary">Conhecer as soluções</a>
-            <a href="mailto:hello@sanaessencia.co.uk?subject=Quero%20saber%20mais%20sobre%20a%20NR-1" class="btn btn-outline">Fale conosco</a>
+          <div class="doors">
+            <a class="door" href="#solucoes">
+              <span class="door-tag">Para empresas</span>
+              <strong>NR-1 organizada e um ambiente melhor, com segurança</strong>
+              <span class="door-text">Kit NR-1 e Programa de 30 Dias para gerir os riscos psicossociais, com aromas opcionais combinados com a equipe.</span>
+              <span class="door-go">Conhecer as soluções &rarr;</span>
+            </a>
+            <a class="door door-warm" href="#estudio-app">
+              <span class="door-tag">Para quem cria aromas e ateliês</span>
+              <strong>Crie com propósito, venda com confiança</strong>
+              <span class="door-text">O Estúdio de Blends gratuito, ciência honesta sobre cada material e textos dentro das regras da Anvisa e do CONAR.</span>
+              <span class="door-go">Conhecer o Estúdio &rarr;</span>
+            </a>
           </div>
           <div class="trust">
             <span>Linguagem simples</span>
             <span>100% online</span>
-            <span>Trabalhamos junto com o seu SST</span>
+            <span>Ciência honesta, sem promessas de saúde</span>
           </div>
         </div>
         <div class="hero-art" aria-hidden="true">
@@ -408,11 +434,12 @@
         <div class="env-box">
           <span class="eyebrow" style="color: var(--sage);">Nosso diferencial</span>
           <h3>Ambiente também é cuidado</h3>
-          <p>Aromas suaves e opcionais não resolvem sobrecarga de trabalho, mas podem complementar as medidas de organização do trabalho, deixando o ambiente mais acolhedor, sem obras e sem pausar a rotina.</p>
+          <p>Aromas não resolvem sobrecarga de trabalho: isso é papel da boa organização do trabalho. Mas, bem planejados, são o toque final que as pessoas percebem assim que entram, sem obras e sem pausar a rotina. Explicamos o que cada aroma faz e o que a pesquisa mostra; você e a sua equipe decidem o que vai para o ar.</p>
           <ul class="env-list">
             <li>Sempre opcional e com consentimento da equipe</li>
-            <li>Protocolo com cuidados para sensibilidades e alergias</li>
-            <li>Indicação de fornecedores parceiros, sem venda direta de produtos</li>
+            <li>Protocolo com cuidados para sensibilidades, alergias e asma</li>
+            <li>Espaços sem aroma sempre mantidos</li>
+            <li>Não vendemos óleos nem aparelhos: a nossa orientação é independente</li>
           </ul>
         </div>
         <div>
@@ -451,9 +478,10 @@
     <!-- ===== FERRAMENTA GRATUITA: ESTÚDIO ===== -->
     <section id="estudio-app" style="background: var(--cream-2, #EDE7DA);">
       <div class="container">
-        <span class="eyebrow">Ferramenta gratuita</span>
+        <span class="eyebrow">Para quem cria aromas e ateliês · Ferramenta gratuita</span>
         <h2>Conheça o Estúdio de Blends</h2>
         <p class="lead">Um app gratuito para quem trabalha com aromas: descreva o que você quer e receba um blend com quantidades reais, ciência honesta e textos que respeitam as regras da Anvisa e do CONAR. Funciona no celular, mesmo sem internet.</p>
+        <p style="margin-top: 14px; color: var(--muted); font-size: 0.95rem; max-width: 640px;">Explicamos o que cada material faz, a intensidade e os cuidados. Você decide o que cria e como usa.</p>
         <div class="aud-grid">
           <div class="aud">
             <div class="icon">&#x1F9EA;</div>
@@ -473,7 +501,7 @@
         </div>
         <div class="btn-row">
           <a href="/estudio/" class="btn btn-primary">Abrir o Estúdio de Blends</a>
-          <a href="/estudio/#servicos" class="btn btn-outline">Serviços personalizados</a>
+          <a href="/estudio/#servicos" class="btn btn-outline">Serviços para quem cria aromas</a>
         </div>
       </div>
     </section>
@@ -572,10 +600,10 @@
       <div class="container">
         <div class="cta-box">
           <span class="eyebrow" style="color: var(--sage);">Vamos conversar</span>
-          <h2>Comece agora e ganhe tranquilidade</h2>
-          <p>Fale com a nossa equipe para entender qual solução faz mais sentido para a sua empresa.</p>
+          <h2>Não sabe por onde começar?</h2>
+          <p>Conte um pouco sobre a sua empresa ou o seu negócio de aromas e indicamos o melhor ponto de partida, numa conversa gratuita de 20 minutos.</p>
           <div class="btn-row">
-            <a href="mailto:hello@sanaessencia.co.uk?subject=Quero%20saber%20mais%20sobre%20a%20NR-1" class="btn btn-accent">Fale conosco</a>
+            <a href="mailto:hello@sanaessencia.co.uk?subject=Agendar%20conversa%20de%2020%20minutos" class="btn btn-accent">Agendar conversa de 20 minutos</a>
             <a href="mailto:hello@sanaessencia.co.uk" class="btn btn-outline">hello@sanaessencia.co.uk</a>
           </div>
         </div>
@@ -592,19 +620,35 @@
           Sana Essencia Ltd · Empresa nº 17298884 (Inglaterra e País de Gales)<br>50 Fullbrook Drive, Basingstoke, RG21 6AX, Reino Unido<br>
           <a href="mailto:hello@sanaessencia.co.uk">hello@sanaessencia.co.uk</a>
         </div>
-        <div class="foot-links">
-          <a href="/toolkit-riscos-psicossociais/">Toolkit de Riscos Psicossociais</a>
-          <a href="/estudio/">Estúdio de Blends</a><a href="/para-ateliers/">Para ateliês e oficinas</a>
-          <a href="#livro">Livro para casa</a>
-          <a href="/assinatura-de-ambiente/">Assinatura de Ambiente</a>
-          <a href="/artigos/">Artigos</a>
-          <a href="politica-de-privacidade.html">Política de Privacidade</a>
-          <a href="termos-de-uso.html">Termos de Uso</a>
-          <a href="politica-de-reembolso.html">Política de Reembolso</a>
-          <a href="https://sanaessencia.co.uk" hreflang="en-GB">🇬🇧 English site</a>
+        <div class="foot-cols">
+          <nav class="foot-col" aria-label="Para empresas">
+            <span class="foot-head">Empresas</span>
+            <a href="/toolkit-riscos-psicossociais/">Toolkit de Riscos Psicossociais</a>
+            <a href="/#solucoes">Kit NR-1</a>
+            <a href="/#como-funciona">Programa NR-1 em 30 Dias</a>
+            <a href="/#duvidas">Dúvidas frequentes</a>
+          </nav>
+          <nav class="foot-col" aria-label="Para quem cria aromas e ateliês">
+            <span class="foot-head">Quem cria aromas e ateliês</span>
+            <a href="/estudio/">Estúdio de Blends</a>
+            <a href="/estudio/#servicos">Serviços para quem cria aromas</a>
+            <a href="/para-ateliers/">Para ateliês e oficinas</a>
+            <a href="/assinatura-de-ambiente/">Assinatura de Ambiente</a>
+            <a href="/raio-x-de-compras/">Raio-X de compras</a>
+          </nav>
+          <nav class="foot-col" aria-label="Sana Essência">
+            <span class="foot-head">Sana Essência</span>
+            <a href="/#livro">Livro para casa</a>
+            <a href="/artigos/">Artigos</a>
+            <a href="/#contato">Contato</a>
+            <a href="/politica-de-privacidade.html">Política de Privacidade</a>
+            <a href="/termos-de-uso.html">Termos de Uso</a>
+            <a href="/politica-de-reembolso.html">Política de Reembolso</a>
+            <a href="https://sanaessencia.co.uk" hreflang="en-GB">🇬🇧 English site</a>
+          </nav>
         </div>
       </div>
-      <p class="disclaimer">Os materiais e serviços da Sana Essência apoiam a gestão dos riscos psicossociais e não substituem o PGR, a avaliação de um profissional de Segurança e Saúde no Trabalho nem orientação jurídica. Situação da suspensão das multas conforme decisão do STF na ADPF 1316. © <span id="ano"></span> Sana Essência. Todos os direitos reservados.</p>
+      <p class="disclaimer">Os materiais e serviços da Sana Essência apoiam a gestão dos riscos psicossociais e não substituem o PGR, a avaliação de um profissional de Segurança e Saúde no Trabalho nem orientação jurídica. Explicamos o que cada material faz; você decide o que cria e como usa, e a regularização de um produto que você venda continua com você. Situação da suspensão das multas conforme decisão do STF na ADPF 1316. © <span id="ano"></span> Sana Essência. Todos os direitos reservados.</p>
     </div>
   </footer>
 

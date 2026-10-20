@@ -173,6 +173,11 @@
     .foot-links { display: flex; flex-wrap: wrap; gap: 18px; }
     .foot-links a { text-decoration: none; }
     .foot-links a:hover { color: var(--forest); }
+    .foot-cols { display: flex; flex-wrap: wrap; gap: 28px 56px; }
+    .foot-col { display: flex; flex-direction: column; gap: 8px; min-width: 190px; }
+    .foot-head { font-size: 0.74rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--forest); margin-bottom: 2px; }
+    .foot-col a { text-decoration: none; color: inherit; }
+    .foot-col a:hover { color: var(--forest); }
     .disclaimer { margin-top: 22px; font-size: 0.8rem; line-height: 1.6; max-width: 900px; }
 
     /* WhatsApp floating */
@@ -425,12 +430,32 @@
           Sana Essencia Ltd · Empresa nº 17298884 (Inglaterra e País de Gales)<br>50 Fullbrook Drive, Basingstoke, RG21 6AX, Reino Unido<br>
           <a href="mailto:hello@sanaessencia.co.uk">hello@sanaessencia.co.uk</a>
         </div>
-        <div class="foot-links">
-          <a href="/">Início</a>
-          <a href="/estudio/">Estúdio de Blends</a><a href="/#livro">Livro para casa</a>
-          <a href="/politica-de-privacidade.html">Política de Privacidade</a>
-          <a href="/termos-de-uso.html">Termos de Uso</a>
-          <a href="https://sanaessencia.co.uk" hreflang="en-GB">🇬🇧 English site</a>
+        <div class="foot-cols">
+          <nav class="foot-col" aria-label="Para empresas">
+            <span class="foot-head">Empresas</span>
+            <a href="/toolkit-riscos-psicossociais/">Toolkit de Riscos Psicossociais</a>
+            <a href="/#solucoes">Kit NR-1</a>
+            <a href="/#como-funciona">Programa NR-1 em 30 Dias</a>
+            <a href="/#duvidas">Dúvidas frequentes</a>
+          </nav>
+          <nav class="foot-col" aria-label="Para quem cria aromas e ateliês">
+            <span class="foot-head">Quem cria aromas e ateliês</span>
+            <a href="/estudio/">Estúdio de Blends</a>
+            <a href="/estudio/#servicos">Serviços para quem cria aromas</a>
+            <a href="/para-ateliers/">Para ateliês e oficinas</a>
+            <a href="/assinatura-de-ambiente/">Assinatura de Ambiente</a>
+            <a href="/raio-x-de-compras/">Raio-X de compras</a>
+          </nav>
+          <nav class="foot-col" aria-label="Sana Essência">
+            <span class="foot-head">Sana Essência</span>
+            <a href="/#livro">Livro para casa</a>
+            <a href="/artigos/">Artigos</a>
+            <a href="/#contato">Contato</a>
+            <a href="/politica-de-privacidade.html">Política de Privacidade</a>
+            <a href="/termos-de-uso.html">Termos de Uso</a>
+            <a href="/politica-de-reembolso.html">Política de Reembolso</a>
+            <a href="https://sanaessencia.co.uk" hreflang="en-GB">🇬🇧 English site</a>
+          </nav>
         </div>
       </div>
       <p class="disclaimer">O Estúdio de Blends oferece cálculos, conteúdo educativo e revisão de textos. Não faz alegações de saúde e não substitui orientação jurídica ou regulatória. Cada ateliê responde pelos seus produtos, incluindo a regularização na Anvisa e na vigilância sanitária. Fragrâncias devem seguir as normas IFRA e a ficha de segurança do fornecedor. © <span id="ano"></span> Sana Essência.</p>

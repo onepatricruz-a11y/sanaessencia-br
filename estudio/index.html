@@ -485,7 +485,7 @@ mark.info { background: var(--info-bg); box-shadow: inset 0 -2px 0 var(--info); 
           </div>
 
           <div class="card stack-sm nextbox" id="shop-box" hidden>
-            <span class="eyebrow">Comprar os ingredientes</span>
+            <span class="eyebrow">Onde encontrar os ingredientes</span>
             <div class="shoplist" id="shop-list"></div>
             <p class="small muted" id="shop-note"></p>
           </div>
@@ -526,14 +526,15 @@ mark.info { background: var(--info-bg); box-shadow: inset 0 -2px 0 var(--info); 
           <div class="section">
         <div class="cta">
           <span class="eyebrow">Em breve</span>
-          <h3>Estúdio Pro</h3>
+          <h3>Plano Criador</h3>
           <ul class="small">
             <li>Custo por gota, por lote e por produto em reais, com os preços dos seus fornecedores</li>
             <li>Ficha técnica e texto de rótulo para imprimir em cada receita</li>
             <li>Um lugar para guardar os certificados IFRA e os laudos de cada fornecedor</li>
             <li>Seus blends e o diário do nariz em todos os aparelhos</li>
           </ul>
-          <div class="row"><a class="btn primary small" href="mailto:hello@sanaessencia.co.uk?subject=Lista%20de%20espera%20-%20Est%C3%BAdio%20Pro&amp;body=Quero%20entrar%20na%20lista%20de%20espera%20do%20Est%C3%BAdio%20Pro.">Quero entrar na lista</a><span class="small muted">O Estúdio gratuito continua gratuito.</span></div>
+          <p class="small"><b>R$ 197 por ano</b> quando os planos pagos abrirem, em novembro de 2026. <a href="/para-ateliers/#planos">Ver todos os planos</a>.</p>
+          <div class="row"><a class="btn primary small" href="mailto:hello@sanaessencia.co.uk?subject=Lista%20de%20espera%20-%20plano%20Criador&amp;body=Quero%20entrar%20na%20lista%20de%20espera%20do%20plano%20Criador.">Quero entrar na lista</a><span class="small muted">O Estúdio gratuito continua gratuito.</span></div>
         </div>
       </div>
     </section>
@@ -684,6 +685,7 @@ mark.info { background: var(--info-bg); box-shadow: inset 0 -2px 0 var(--info); 
 
   <footer class="footer">
     <p><b>Sana Essência</b> · Sana Essencia Ltd · Empresa nº 17298884 (Inglaterra e País de Gales) · 50 Fullbrook Drive, Basingstoke, RG21 6AX, Reino Unido · sanaessencia.com.br · hello@sanaessencia.co.uk</p>
+    <p>Explicamos o que cada material faz, a intensidade e os cuidados. Você decide o que cria e como usa. Se for vender o que cria, cabe a você verificar as regras do seu tipo de produto (por exemplo, a regularização na Anvisa de cosméticos e perfumes).</p>
     <p>Conteúdo educativo sobre aromas. Não é orientação médica, jurídica, nem avaliação de segurança de produto. As medidas são aproximadas: cerca de 20 gotas por ml, e óleos essenciais considerados com 0,9 g por ml. Pese para ter precisão.</p>
   </footer>
 </div>
@@ -2756,7 +2758,7 @@ Responda apenas com JSON exatamente neste formato:
     kit: "https://pay.hotmart.com/T107813691K",
     programa: "mailto:hello@sanaessencia.co.uk?subject=Proposta%20do%20Programa%20NR-1%20em%2030%20Dias",
     contact: "mailto:hello@sanaessencia.co.uk?subject=Plano%20de%20aromas%20para%20a%20empresa",
-    pro: "mailto:hello@sanaessencia.co.uk?subject=Lista%20de%20espera%20-%20Est%C3%BAdio%20Pro&body=Quero%20entrar%20na%20lista%20de%20espera%20do%20Est%C3%BAdio%20Pro.",
+    pro: "mailto:hello@sanaessencia.co.uk?subject=Lista%20de%20espera%20-%20plano%20Criador&body=Quero%20entrar%20na%20lista%20de%20espera%20do%20Est%C3%BAdio%20Pro.",
     supplier: "mailto:hello@sanaessencia.co.uk?subject=Parceria%20de%20fornecedor%20-%20Est%C3%BAdio%20de%20Blends"
   };
 
@@ -2771,13 +2773,13 @@ Responda apenas com JSON exatamente neste formato:
     { id: "science", eyebrow: "Sessão por vídeo · 45 min", name: "A ciência do seu aroma", price: "R$ 290", unit: "por sessão",
       text: "Traduzimos a ciência para a sua criação: como as moléculas do seu blend chegam às áreas do cérebro ligadas à emoção e à memória, o que a pesquisa mostra (e o que ainda não mostra) e o que o seu aroma comunica.",
       items: ["Leitura do seu blend, ingrediente por ingrediente", "O significado da sua criação e como contar essa história", "Resumo por escrito com as referências", "Sem promessas de saúde: ciência honesta"], sendBlend: true },
-    { id: "signature", eyebrow: "Mais pedido", name: "Pacote Assinatura", price: "R$ 690", unit: "duas versões", feature: true,
+    { id: "signature", eyebrow: "Para você ou sua marca", name: "Pacote Assinatura", price: "R$ 690", unit: "duas versões", feature: true,
       text: "A assinatura olfativa da sua marca ou a sua, em duas versões (por exemplo, masculina e feminina).",
       items: ["Conversa de 40 min por vídeo sobre a marca", "2 fórmulas finais para 30, 50 e 100 ml", "Ficha técnica com percentuais e limites", "Nome e descrição curta de cada aroma para o rótulo", "2 rodadas de ajuste"], sendBlend: true },
     { id: "brand", eyebrow: "Para marcas", name: "Consultoria de marca olfativa", price: "R$ 990", unit: "a partir de",
       text: "Para quem vende ou quer vender: posicionamento, história e textos que valorizam o aroma sem prometer o que não pode.",
       items: ["Duas sessões por vídeo", "Nome, conceito e história da linha", "Textos de rótulo, site e redes revisados com o Verificador", "Plano de lançamento simples"], sendBlend: false },
-    { id: "candle", eyebrow: "Natal · presente digital", name: "Vela-assinatura de Natal", price: "R$ 79", unit: "· 3 por R$ 197",
+    { id: "candle", until: "2026-12-10", eyebrow: "Natal · presente digital", name: "Vela-assinatura de Natal", price: "R$ 79", unit: "· 3 por R$ 197",
       text: "Um aroma criado para quem você quer presentear. Você recebe a receita e as artes para imprimir: é só fazer a vela ou levar para um artesão de confiança.",
       items: ["Receita personalizada para vela de 200 g", "Nome do aroma e cartão-presente com a sua mensagem", "Etiqueta para imprimir", "Pedidos até 10 de dezembro"], sendBlend: false }
   ];
@@ -2794,7 +2796,7 @@ Responda apenas com JSON exatamente neste formato:
     return `mailto:${ORDER_EMAIL}?subject=${encodeURIComponent("Pedido: " + sv.name)}&body=${encodeURIComponent(body)}`;
   }
   function renderServices() {
-    $("#services").innerHTML = SERVICES.map(sv => `<article class="svc${sv.feature ? " feature" : ""}">
+    $("#services").innerHTML = SERVICES.filter(sv => !sv.until || new Date() <= new Date(sv.until + "T23:59:59")).map(sv => `<article class="svc${sv.feature ? " feature" : ""}">
         <span class="eyebrow">${esc(sv.eyebrow)}</span>
         <h3>${esc(sv.name)}</h3>
         <p class="svc-price">${esc(sv.price)} <small>${esc(sv.unit)}</small></p>
