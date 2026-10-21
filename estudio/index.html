@@ -385,7 +385,7 @@ mark.info { background: var(--info-bg); box-shadow: inset 0 -2px 0 var(--info); 
       </div>
     </div>
     <nav class="sitelinks" aria-label="Sana Essência"><a href="https://sanaessencia.com.br/" target="_blank" rel="noopener">← sanaessencia.com.br</a><a href="https://sanaessencia.co.uk/blend-studio/" target="_blank" rel="noopener" hreflang="en-GB" lang="en-GB">English version</a><button class="btn primary small" id="install-app" type="button" hidden>Instalar o app</button></nav>
-    <p class="masthead-line">Monte blends aromáticos com quantidades reais, ciência honesta e textos que respeitam as regras da Anvisa e do CONAR.</p>
+    <p class="masthead-line">Monte blends aromáticos com quantidades reais, ciência honesta e textos que ajudam a respeitar as regras da Anvisa e do CONAR.</p>
   </header>
 
   <nav class="tabs" role="tablist" aria-label="Seções">
@@ -492,8 +492,8 @@ mark.info { background: var(--info-bg); box-shadow: inset 0 -2px 0 var(--info); 
 
           <div class="cta upsell">
             <span class="eyebrow">Quer ir além?</span>
-            <p class="small">Transforme este blend na sua assinatura: revisão da fórmula, sessão por vídeo sobre a ciência do seu aroma ou o pacote completo para a sua marca.</p>
-            <div class="row"><button class="btn primary small" type="button" data-goto="services">Ver os serviços</button><button class="btn ghost small" type="button" data-order="review">Pedir revisão desta fórmula · R$ 190</button></div>
+            <p class="small">Transforme este blend na sua assinatura: sessão por vídeo sobre a ciência do seu aroma ou o pacote completo para a sua marca.</p>
+            <div class="row"><button class="btn primary small" type="button" data-goto="services">Ver os serviços</button><button class="btn ghost small" type="button" data-goto="check">Verificar o texto (grátis)</button></div>
           </div>
 
           <div class="row">
@@ -654,7 +654,7 @@ mark.info { background: var(--info-bg); box-shadow: inset 0 -2px 0 var(--info); 
       <div class="stack">
         <div class="section-head">
           <h2>Serviços com a Sana Essência</h2>
-          <p class="muted measure">O Estúdio é e continua gratuito. Quando você quiser ir além, criamos junto com você: da revisão de uma fórmula à assinatura olfativa da sua marca, com ciência explicada em linguagem simples. Todos os serviços são entregues por videochamada ou e-mail, e os pedidos são combinados e pagos fora do aplicativo.</p>
+          <p class="muted measure">O Estúdio é e continua gratuito. Quando você quiser ir além, criamos junto com você: da revisão dos seus textos à assinatura olfativa da sua marca, com ciência explicada em linguagem simples. Todos os serviços são entregues por videochamada ou e-mail, e os pedidos são combinados e pagos fora do aplicativo.</p>
         </div>
         <div class="svc-grid" id="services"></div>
       </div>
@@ -704,7 +704,7 @@ mark.info { background: var(--info-bg); box-shadow: inset 0 -2px 0 var(--info); 
     <div class="panel-list" id="picker-list"></div>
   </div>
 </div>
-<div class="actionbar" id="actionbar"><button type="button" class="btn ghost small" id="ab-copy">Copiar</button><button type="button" class="btn ghost small" id="ab-email">Enviar por e-mail</button><button type="button" class="btn primary small" data-order="review">Revisão · R$ 190</button></div>
+<div class="actionbar" id="actionbar"><button type="button" class="btn ghost small" id="ab-copy">Copiar</button><button type="button" class="btn ghost small" id="ab-email">Enviar por e-mail</button><button type="button" class="btn primary small" data-goto="services">Serviços</button></div>
 <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
 <script>
 /* Sana Essência Estúdio de Blends — biblioteca de conteúdo (português do Brasil).
@@ -1291,7 +1291,7 @@ const TRENDS = [
   { title: "Perfumes árabes e notas intensas", text: "As notas intensas, como oud e açafrão, dominam as tendências, e as buscas por perfumes árabes cresceram 24 vezes em dois anos no Google Trends. Gigantes do setor estão investindo em São Paulo.", maker: "O caminho natural passa por resinas, madeiras e especiarias (olíbano, vetiver, patchouli, rosa, cardamomo); oud e açafrão naturais são raros e caros.", cites: ["forbesBR"] },
   { title: "Biodiversidade brasileira", text: "Priprioca, breu-branco, copaíba e cumaru dão identidade aos blends, e a priprioca já está na alta perfumaria. A origem importa: o pau-rosa foi levado à lista de espécies ameaçadas pela extração do óleo.", maker: "Conte a história do ingrediente e compre de fornecedores e cooperativas com origem rastreável.", cites: ["arevalo2021", "paurosa", "sebraeSP"] },
   { title: "Fragrância funcional, com regras", text: "No mundo, fragrâncias pensadas para um humor ou momento estão entre as maiores tendências de 2026, e as grandes casas medem emoção com EEG, batimentos e saliva. No Brasil, a Anvisa proibiu em 2026 óleos vendidos como cosméticos com promessas como “Foco e Concentração” e “Rinite Alérgica”.", maker: "Venda o ritual e a sensação; deixe de fora qualquer nome ou frase que soe como tratamento.", cites: ["beautymatter", "pf2026", "anvisa2026"] },
-  { title: "Produção artesanal regularizada", text: "A Lei 15.154/2025 dispensa de registro na Anvisa os cosméticos, perfumes e itens de higiene artesanais, e em 1º de outubro de 2026 a Anvisa aprovou as regras simplificadas, incluindo perfumes à base de álcool e aromatizantes de ambiente.", maker: "Uma porta de entrada para pequenos produtores: confira a resolução publicada e a data de início antes de se adequar.", cites: ["lei15154", "artesanais2026"] },
+  { title: "Produção artesanal regularizada", text: "A Lei 15.154/2025 dispensa de registro na Anvisa os cosméticos, perfumes e itens de higiene artesanais, e em 1º de outubro de 2026 a Anvisa aprovou as regras simplificadas, incluindo perfumes à base de álcool e odorizantes de ambiente (velas não são citadas).", maker: "Uma porta de entrada para pequenos produtores: confira a resolução publicada e a data de início antes de se adequar.", cites: ["lei15154", "artesanais2026"] },
   { title: "Aromas suaves e ‘sensíveis por natureza’", text: "Cresce a busca por aromas discretos, próximos da pele, e por formulações pensadas para quem tem sensibilidade. A União Europeia passou a exigir a declaração de mais de 80 alérgenos de fragrância em cosméticos a partir de 31 de julho de 2026.", maker: "Tenha versões mais suaves e com menos alérgenos; se exportar para a Europa, revise os rótulos.", cites: ["beautymatter", "euverify"] }
 ];
 
@@ -2723,7 +2723,7 @@ Responda apenas com JSON exatamente neste formato:
       <div class="section"><div class="section-head"><h2>Para vender o que você produz no Brasil</h2><p class="muted small">Um resumo para você fazer as perguntas certas, não orientação jurídica. Confirme sempre com a Anvisa e a vigilância sanitária do seu município.</p></div>
         <div class="grid-cards">
           <div class="scard"><h4>Cosméticos e perfumes</h4><p class="small">Perfumes, body splashes, roll-ons e óleos corporais e de banho são cosméticos regulados pela Anvisa. A RDC 752/2022 organiza enquadramento, rotulagem e regularização em dois graus de risco: a maioria é notificada, e algumas categorias, como protetor solar, exigem registro. ${cite("rdc752")} A empresa normalmente precisa de Autorização de Funcionamento (AFE) e seguir boas práticas de fabricação. ${cite("stoneOkamont")}</p></div>
-          <div class="scard"><h4>Novidade: produção artesanal</h4><p class="small">A Lei 15.154/2025 dispensou de registro na Anvisa cosméticos, perfumes e itens de higiene artesanais. ${cite("lei15154")} Em 1º de outubro de 2026, a Anvisa aprovou as regras simplificadas: categorias como perfumes à base de álcool, aromatizantes de ambiente, sabonetes, xampus e condicionadores sólidos, óleos, manteigas corporais e desodorantes sólidos; boas práticas adaptadas, rotulagem clara, validade máxima de 12 meses e só apelos sensoriais ou funcionais básicos (perfumar, limpar, hidratar). Produtos infantis e alegações terapêuticas ficam de fora. ${cite("artesanais2026")} Confira a resolução publicada e a data de início antes de se adequar.</p></div>
+          <div class="scard"><h4>Novidade: produção artesanal</h4><p class="small">A Lei 15.154/2025 dispensou de registro na Anvisa cosméticos, perfumes e itens de higiene artesanais. ${cite("lei15154")} Em 1º de outubro de 2026, a Anvisa aprovou as regras simplificadas: categorias como perfumes à base de álcool, odorizantes de ambiente (a notícia não cita velas: confirme se o seu produto entra), sabonetes, xampus e condicionadores sólidos, óleos, manteigas corporais e desodorantes sólidos; boas práticas adaptadas, rotulagem clara, validade máxima de 12 meses e só apelos sensoriais ou funcionais básicos (perfumar, limpar, hidratar). Produtos infantis e alegações terapêuticas ficam de fora. ${cite("artesanais2026")} Confira a resolução publicada e a data de início antes de se adequar.</p></div>
           <div class="scard"><h4>Velas, difusores e home sprays</h4><p class="small">A Anvisa trata aromatizantes de ambiente como produtos sujeitos à vigilância sanitária e já proibiu velas e aromatizantes vendidos sem registro, notificação ou cadastro. ${cite("anvisa2016")} Pergunte à vigilância sanitária o que vale para o seu produto e peça ao fornecedor a ficha de segurança (FDS) de cada óleo ou essência.</p></div>
           <div class="scard"><h4>Propaganda e rótulos</h4><p class="small">O CDC exige informação clara e em português, inclusive sobre riscos (art. 31), proíbe publicidade enganosa (art. 37) e põe o ônus da prova em quem anuncia (art. 38). ${cite("cdc")} O CONAR pede que alegações sobre fatos objetivos sejam comprováveis e que nada engane por implicação, omissão, exagero ou ambiguidade (art. 27). ${cite("conar")}</p></div>
           <div class="scard"><h4>IFRA e alérgenos</h4><p class="small">Peça ao fornecedor o certificado IFRA de cada óleo ou fragrância: ele indica o máximo por categoria de produto. A ABIFRA acompanha as normas IFRA no Brasil. ${cite("abifra")} Vai exportar para a Europa? Desde 31 de julho de 2026, a UE exige declarar mais de 80 alérgenos de fragrância em cosméticos. ${cite("euverify")}</p></div>
@@ -2767,9 +2767,9 @@ Responda apenas com JSON exatamente neste formato:
   const SHOP = { amazonTag: "", base: "https://www.amazon.com.br/s?k=" };
   const ORDER_EMAIL = "hello@sanaessencia.co.uk";
   const SERVICES = [
-    { id: "review", eyebrow: "Para começar", name: "Revisão de fórmula", price: "R$ 190", unit: "por fórmula",
-      text: "Você monta o blend no Estúdio e nós revisamos: equilíbrio entre saída, corpo e fundo, intensidade e limites de uso.",
-      items: ["Fórmula ajustada com quantidades", "Comentários sobre o que mudou e por quê", "Uma rodada, entregue em até 5 dias úteis"], sendBlend: true },
+    { id: "wording", eyebrow: "Para começar", name: "Revisão de textos", price: "R$ 190", unit: "até 3 textos",
+      text: "Envie até três descrições de produto, rótulos ou posts. Marcamos as expressões que podem esbarrar nas regras da Anvisa, do CDC e do CONAR sobre alegações de saúde, terapêuticas ou de saneante, e sugerimos textos que continuam vendendo o aroma.",
+      items: ["Seu texto marcado, expressão por expressão", "Uma alternativa mais segura para cada trecho, com o motivo e a fonte", "Uma rodada, entregue em até 5 dias úteis", "Revisa o que o texto promete, não a fórmula, a segurança nem a regularização do produto"], sendBlend: false },
     { id: "science", eyebrow: "Sessão por vídeo · 45 min", name: "A ciência do seu aroma", price: "R$ 290", unit: "por sessão",
       text: "Traduzimos a ciência para a sua criação: como as moléculas do seu blend chegam às áreas do cérebro ligadas à emoção e à memória, o que a pesquisa mostra (e o que ainda não mostra) e o que o seu aroma comunica.",
       items: ["Leitura do seu blend, ingrediente por ingrediente", "O significado da sua criação e como contar essa história", "Resumo por escrito com as referências", "Sem promessas de saúde: ciência honesta"], sendBlend: true },
@@ -2791,7 +2791,7 @@ Responda apenas com JSON exatamente neste formato:
   function orderLink(id) {
     const sv = SERVICES.find(x => x.id === id) || SERVICES[0];
     const blend = sv.sendBlend ? blendSummary() : "";
-    const body = [`Olá! Quero pedir: ${sv.name} (${sv.price}).`, "", "Nome:", "Cidade:", "Melhores dias e horários:", sv.id === "candle" ? "Para quem é o presente e que lembranças o aroma deve trazer:" : "O que eu quero com este aroma:", "",
+    const body = [`Olá! Quero pedir: ${sv.name} (${sv.price}).`, "", "Nome:", "Cidade:", "Melhores dias e horários:", sv.id === "candle" ? "Para quem é o presente e que lembranças o aroma deve trazer:" : sv.id === "wording" ? "Cole aqui os textos que quer revisar (até três descrições, rótulos ou posts):" : "O que eu quero com este aroma:", "",
       blend ? "Meu blend no Estúdio:\n" + blend : ""].join("\n").slice(0, 1600);
     return `mailto:${ORDER_EMAIL}?subject=${encodeURIComponent("Pedido: " + sv.name)}&body=${encodeURIComponent(body)}`;
   }
