@@ -38,6 +38,35 @@ body.simple #strength-field, body.simple #premix { display: none; }
 .actionbar .btn { flex: 1 1 auto; max-width: 240px; }
 body.has-bar { padding-bottom: 76px; }
 body.has-bar .toast { bottom: calc(84px + env(safe-area-inset-bottom, 0px)); }
+
+/* ---------- maker tools ---------- */
+.cost-grid { display: grid; gap: 8px; }
+.cost-grid h4 { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin-top: 6px; }
+.cost-row { display: grid; grid-template-columns: 1fr 92px 82px; gap: 8px; align-items: center; font-size: 0.92rem; }
+.cost-row.two { grid-template-columns: 1fr 120px; }
+.cost-row .input { padding: 7px 9px; font-size: 0.92rem; }
+.cost-row .u { font-size: 0.78rem; color: var(--muted); }
+.cost-table { width: 100%; border-collapse: collapse; font-size: 0.92rem; margin-top: 4px; }
+.cost-table td { padding: 6px 0; border-top: 1px solid var(--line); }
+.cost-table td.num { text-align: right; font-variant-numeric: tabular-nums; }
+.cost-table tr.total td { font-weight: 700; }
+.cost-note { font-size: 0.86rem; color: var(--warn); }
+#print-area { display: none; }
+@media print {
+  html, body { background: #fff !important; }
+  body > *:not(#print-area) { display: none !important; }
+  #print-area { display: block !important; color: #000; background: #fff; font: 11pt/1.45 Figtree, Arial, sans-serif; }
+  #print-area h1 { font: 600 24pt/1.1 Fraunces, Georgia, serif; margin: 0 0 4pt; }
+  #print-area h2 { font: 700 10pt/1.2 Figtree, Arial, sans-serif; letter-spacing: .08em; text-transform: uppercase; margin: 14pt 0 5pt; color: #444; }
+  #print-area table { width: 100%; border-collapse: collapse; }
+  #print-area th, #print-area td { text-align: left; padding: 4pt 6pt 4pt 0; border-bottom: .5pt solid #bbb; vertical-align: top; }
+  #print-area .n { text-align: right; }
+  #print-area .meta { color: #444; }
+  #print-area .sign { display: grid; grid-template-columns: 1fr 1fr; gap: 14pt; margin-top: 10pt; }
+  #print-area .sign div { border-bottom: .5pt solid #000; padding-top: 18pt; font-size: 9pt; color: #444; }
+  #print-area .foot { margin-top: 16pt; font-size: 8.5pt; color: #444; }
+  @page { margin: 14mm; }
+}
 </style>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -490,6 +519,21 @@ mark.info { background: var(--info-bg); box-shadow: inset 0 -2px 0 var(--info); 
             <p class="small muted" id="shop-note"></p>
           </div>
 
+          <div class="card stack" id="maker-tools" hidden>
+            <div class="stack-sm">
+              <span class="eyebrow">Ferramentas do Criador · custo e margem</span>
+              <p class="small muted">Digite os preços dos seus fornecedores. Eles ficam salvos neste aparelho e valem para todos os blends.</p>
+            </div>
+            <div class="cost-grid" id="cost-oils"></div>
+            <div class="cost-grid" id="cost-mats"></div>
+            <div id="cost-out" aria-live="polite"></div>
+            <div class="row">
+              <button class="btn primary small" id="print-card" type="button">Imprimir ficha de fórmula</button>
+              <button class="btn ghost small" id="print-spec" type="button">Imprimir ficha técnica</button>
+            </div>
+            <p class="small muted">A impressão abre a tela de impressão do seu aparelho: escolha “Salvar como PDF” para guardar uma cópia.</p>
+          </div>
+
           <div class="cta upsell">
             <span class="eyebrow">Quer ir além?</span>
             <p class="small">Transforme este blend na sua assinatura: sessão por vídeo sobre a ciência do seu aroma ou o pacote completo para a sua marca.</p>
@@ -705,6 +749,7 @@ mark.info { background: var(--info-bg); box-shadow: inset 0 -2px 0 var(--info); 
   </div>
 </div>
 <div class="actionbar" id="actionbar"><button type="button" class="btn ghost small" id="ab-copy">Copiar</button><button type="button" class="btn ghost small" id="ab-email">Enviar por e-mail</button><button type="button" class="btn primary small" data-goto="services">Serviços</button></div>
+<div id="print-area" aria-hidden="true"></div>
 <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
 <script>
 /* Sana Essência Estúdio de Blends — biblioteca de conteúdo (português do Brasil).
@@ -3051,6 +3096,143 @@ Responda apenas com JSON exatamente neste formato:
     s.note = e.target.value.slice(0, 200);
     clearTimeout(noteTimer); noteTimer = setTimeout(() => store.set(KEY_SAVED, state.saved), 400);
   });
+
+
+  /* ---------- ferramentas do Criador: custo e fichas para imprimir (plano Criador) ---------- */
+  const MAKER = (() => { try {
+    const q = new URLSearchParams(location.search);
+    if (q.get("maker") === "preview") sessionStorage.setItem("se-maker", "1");
+    return sessionStorage.getItem("se-maker") === "1";
+  } catch (e) { return false; } })();
+  const KEY_PRICES = "se-maker-prices-br";
+  const prices = Object.assign({ oils: {}, mat: {}, sell: {} }, store.get(KEY_PRICES, {}));
+  ["oils", "mat", "sell"].forEach(k => { if (!prices[k] || typeof prices[k] !== "object") prices[k] = {}; });
+  const savePrices = () => store.set(KEY_PRICES, prices);
+  const SHARED_MAT = ["feePct", "feeFixed"];
+  const matFor = fmt => { const m = prices.mat[fmt]; return m && typeof m === "object" ? m : (prices.mat[fmt] = {}); };
+  const matVal = (fmt, k) => SHARED_MAT.includes(k) ? prices.mat[k] : matFor(fmt)[k];
+  const money = n => "R$ " + num(n, 2);
+  const posNum = v => { const n = Number(String(v).trim().replace(/\./g, "").replace(",", ".")); const m = Number(String(v).trim()); const x = String(v).includes(",") ? n : m; return isFinite(x) && x >= 0 && String(v).trim() !== "" ? x : null; };
+  const MATS = {
+    wax: [["waxKg", "Cera", "R$ por kg"], ["container", "Pote ou lata", "R$ cada"], ["wick", "Pavio", "R$ cada"], ["label", "Rótulo e embalagem", "R$ cada"]],
+    percent: [["baseL", "Base (álcool, óleo vegetal ou base de difusor)", "R$ por litro"], ["container", "Frasco", "R$ cada"], ["label", "Rótulo e embalagem", "R$ cada"]],
+    other: []
+  };
+  let makerSig = "";
+  function costOf(rec) {
+    const f = rec.fmt, mode = f.mode === "wax" ? "wax" : f.mode === "percent" ? "percent" : "other";
+    const missing = [];
+    let frag = 0;
+    rec.rows.forEach(r => {
+      const p = prices.oils[r.id];
+      if (!p || !(p.price > 0) || !(p.ml > 0)) { missing.push(r.oil.name); return; }
+      frag += r.ml * p.price / p.ml;
+    });
+    const m = matFor(rec.format), units = mode === "wax" ? rec.jars : 1;
+    const lines = [["Fragrância (lote inteiro)", frag]];
+    let batch = frag;
+    if (mode === "wax") { const w = (m.waxKg || 0) * rec.totals.waxG / 1000; lines.push(["Cera", w]); batch += w; }
+    if (mode === "percent") { const b = (m.baseL || 0) * rec.totals.baseMl / 1000; lines.push(["Base", b]); batch += b; }
+    let perUnit = batch / units, extras = 0;
+    if (mode !== "other") ["container", "wick", "label"].forEach(k => { if (mode === "percent" && k === "wick") return; extras += m[k] || 0; });
+    perUnit += extras;
+    return { mode, units, lines, batch, perUnit, extras, missing };
+  }
+  function renderMakerInputs(rec) {
+    const box = $("#cost-oils"), mats = $("#cost-mats");
+    box.innerHTML = `<h4>Preços dos seus óleos</h4><div class="cost-row"><span class="u">Óleo</span><span class="u">Preço (R$)</span><span class="u">Frasco (ml)</span></div>` + rec.rows.map(r => {
+      const p = prices.oils[r.id] || {};
+      return `<div class="cost-row"><span>${esc(r.oil.name)}</span>
+        <input class="input" inputmode="decimal" aria-label="Preço de ${esc(r.oil.name)} em reais" placeholder="R$" data-oil="${r.id}" data-k="price" value="${p.price != null ? esc(br(p.price)) : ""}">
+        <input class="input" inputmode="decimal" aria-label="Tamanho do frasco de ${esc(r.oil.name)} em ml" placeholder="ml" data-oil="${r.id}" data-k="ml" value="${p.ml != null ? esc(br(p.ml)) : ""}"></div>`;
+    }).join("");
+    const mode = rec.fmt.mode === "wax" ? "wax" : rec.fmt.mode === "percent" ? "percent" : "other";
+    const val = k => { const v = matVal(rec.format, k); return v != null ? esc(br(v)) : ""; };
+    mats.innerHTML = MATS[mode].length ? `<h4>Seus outros materiais</h4>` + MATS[mode].map(([k, label, unit]) =>
+      `<div class="cost-row two"><span>${esc(label)} <span class="u">${esc(unit)}</span></span><input class="input" inputmode="decimal" aria-label="${esc(label)}, ${esc(unit)}" data-mat="${k}" value="${val(k)}"></div>`).join("")
+      + `<h4>Venda</h4><div class="cost-row two"><span>Seu preço de venda <span class="u">R$ cada</span></span><input class="input" inputmode="decimal" aria-label="Preço de venda em reais" data-sell="${rec.format}" value="${prices.sell[rec.format] != null ? esc(br(prices.sell[rec.format])) : ""}"></div>
+         <div class="cost-row two"><span>Taxas de venda <span class="u">% do preço (marketplace, cartão…)</span></span><input class="input" inputmode="decimal" aria-label="Taxas de venda em porcentagem" data-mat="feePct" value="${val("feePct")}"></div>
+         <div class="cost-row two"><span>Taxa fixa por venda <span class="u">R$ (tarifa por pedido…)</span></span><input class="input" inputmode="decimal" aria-label="Taxa fixa por venda em reais" data-mat="feeFixed" value="${val("feeFixed")}"></div>
+         <p class="small muted">Confira as taxas atuais da sua plataforma e lembre de separar os impostos do seu regime (MEI, Simples) no seu preço.</p>` : "";
+  }
+  function renderMakerOut(rec) {
+    const c = costOf(rec), out = $("#cost-out");
+    if (!rec.rows.length) { out.innerHTML = ""; return; }
+    const unitWord = c.mode === "wax" ? (rec.format === "melts" ? "por lote" : "por vela") : c.mode === "percent" ? "por frasco" : "por uso";
+    let html = `<table class="cost-table">${c.lines.map(([l, v]) => `<tr><td>${esc(l)}</td><td class="num">${money(v)}</td></tr>`).join("")}`;
+    if (c.units > 1) html += `<tr><td>Lote dividido por ${c.units}</td><td class="num">${money(c.batch / c.units)} cada</td></tr>`;
+    if (c.extras) html += `<tr><td>${c.mode === "wax" ? "Pote, pavio e rótulo" : "Frasco e rótulo"} (cada)</td><td class="num">${money(c.extras)}</td></tr>`;
+    if (c.mode !== "other") html += `<tr class="total"><td>Custo ${unitWord}${c.units > 1 ? ` (lote de ${c.units})` : ""}${c.missing.length ? " (incompleto)" : ""}</td><td class="num">${c.missing.length ? "pelo menos " : ""}${money(c.perUnit)}</td></tr>`;
+    const sell = posNum(prices.sell[rec.format]);
+    let loss = false;
+    if (c.mode !== "other" && sell && !c.missing.length) {
+      const fee = (posNum(prices.mat.feePct) || 0) / 100, fixed = posNum(prices.mat.feeFixed) || 0;
+      const net = sell * (1 - fee) - fixed, profit = net - c.perUnit;
+      loss = profit < 0;
+      const signed = (profit < 0 ? "−" : "") + money(Math.abs(profit));
+      html += `<tr><td>Depois das taxas, você recebe</td><td class="num">${money(net)}</td></tr><tr class="total"><td>${loss ? "Prejuízo" : "Lucro"} ${unitWord} · margem</td><td class="num">${signed} · ${String(Math.round(profit / sell * 100)).replace("-", "−")}%</td></tr>`;
+    }
+    html += `</table>`;
+    if (c.missing.length) html += `<p class="cost-note">Digite os preços de ${esc(c.missing.join(", "))}: o custo e o lucro só ficam completos quando todos os óleos têm preço.</p>`;
+    if (loss) html += `<p class="cost-note"><b>Com este preço você perde dinheiro em cada venda.</b> Aumente o preço, reduza a carga de fragrância ou revise o custo dos materiais.</p>`;
+    out.innerHTML = html;
+  }
+  function renderMaker() {
+    if (!MAKER) return;
+    const rec = computeRecipe(state.blend);
+    $("#maker-tools").hidden = !rec.rows.length;
+    const sig = state.blend.format + "|" + rec.rows.map(r => r.id).join(",");
+    if (sig !== makerSig) { makerSig = sig; renderMakerInputs(rec); }
+    renderMakerOut(rec);
+  }
+  const _renderOutputs = renderOutputs;
+  renderOutputs = function () { _renderOutputs(); renderMaker(); };
+  document.addEventListener("input", e => {
+    const t = e.target; if (!MAKER || !t.closest || !t.closest("#maker-tools")) return;
+    const v = posNum(t.value);
+    if (t.dataset.oil) { const o = prices.oils[t.dataset.oil] = prices.oils[t.dataset.oil] || {}; if (v == null) delete o[t.dataset.k]; else o[t.dataset.k] = v; }
+    else if (t.dataset.mat) { const k = t.dataset.mat, box = SHARED_MAT.includes(k) ? prices.mat : matFor(state.blend.format); if (v == null) delete box[k]; else box[k] = v; }
+    else if (t.dataset.sell) { if (v == null) delete prices.sell[t.dataset.sell]; else prices.sell[t.dataset.sell] = v; }
+    savePrices(); renderMakerOut(computeRecipe(state.blend));
+  });
+  function printSheet(kind) {
+    const b = state.blend, rec = computeRecipe(b), f = rec.fmt;
+    if (!rec.rows.length) { toast("Adicione ingredientes primeiro"); return; }
+    const date = new Date().toLocaleDateString("pt-BR", { day: "numeric", month: "long", year: "numeric" });
+    const d = describeBlend(b.items);
+    const amount = r => f.mode === "wax" ? `${num(r.g, 2)} g` : f.mode === "percent" ? `${num(r.ml, 2)} ml · ${r.drops} gotas` : `${r.drops} gotas`;
+    const share = r => f.mode === "wax" || f.mode === "percent" ? `${num(r.inProduct, 2)}%` : `${pct(r.frac)}%`;
+    const rows = rec.rows.map(r => `<tr><td><b>${esc(r.oil.name)}</b><br><span class="meta">${esc(r.oil.latin)}</span></td><td>${esc(NOTES[r.oil.note].label)}</td><td class="n">${r.parts}</td><td class="n">${amount(r)}</td><td class="n">${share(r)}</td></tr>`).join("");
+    const checks = rec.checks.filter(c => c.level === "bad" || c.level === "warn" || c.level === "info").map(c => `<li>${esc(c.text)}</li>`).join("");
+    let html = `<h1>${esc(b.name || "Blend sem nome")}</h1>
+      <p class="meta">${esc(f.label)} · ${esc(date)} · ${kind === "spec" ? "Ficha técnica" : "Ficha de fórmula"}</p>
+      <h2>Fórmula</h2>
+      <table><thead><tr><th>Ingrediente</th><th>Nota</th><th class="n">Partes</th><th class="n">Quantidade</th><th class="n">${f.mode === "wax" ? "% da cera" : f.mode === "percent" ? "% do produto" : "Proporção"}</th></tr></thead><tbody>${rows}</tbody></table>
+      <p>${esc(summaryLine(rec))}</p>
+      <h2>Descrição</h2><p>${esc(d.text)}</p>
+      <h2>Como fazer</h2><p>${esc(f.how)}</p>
+      <h2>Cuidados</h2><ul>${checks}</ul>`;
+    if (kind === "spec") {
+      const c = costOf(rec);
+      if (c.lines.some(l => l[1] > 0)) {
+        html += `<h2>Custo</h2><table><tbody>${c.lines.map(([l, v]) => `<tr><td>${esc(l)}</td><td class="n">${money(v)}</td></tr>`).join("")}${c.units > 1 ? `<tr><td>Lote dividido por ${c.units}</td><td class="n">${money(c.batch / c.units)} cada</td></tr>` : ""}${c.extras ? `<tr><td>${c.mode === "wax" ? "Pote, pavio e rótulo" : "Frasco e rótulo"} (cada)</td><td class="n">${money(c.extras)}</td></tr>` : ""}${c.mode !== "other" ? `<tr><td><b>Custo por unidade</b></td><td class="n"><b>${money(c.perUnit)}</b></td></tr>` : ""}</tbody></table>${c.missing.length ? `<p class="meta">Faltam preços de: ${esc(c.missing.join(", "))}.</p>` : ""}`;
+      }
+      html += `<h2>Texto do rótulo (rascunho)</h2>
+        <p><b>${esc(b.name || "Blend sem nome")}</b><br>${esc(d.text)}</p>
+        <p class="meta">Inclua: conteúdo líquido (peso ou volume), nome e endereço do fabricante, lote e validade${f.group === "skin" ? ", a lista de ingredientes (INCI) e as advertências exigidas pela Anvisa" : ", modo de usar e as advertências de segurança do produto"}${rec.format === "candle" ? ", e os cuidados com a chama (nunca deixe a vela acesa sem supervisão)" : ""}. Confira o texto no Verificador antes de imprimir.</p>
+        <h2>Antes de vender</h2><ul>
+        <li>Confira cada óleo na ficha de segurança (FDS) e no certificado IFRA do fornecedor para este tipo de produto.</li>
+        <li>${f.group === "skin" ? "Produtos para a pele são cosméticos: exigem regularização na Anvisa (ou as regras de produção artesanal, quando couberem) e rotulagem completa." : "Velas, difusores e home sprays são aromatizantes de ambiente: confira com a Anvisa ou a vigilância sanitária local o que vale para o seu produto."}</li>
+        <li>Revise o texto do produto no Verificador: descreva o aroma, não efeitos na saúde.</li></ul>
+        <h2>Registro do lote</h2>
+        <div class="sign"><div>Número do lote</div><div>Data de fabricação</div><div>Feito por</div><div>Resultado do teste</div></div>`;
+    }
+    html += `<p class="foot">Feito com o Estúdio de Blends da Sana Essência · sanaessencia.com.br/estudio. Um ponto de partida criativo, não uma avaliação de segurança.</p>`;
+    $("#print-area").innerHTML = html;
+    window.print();
+  }
+  $("#print-card").addEventListener("click", () => printSheet("card"));
+  $("#print-spec").addEventListener("click", () => printSheet("spec"));
 
   renderSpaces(); renderSpaceRules(); initCheck();
   renderServices();
