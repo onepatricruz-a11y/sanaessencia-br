@@ -344,7 +344,6 @@ function showResult(){
   </div>
   <div class="card stack" style="background:var(--forest);color:var(--cream)">
    <h3 style="color:var(--cream)">Próximo passo</h3>
-   <p class="small" style="color:rgba(245,241,232,.9)">Nossa equipe leva amostras dessas famílias para você sentir no seu próprio espaço.</p>
    <div class="row"><button class="btn accent" type="button" id="ask">Quero receber amostras</button><button class="btn ghost" style="border-color:var(--cream);color:var(--cream)" type="button" id="copy">Copiar resumo</button><button class="btn ghost" style="border-color:var(--cream);color:var(--cream)" type="button" id="restart">Refazer</button></div>
   </div>
   <div class="card"><p class="small muted"><b>Referências:</b> ${top.map(r=>r.F.sci.match(/\[(\d+)\]/g)).flat().filter(Boolean).concat(["["+rn("stein16")+"]"]).filter((v,i,a)=>a.indexOf(v)===i).map(x=>{const k=RK[+x.replace(/\D/g,"")-1];return esc(x+" "+REFS[k])}).join(" ")}</p></div>`;
