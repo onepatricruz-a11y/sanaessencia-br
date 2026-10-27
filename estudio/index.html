@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Sana Essência Estúdio de Blends</title>
-<meta name="description" content="Estúdio gratuito de blends aromáticos: quantidades reais para velas, difusores, home sprays, body splash e perfumes, ciência explicada, limites de segurança, planos de aroma para empresas e verificador de textos (Anvisa, CDC e CONAR).">
+<title>Estúdio de Blends: calculadora grátis de óleos essenciais para velas e perfumes | Sana Essência</title>
+<meta name="description" content="Grátis para quem produz: veja quais óleos essenciais perfumam bem na cera, calcule os gramas exatos para seus potes e confira seus textos (Anvisa, CDC e CONAR). Velas, wax melts, difusores, home sprays, body splash e perfumes.">
 <link rel="canonical" href="https://sanaessencia.com.br/estudio/">
 <link rel="alternate" hreflang="pt-BR" href="https://sanaessencia.com.br/estudio/">
 <link rel="alternate" hreflang="en-GB" href="https://sanaessencia.co.uk/blend-studio/">
-<meta property="og:title" content="Sana Essência Estúdio de Blends">
-<meta property="og:description" content="Estúdio gratuito de blends aromáticos: quantidades reais para velas, difusores, home sprays, body splash e perfumes, ciência explicada, limites de segurança, planos de aroma para empresas e verificador de textos (Anvisa, CDC e CONAR).">
+<meta property="og:title" content="Estúdio de Blends: quais óleos essenciais perfumam bem na cera | Sana Essência">
+<meta property="og:description" content="Grátis para quem produz: veja quais óleos essenciais perfumam bem na cera, calcule os gramas exatos para seus potes e confira seus textos (Anvisa, CDC e CONAR). Velas, wax melts, difusores, home sprays, body splash e perfumes.">
 <meta property="og:url" content="https://sanaessencia.com.br/estudio/">
 <meta property="og:image" content="https://sanaessencia.com.br/estudio/og-image.png">
   <meta property="og:image:width" content="1200">
@@ -148,6 +148,8 @@ button, input, select, textarea { font: inherit; color: inherit; }
 
 /* Cards and badges */
 .card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px; }
+.waxbadge { color: var(--muted); }
+.waxbadge.wax-good { color: var(--forest-2); }
 .badge { display: inline-flex; align-items: center; gap: 5px; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.04em; padding: 2px 8px; border-radius: 999px; border: 1px solid currentColor; white-space: nowrap; line-height: 1.5; }
 .ev-review { color: var(--ok); }
 .ev-human { color: var(--info); }
@@ -518,7 +520,7 @@ mark.info { background: var(--info-bg); box-shadow: inset 0 -2px 0 var(--info); 
       <div class="section" id="saved-section">
         <div class="section-head">
           <h2>Meus blends</h2>
-          <p class="muted small" id="saved-note">O seu diário do nariz, salvo neste navegador. Cheire cada blend numa fita olfativa depois de um minuto, uma hora e um dia, e dê estrelas e uma anotação. Copie ou baixe a receita para guardar onde quiser. Os blends ficam salvos só neste aparelho: toque em “Enviar por e-mail” para guardar uma cópia onde quiser.</p>
+          <p class="muted small" id="saved-note">O seu diário do nariz, salvo neste navegador. Cheire cada blend numa fita olfativa depois de um minuto, uma hora e um dia, e dê estrelas e uma anotação. Copie ou baixe a receita para guardar onde quiser. Os blends ficam salvos só neste aparelho: toque em “Enviar por e-mail” para guardar uma cópia onde quiser. Os seus blends são seus: a Sana Essência não reivindica nenhum direito sobre eles.</p>
         </div>
         <div class="chips" id="saved-sort"></div>
         <div class="saved-list" id="saved"></div>
@@ -632,6 +634,7 @@ mark.info { background: var(--info-bg); box-shadow: inset 0 -2px 0 var(--info); 
           <input class="input" id="lib-search" type="search" placeholder="Busque por nome, molécula ou sensação" autocomplete="off">
           <div class="chips" id="lib-notes" aria-label="Filtrar por nota"></div>
           <div class="chips" id="lib-evidence" aria-label="Filtrar por evidência"></div>
+          <div class="chips" id="lib-wax" aria-label="Filtrar pelo desempenho em velas"></div>
         </div>
         <p class="count" id="lib-count"></p>
         <div class="lib" id="lib-list"></div>
@@ -1869,6 +1872,8 @@ if (typeof module !== "undefined") module.exports = { fitToSkin, styleFor, distr
   const cite = id => REFS[id] ? `<a class="cite" href="${esc(REFS[id].url)}" target="_blank" rel="noopener">${esc(shortCite(id))}</a>` : "";
   const cites = ids => (ids && ids.length) ? `<span class="cites">${ids.map(cite).join("")}</span>` : "";
   const evBadge = ev => `<span class="badge ev-${ev}" title="${esc(EVIDENCE[ev].desc)}">${esc(EVIDENCE[ev].label)}</span>`;
+  const WAXB = {good: "Velas: forte", ok: "Velas: bom", weak: "Velas: fraco"};
+  const waxBadge = w => WAXB[w] ? `<span class="badge waxbadge wax-${w}">${esc(WAXB[w])}</span>` : "";
   const noteBadge = n => `<span class="badge notebadge note-${n}">${esc(NOTES[n].label)}</span>`;
 
   /* ---------- armazenamento (conveniência por navegador) ---------- */
@@ -1881,7 +1886,7 @@ if (typeof module !== "undefined") module.exports = { fitToSkin, styleFor, distr
   /* ---------- estado ---------- */
   const state = {
     blend: null, saved: store.get(KEY_SAVED, []), mood: "calm",
-    lib: { q: "", note: "all", ev: "all" }, picker: { q: "", note: "all" },
+    lib: { q: "", note: "all", ev: "all", wax: "all" }, picker: { q: "", note: "all" },
     quiz: { mood: null, setting: null, families: [], household: [], native: false },
     sample: null, downloads: null, aiCtl: null, pendingDelete: null
   };
@@ -2543,7 +2548,7 @@ Responda apenas com JSON exatamente neste formato:
   function oilCard(o) {
     const flags = o.flags.map(f => `<span class="flag" title="${esc(FLAGS[f].text)}">${esc(FLAGS[f].label)}</span>`).join("");
     return `<details class="oil note-${o.note}" id="oil-${o.id}">
-      <summary><span class="strip" aria-hidden="true"></span><span class="t"><b>${esc(o.name)}</b><span class="small muted"><i>${esc(o.latin)}</i></span><span class="row">${noteBadge(o.note)}${evBadge(o.evidence)}<span class="small muted">${esc(famLabel(o.family))}${o.native ? " · Brasileiro" : ""}</span></span><span class="small">${esc(o.aroma)}</span></span><span class="chev" aria-hidden="true">›</span></summary>
+      <summary><span class="strip" aria-hidden="true"></span><span class="t"><b>${esc(o.name)}</b><span class="small muted"><i>${esc(o.latin)}</i></span><span class="row">${noteBadge(o.note)}${evBadge(o.evidence)}${waxBadge(o.candle)}<span class="small muted">${esc(famLabel(o.family))}${o.native ? " · Brasileiro" : ""}</span></span><span class="small">${esc(o.aroma)}</span></span><span class="chev" aria-hidden="true">›</span></summary>
       <div class="oil-body">
         <div class="kv"><span class="k">Principais moléculas do aroma</span><span>${esc(o.molecules)}</span></div>
         <div class="kv"><span class="k">Quando você cheira</span><span>${esc(o.brain)}</span></div>
@@ -2561,23 +2566,25 @@ Responda apenas com JSON exatamente neste formato:
     const l = state.lib;
     $("#lib-notes").innerHTML = [["all", "Todas as notas"], ["top", "Saída"], ["heart", "Corpo"], ["base", "Fundo"], ["native", "Brasileiros"]].map(([v, t]) => `<button type="button" class="chip" aria-pressed="${l.note === v}" data-lnote="${v}">${t}</button>`).join("");
     $("#lib-evidence").innerHTML = [["all", "Qualquer evidência"]].concat(Object.entries(EVIDENCE).map(([k, e]) => [k, e.label])).map(([v, t]) => `<button type="button" class="chip" aria-pressed="${l.ev === v}" data-lev="${v}">${esc(t)}</button>`).join("");
+    $("#lib-wax").innerHTML = [["all", "Qualquer uso"], ["good", "Perfuma bem na cera"], ["ok", "Vai bem na cera"]].map(([v, t]) => `<button type="button" class="chip" aria-pressed="${(l.wax || "all") === v}" data-lwax="${v}">${esc(t)}</button>`).join("");
   }
   function renderLibrary() {
     const l = state.lib, q = norm(l.q.trim());
-    const list = OILS.filter(o => (l.note === "all" || (l.note === "native" ? o.native : o.note === l.note)) && (l.ev === "all" || o.evidence === l.ev) &&
+    const list = OILS.filter(o => (l.note === "all" || (l.note === "native" ? o.native : o.note === l.note)) && (l.ev === "all" || o.evidence === l.ev) && (!l.wax || l.wax === "all" || o.candle === l.wax) &&
       (!q || norm([o.name, o.latin, famLabel(o.family), o.molecules, o.aroma, o.moods.map(m => MOODS.find(x => x.id === m).name).join(" ")].join(" ")).includes(q)));
     $("#lib-count").textContent = `${list.length} de ${OILS.length} ingredientes`;
     $("#lib-list").innerHTML = list.length ? list.map(oilCard).join("") : `<div class="empty">Nenhum ingrediente encontrado. Tire um filtro ou tente outra palavra.</div>`;
   }
   $("#lib-search").addEventListener("input", e => { state.lib.q = e.target.value; renderLibrary(); });
   $("#panel-library").addEventListener("click", e => {
-    const n = e.target.closest("[data-lnote]"), v = e.target.closest("[data-lev]"), a = e.target.closest("[data-add-oil]");
+    const n = e.target.closest("[data-lnote]"), v = e.target.closest("[data-lev]"), w = e.target.closest("[data-lwax]"), a = e.target.closest("[data-add-oil]");
     if (n) { state.lib.note = n.dataset.lnote; renderLibFilters(); renderLibrary(); }
     if (v) { state.lib.ev = v.dataset.lev; renderLibFilters(); renderLibrary(); }
+    if (w) { state.lib.wax = w.dataset.lwax; renderLibFilters(); renderLibrary(); }
     if (a) addOil(a.dataset.addOil);
   });
   function openOil(id) {
-    state.lib = { q: "", note: "all", ev: "all" };
+    state.lib = { q: "", note: "all", ev: "all", wax: "all" };
     $("#lib-search").value = "";
     renderLibFilters(); renderLibrary();
     openTab("library", true);

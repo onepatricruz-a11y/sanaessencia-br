@@ -230,6 +230,26 @@
     .season p { font-size: .95rem; color: var(--muted); }
     @media (max-width: 960px) { .offers-grid.plans { grid-template-columns: 1fr; } .season-grid { grid-template-columns: 1fr 1fr; } }
     @media (max-width: 560px) { .season-grid { grid-template-columns: 1fr; } }
+    /* Comparison */
+    .compare-wrap { margin-top: 30px; overflow-x: auto; border-radius: var(--radius); box-shadow: var(--shadow); }
+    table.compare { width: 100%; border-collapse: collapse; background: var(--white); font-size: 0.95rem; min-width: 520px; }
+    table.compare th { background: var(--forest); color: var(--cream); text-align: left; padding: 12px 14px; font-weight: 600; }
+    table.compare th:last-child { background: var(--terracotta); }
+    table.compare td { padding: 12px 14px; border-bottom: 1px solid rgba(31,61,47,0.12); vertical-align: top; }
+    table.compare td:first-child { font-weight: 600; color: var(--forest); }
+    table.compare td:last-child { background: rgba(192,100,62,0.06); }
+    @media (max-width: 640px) {
+      .compare-wrap { overflow: visible; box-shadow: none; }
+      table.compare { min-width: 0; background: transparent; }
+      table.compare thead { display: none; }
+      table.compare tr { display: block; background: var(--white); border-radius: 14px; box-shadow: var(--shadow); margin-bottom: 12px; overflow: hidden; }
+      table.compare td { display: block; border-bottom: 0; padding: 8px 16px; }
+      table.compare td:first-child { padding-top: 14px; font-size: 1rem; }
+      table.compare td[data-label]::before { content: attr(data-label) ": "; font-weight: 600; color: var(--muted); }
+      table.compare td:last-child { padding-bottom: 14px; }
+      table.compare td:last-child::before { color: var(--terracotta); }
+    }
+    .compare-note { margin-top: 14px; font-size: 0.88rem; color: var(--muted); max-width: 760px; }
 </style>
 </head>
 <body>
@@ -276,6 +296,32 @@
           <div class="aud"><div class="icon">❦</div><h3>Brindes e lembrancinhas</h3><p>Multiplique um blend para os 200 brindes de fim de ano de uma empresa ou 60 lembrancinhas de casamento, e imprima uma tag para cada.</p></div>
           <div class="aud"><div class="icon">✓</div><h3>Textos para a sua loja</h3><p>Um verificador de textos para anúncios e rótulos, para falar de aroma sem promessas que o CDC e o CONAR não aceitam.</p></div>
         </div>
+      </div>
+    </section>
+
+    <section id="por-que" style="padding-top: 24px;">
+      <div class="container">
+        <span class="eyebrow">Por que o Estúdio de Blends</span>
+        <h2>Outros apps fazem as contas. Este conhece os óleos.</h2>
+        <p class="lead">A maioria dos apps para quem produz calcula pesos, custos e rótulos. O Estúdio de Blends também calcula, e ainda explica como cada óleo se comporta na cera, o que você pode dizer sobre ele e organiza a sua oficina.</p>
+        <div class="compare-wrap">
+          <table class="compare">
+            <thead><tr><th scope="col">O que você precisa</th><th scope="col">A maioria dos apps</th><th scope="col">Estúdio de Blends</th></tr></thead>
+            <tbody>
+              <tr><td>Gramas exatos para os seus potes</td><td data-label="A maioria dos apps">Sim, muitas vezes por pouco</td><td data-label="Estúdio de Blends">Sim, para 13 formatos de produto</td></tr>
+              <tr><td>Custo e margem</td><td data-label="A maioria dos apps">Sim, é o forte deles</td><td data-label="Estúdio de Blends">Plano Criador, com os preços dos seus fornecedores</td></tr>
+              <tr><td>Rótulo e regularização</td><td data-label="A maioria dos apps">Planilhas e modelos ajudam</td><td data-label="Estúdio de Blends">Não é gerador de rótulo: rascunho do texto e lembretes do que o rótulo precisa</td></tr>
+              <tr><td>Quais óleos perfumam bem na cera, e por quê</td><td data-label="A maioria dos apps">Normalmente não</td><td data-label="Estúdio de Blends">Cada óleo avaliado para velas, com o motivo</td></tr>
+              <tr><td>A pesquisa por trás de cada óleo</td><td data-label="A maioria dos apps">Raramente</td><td data-label="Estúdio de Blends">Evidência graduada, com fontes que você pode abrir</td></tr>
+              <tr><td>Textos seguros para a sua loja</td><td data-label="A maioria dos apps">Normalmente não</td><td data-label="Estúdio de Blends">Verificador com base no CDC, no CONAR e na Anvisa</td></tr>
+              <tr><td>Óleos brasileiros</td><td data-label="A maioria dos apps">Raramente</td><td data-label="Estúdio de Blends">Copaíba, priprioca, breu-branco e cumaru</td></tr>
+              <tr><td>Seus óleos, seu nome e um QR code para os clientes</td><td data-label="A maioria dos apps">Normalmente não</td><td data-label="Estúdio de Blends">Plano Ateliê</td></tr>
+              <tr><td>Lista de preparo, fichas e e-mails de retorno</td><td data-label="A maioria dos apps">Normalmente não</td><td data-label="Estúdio de Blends">Plano Ateliê</td></tr>
+              <tr><td>Uma coleção sazonal com os seus óleos</td><td data-label="A maioria dos apps">Normalmente não</td><td data-label="Estúdio de Blends">Plano Ateliê, seis por ano</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="compare-note">Com base nos apps, calculadoras e planilhas para velas, saboaria e aromaterapia que analisamos em outubro de 2026. Muitos são bons no que fazem: continue usando para custo ou rótulo se servirem para você. O Estúdio de Blends foi feito para trabalhar junto com eles.</p>
       </div>
     </section>
 
@@ -398,6 +444,8 @@
         <h2>Bom saber</h2>
         <div class="faq-list">
           <details><summary>Outros ateliês vão ver os nossos blends?</summary><p>Não. A sua lista de óleos e os seus blends da casa aparecem só na versão do seu ateliê.</p></details>
+          <details><summary>De quem são os blends que nós e os nossos clientes criamos?</summary><p>Seus. Os blends criados na versão do seu ateliê, por você ou pelos seus clientes, são seus para usar conforme as suas próprias regras de reserva. A Sana Essência não reivindica nenhum direito sobre eles. Se quiser vender blends de clientes na sua linha, inclua uma frase nas suas regras de reserva e peça autorização antes de usar o nome de alguém.</p></details>
+          <details><summary>Funciona com essências (fragrâncias) e sabonete?</summary><p>Ainda não. Hoje o Estúdio trabalha com óleos essenciais para velas, wax melts, difusores, home sprays, body splash e perfumes. Essências do seu catálogo e sabonetes vêm a seguir, criados com os ateliês fundadores e usando os limites dos certificados IFRA dos seus fornecedores.</p></details>
           <details><summary>Quem fica com os dados dos clientes?</summary><p>Você. O cliente envia o blend para o seu e-mail, e as ferramentas do anfitrião guardam o plano da oficina no seu próprio navegador. A Sana Essência não coleta a sua lista de clientes.</p></details>
           <details><summary>Funciona com o nosso sistema de reservas?</summary><p>Sim, junto com ele. É um link e um QR code: nada para instalar e nada muda no jeito como o cliente reserva e paga.</p></details>
           <details><summary>Quem responde pela segurança e pela regularização?</summary><p>Você continua responsável pelos seus óleos e produtos, incluindo a regularização na Anvisa e na vigilância sanitária, que fica com quem fabrica e vende. As ferramentas mostram a carga de fragrância, sinalizam óleos que pedem cuidado e lembram você de conferir o certificado IFRA e a carga máxima da sua cera.</p></details>
