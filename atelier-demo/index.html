@@ -591,7 +591,7 @@ mark.info { background: var(--info-bg); box-shadow: inset 0 -2px 0 var(--info); 
         </div>
       </div>
 
-      <div class="section" id="season-section">
+      <div class="section" id="season-section" hidden>
         <div class="section-head">
           <span class="season-tag">Nesta estação</span>
           <h2>Coleção de Natal</h2>
@@ -1447,7 +1447,7 @@ const STARTERS = [
   { id: "janela-aberta", name: "Janela Aberta", mood: "fresh", format: "spray", items: [["lemon", 3], ["lime", 2], ["eucalyptus", 1], ["lavender", 2], ["cypress", 2]], blurb: "Cítricos e eucalipto para ambientes frescos." },
   { id: "trilha-na-mata", name: "Trilha na Mata", mood: "nature", format: "diffuser", items: [["bergamot", 1], ["eucalyptus", 1], ["cypress", 3], ["cedarwood", 3], ["frankincense", 2]], blurb: "Ar verde de coníferas com cedro e resina." }
 ];
-/* Coleção sazonal (plano Ateliê): novos blends da casa a cada estação, lançados antes da data */
+/* Coleção sazonal on hold until the Etsy shop is ready. Kept here, not shown. */
 const SEASON = {
   id: "natal-2026", name: "Coleção de Natal", line: "Seis blends festivos para o Natal de verão: oficinas de dezembro, brindes corporativos e lembrancinhas.",
   blends: [
@@ -1460,7 +1460,9 @@ const SEASON = {
   ]
 };
 SEASON.blends = SEASON.blends.filter(b => b.items.every(([id]) => OILS.some(o => o.id === id)));
+/* Not shown while the seasonal collection is on hold.
 SEASON.blends.slice().reverse().forEach(b => { b.season = SEASON.id; STARTERS.unshift(b); });
+*/
 
 
 const TRENDS = [
@@ -3258,7 +3260,7 @@ Responda apenas com JSON exatamente neste formato:
   function allBlends() {
     const saved = (store.get(KEY_SAVED, []) || []).filter(s => s && Array.isArray(s.items) && withFractions(s.items).length)
       .map(s => ({ key: "s-" + s.key, name: s.name, items: s.items, saved: true }));
-    const season = (typeof SEASON !== "undefined" ? SEASON.blends : []).map(b => ({ key: "x-" + b.id, name: b.name, items: b.items.map(([id, parts]) => ({ id, parts })), season: true }));
+    const season = [];
     return saved.concat(season, HOUSE);
   }
   const blendByKey = k => allBlends().find(b => b.key === k) || null;
@@ -3273,7 +3275,7 @@ Responda apenas com JSON exatamente neste formato:
       { label: "Velas tealight", g: 12, n: 4, load: 8 }
     ],
     guests: [],
-    fav: { key: "x-natal-rabanada", n: 40, g: 120, load: 8, from: "" }
+    fav: { key: "h-pomar", n: 40, g: 120, load: 8, from: "" }
   };
   let plan = Object.assign({}, JSON.parse(JSON.stringify(DEFAULT_PLAN)), store.get(KEY, {}) || {});
   if (!Array.isArray(plan.kit) || !plan.kit.length) plan.kit = JSON.parse(JSON.stringify(DEFAULT_PLAN.kit));
