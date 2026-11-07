@@ -1,0 +1,66 @@
+/* Sana Essencia brand, November 2026: navy, cobalt and a red margin rule (shared with Scent Ledger).
+   Loaded after each page's own styles, so these values win. */
+:root{
+  --cream:#F2F5F9; --cream-2:#E8EDF4;
+  --forest:#0F1E33; --forest-2:#16294A;
+  --sage:#A9BAD3; --terracotta:#2450B8;
+  --ink:#0F1E33; --muted:#56657A; --white:#FFFFFF;
+  --studio-cream:#E6EDFB; --studio-ink:#0F1E33;
+  --radius:6px; --shadow:0 14px 30px -18px rgba(15,30,51,.28);
+  --serif:"Newsreader", Georgia, "Times New Roman", serif;
+  --sans:"IBM Plex Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --se-mono:"IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+  --se-cobalt-dark:#1B3E93; --se-red:#C33A2E; --se-red-band:#FF8A7E;
+  --se-on-navy:#F3F6FB; --se-on-navy-2:#A9BAD3; --se-rule:#D3DCE8;
+  --se-ruling:rgba(36,80,184,.07); --se-ruling-dark:rgba(255,255,255,.035);
+}
+body{-webkit-font-smoothing:antialiased}
+h1,h2,h3{letter-spacing:-.012em}
+.eyebrow,.door-tag,.foot-head,.tag{font-family:var(--se-mono);font-weight:500;letter-spacing:.1em}
+.btn{border-radius:4px}
+.btn-primary:hover,.btn-accent:hover,.studio-band .btn-primary:hover{background:var(--se-cobalt-dark)}
+:focus-visible{outline:2px solid var(--terracotta);outline-offset:2px}
+
+/* Header: navy band */
+header{background:var(--forest);-webkit-backdrop-filter:none;backdrop-filter:none;border-bottom:1px solid rgba(255,255,255,.08)}
+.logo{display:inline-flex;align-items:center;gap:10px;color:var(--se-on-navy);font-weight:600}
+.logo img{width:34px;height:34px;flex:none;border-radius:8px}
+.logo span{color:var(--se-on-navy-2)}
+.nav-links{background:var(--forest)}
+.nav-links a{color:var(--se-on-navy-2)}
+.nav-links a:hover,.nav-links a[aria-current="page"]{color:#FFFFFF}
+.menu-toggle{color:var(--se-on-navy)}
+.lang{color:var(--se-on-navy);border-color:rgba(169,186,211,.55)}
+.logo{font-size:1.5rem;margin-right:16px}
+@media (min-width:1181px){.nav-links{gap:11px}.nav-links a{font-size:.83rem}}
+
+/* Hero: ruled paper with a red margin beside the text */
+.hero{background-color:var(--cream);background-image:repeating-linear-gradient(to bottom,transparent 0 35px,var(--se-ruling) 35px 36px);border-bottom:1px solid var(--se-rule)}
+.hero-grid > div:first-child{position:relative;padding-left:28px}
+.hero-grid > div:first-child::before{content:"";position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--se-red);opacity:.6}
+.cta-box .btn-outline{border-color:rgba(243,246,251,.7);color:var(--se-on-navy)}
+.cta-box .btn-outline:hover{background:var(--se-on-navy);color:var(--forest)}
+
+/* Cards and panels */
+.door,.offer,.aud,.step,.context-card,.env-box,.cta-box,details{border-radius:var(--radius)}
+.door-warm{background:#E6EDFB}
+.door:hover{transform:none;border-color:var(--forest)}
+.aud,.studio-band .aud{background:#FFFFFF}
+.aud .icon,.studio-band .aud .icon{background:var(--cream-2)}
+.context-card{border-color:rgba(169,186,211,.28)}
+.context-card p,.cta-box p{color:rgba(243,246,251,.86)}
+.env-box p{color:rgba(243,246,251,.88)}
+.offer{border:1px solid var(--se-rule)}
+.offer li{border-bottom-color:var(--se-rule)}
+.step .num{font-family:var(--se-mono);font-size:.95rem;font-weight:500;letter-spacing:.08em;color:var(--se-red)}
+.price{font-weight:600}
+.tag{border-radius:3px}
+.cta-box{background-color:var(--forest);background-image:repeating-linear-gradient(to bottom,transparent 0 35px,var(--se-ruling-dark) 35px 36px)}
+
+/* Footer: navy band */
+footer{background:var(--forest);color:var(--se-on-navy-2)}
+footer a{color:var(--se-on-navy-2)}
+footer a:hover,.foot-links a:hover,.foot-col a:hover{color:#FFFFFF}
+.foot-head{color:var(--se-on-navy)}
+.foot-grid{border-top-color:rgba(255,255,255,.12)}
+footer .logo{color:var(--se-on-navy)}

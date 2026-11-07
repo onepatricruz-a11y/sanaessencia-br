@@ -18,8 +18,8 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://sanaessencia.com.br/estudio/og-image.png">
   <meta property="og:type" content="website">
-<meta name="theme-color" content="#1F3D2F">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='46' fill='%231F3D2F'/><text x='50' y='66' font-size='50' text-anchor='middle' fill='%23F5F1E8' font-family='Georgia'>S</text></svg>">
+<meta name="theme-color" content="#0F1E33">
+<link rel="icon" href="/assets/se-mark.svg" type="image/svg+xml">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -41,25 +41,25 @@ body.has-bar .toast { bottom: calc(84px + env(safe-area-inset-bottom, 0px)); }
 </style>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Newsreader:opsz,wght@6..72,500;6..72,600;6..72,700&display=swap" rel="stylesheet">
 <style>
 /* Layout: a perfumer's lab bench — sticky section tabs over a two-column workbench; the recipe is a mono "formula sheet" and every ingredient carries a note-coloured blotter strip. Tokens follow sanaessencia.co.uk. */
 :root {
-  --paper: #F5F1E8;
-  --paper-2: #EDE6D6;
-  --surface: #FBF9F4;
-  --ink: #1E2520;
-  --muted: #5B665E;
-  --forest: #1F3D2F;
-  --forest-2: #2C5140;
-  --sage: #A7B8A0;
-  --sage-wash: #E4EADF;
-  --terracotta: #C0643E;
-  --line: rgba(31, 61, 47, 0.14);
-  --line-strong: rgba(31, 61, 47, 0.30);
-  --scrim: rgba(20, 30, 24, 0.45);
-  --btn-bg: #1F3D2F;
-  --btn-fg: #F5F1E8;
+  --paper: #F2F5F9;
+  --paper-2: #E8EDF4;
+  --surface: #FFFFFF;
+  --ink: #0F1E33;
+  --muted: #56657A;
+  --forest: #0F1E33;
+  --forest-2: #16294A;
+  --sage: #5C86B8;
+  --sage-wash: #E6EDFB;
+  --terracotta: #2450B8;
+  --line: rgba(15, 30, 51, 0.14);
+  --line-strong: rgba(15, 30, 51, 0.30);
+  --scrim: rgba(8, 16, 28, 0.45);
+  --btn-bg: #2450B8;
+  --btn-fg: #FFFFFF;
   --top: #C2932A;
   --heart: #B0605A;
   --base: #6E5641;
@@ -69,35 +69,35 @@ body.has-bar .toast { bottom: calc(84px + env(safe-area-inset-bottom, 0px)); }
   --warn-bg: #F5E8D2;
   --bad: #A13A2A;
   --bad-bg: #F4DEDA;
-  --info: #2C5140;
-  --info-bg: #E6ECE6;
-  --shadow: 0 10px 30px rgba(31, 61, 47, 0.10);
-  --serif: "Cormorant Garamond", Georgia, "Times New Roman", serif;
-  --sans: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --info: #16294A;
+  --info-bg: #E6EDFB;
+  --shadow: 0 14px 30px -18px rgba(15, 30, 51, 0.28);
+  --serif: "Newsreader", Georgia, "Times New Roman", serif;
+  --sans: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-  --radius: 16px;
-  --radius-sm: 10px;
+  --radius: 6px;
+  --radius-sm: 4px;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --paper: #111915; --paper-2: #18231D; --surface: #1A2620; --ink: #ECE6D8; --muted: #A6B1A8;
-    --forest: #B9D3BF; --forest-2: #9DBFA6; --sage: #5F7A64; --sage-wash: #213129; --terracotta: #E7956E;
-    --line: rgba(236, 230, 216, 0.12); --line-strong: rgba(236, 230, 216, 0.26); --scrim: rgba(0, 0, 0, 0.6);
-    --btn-bg: #B9D3BF; --btn-fg: #10201A;
+    --paper: #0B1422; --paper-2: #111D30; --surface: #142238; --ink: #E6ECF5; --muted: #8C9DB4;
+    --forest: #E6ECF5; --forest-2: #C0CCDC; --sage: #7FA3D6; --sage-wash: #172A4F; --terracotta: #8AAAFF;
+    --line: rgba(230, 236, 245, 0.12); --line-strong: rgba(230, 236, 245, 0.26); --scrim: rgba(0, 0, 0, 0.6);
+    --btn-bg: #8AAAFF; --btn-fg: #0B1422;
     --top: #E3BD5F; --heart: #E0948C; --base: #C9A986;
-    --ok: #8FD1A3; --ok-bg: #1C3325; --warn: #F0C27A; --warn-bg: #392C17; --bad: #F2A193; --bad-bg: #3D211C; --info: #B9D3BF; --info-bg: #1F2E27;
-    --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    --ok: #8FD1A3; --ok-bg: #1C3325; --warn: #F0C27A; --warn-bg: #392C17; --bad: #F2A193; --bad-bg: #3D211C; --info: #C0CCDC; --info-bg: #172A4F;
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
     color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
-  --paper: #111915; --paper-2: #18231D; --surface: #1A2620; --ink: #ECE6D8; --muted: #A6B1A8;
-  --forest: #B9D3BF; --forest-2: #9DBFA6; --sage: #5F7A64; --sage-wash: #213129; --terracotta: #E7956E;
-  --line: rgba(236, 230, 216, 0.12); --line-strong: rgba(236, 230, 216, 0.26); --scrim: rgba(0, 0, 0, 0.6);
-  --btn-bg: #B9D3BF; --btn-fg: #10201A;
+  --paper: #0B1422; --paper-2: #111D30; --surface: #142238; --ink: #E6ECF5; --muted: #8C9DB4;
+  --forest: #E6ECF5; --forest-2: #C0CCDC; --sage: #7FA3D6; --sage-wash: #172A4F; --terracotta: #8AAAFF;
+  --line: rgba(230, 236, 245, 0.12); --line-strong: rgba(230, 236, 245, 0.26); --scrim: rgba(0, 0, 0, 0.6);
+  --btn-bg: #8AAAFF; --btn-fg: #0B1422;
   --top: #E3BD5F; --heart: #E0948C; --base: #C9A986;
-  --ok: #8FD1A3; --ok-bg: #1C3325; --warn: #F0C27A; --warn-bg: #392C17; --bad: #F2A193; --bad-bg: #3D211C; --info: #B9D3BF; --info-bg: #1F2E27;
-  --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  --ok: #8FD1A3; --ok-bg: #1C3325; --warn: #F0C27A; --warn-bg: #392C17; --bad: #F2A193; --bad-bg: #3D211C; --info: #C0CCDC; --info-bg: #172A4F;
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
   color-scheme: dark;
 }
 
@@ -380,7 +380,7 @@ mark.info { background: var(--info-bg); box-shadow: inset 0 -2px 0 var(--info); 
 <div class="app">
   <header class="masthead">
     <div class="brand">
-      <span class="mark" aria-hidden="true">S</span>
+      <img class="mark" src="/assets/se-mark.svg" alt="" width="40" height="40" style="width:40px;height:40px;border-radius:9px;background:none;flex:none">
       <div>
         <p class="brand-name">Sana Essência</p>
         <p class="brand-sub">Estúdio de Blends</p>
